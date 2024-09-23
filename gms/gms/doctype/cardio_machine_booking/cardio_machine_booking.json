@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{machine_name}-{###}",
+ "creation": "2024-09-15 12:18:56.549414",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "machine_name",
+  "email",
+  "column_break_ketkv",
+  "start_time",
+  "stop_time"
+ ],
+ "fields": [
+  {
+   "fieldname": "machine_name",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Machine Name",
+   "options": "Gym Cardio Machines CG"
+  },
+  {
+   "depends_on": "eval:doc.machine_name!=null",
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  },
+  {
+   "fieldname": "column_break_ketkv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.machine_name!=null",
+   "fieldname": "start_time",
+   "fieldtype": "Datetime",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Start Time",
+   "mandatory_depends_on": "eval:doc.machine_name!=null"
+  },
+  {
+   "depends_on": "eval:doc.machine_name!=null",
+   "fieldname": "stop_time",
+   "fieldtype": "Datetime",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Stop Time",
+   "mandatory_depends_on": "eval:doc.machine_name!=null"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-15 12:18:56.549414",
+ "modified_by": "Administrator",
+ "module": "Gms",
+ "name": "Cardio Machine Booking",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

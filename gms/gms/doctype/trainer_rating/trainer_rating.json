@@ -1,0 +1,73 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{trainer_name}-{member}",
+ "creation": "2024-09-15 12:21:38.768093",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "trainer_name",
+  "member",
+  "rating",
+  "column_break_nbtt7",
+  "comment"
+ ],
+ "fields": [
+  {
+   "fieldname": "trainer_name",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Trainer Name",
+   "options": "Gym Trainers",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.trainer_name!=null",
+   "fieldname": "member",
+   "fieldtype": "Data",
+   "label": "Member",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rating",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Rating",
+   "options": "\n1\n2\n3\n4\n5"
+  },
+  {
+   "fieldname": "column_break_nbtt7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "comment",
+   "fieldtype": "Small Text",
+   "label": "Comment",
+   "print_width": "6",
+   "width": "6"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-15 12:32:24.326473",
+ "modified_by": "Administrator",
+ "module": "Gms",
+ "name": "Trainer Rating",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
