@@ -2,7 +2,7 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "format:Locker {locker_number}",
- "creation": "2024-02-26 12:51:00.167843",
+ "creation": "2024-02-25 12:14:56.654268",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
@@ -11,44 +11,59 @@
   "locker_number",
   "status",
   "occupant",
-  "next_date_available"
+  "next_available_date"
  ],
  "fields": [
   {
    "fieldname": "locker_number",
-   "fieldtype": "Int",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_global_search": 1,
    "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Locker Number",
    "reqd": 1
   },
   {
-   "default": "Vacant",
+   "default": "Available",
    "fieldname": "status",
-   "fieldtype": "Data",
+   "fieldtype": "Select",
+   "in_filter": 1,
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Status"
+   "label": "Status",
+   "options": "Available\nOccupied",
+   "width": "2"
   },
   {
    "fieldname": "occupant",
    "fieldtype": "Data",
    "in_filter": 1,
+   "in_global_search": 1,
    "in_list_view": 1,
+   "in_preview": 1,
    "in_standard_filter": 1,
-   "label": "Occupant"
+   "label": "Occupant",
+   "width": "2"
   },
   {
-   "fieldname": "next_date_available",
+   "fieldname": "next_available_date",
    "fieldtype": "Data",
+   "in_filter": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Next Date Available"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-25 08:25:26.643362",
+ "modified": "2024-09-25 08:27:06.379112",
  "modified_by": "Administrator",
  "module": "Gms",
- "name": "Gym Locker Number",
+ "name": "Gym Lockers",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
@@ -67,5 +82,7 @@
  ],
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "track_changes": 1,
+ "track_seen": 1
 }
