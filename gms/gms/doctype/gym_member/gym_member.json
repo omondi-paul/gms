@@ -50,8 +50,7 @@
   "medical_section",
   "trainer_ratings",
   "column_break_m3wqk",
-  "medical_history",
-  "route"
+  "medical_history"
  ],
  "fields": [
   {
@@ -289,18 +288,11 @@
    "fieldtype": "Table",
    "label": "Medical History",
    "options": "Gym Medical History"
-  },
-  {
-   "fieldname": "route",
-   "fieldtype": "Data",
-   "label": "Route"
   }
  ],
- "has_web_view": 1,
- "index_web_pages_for_search": 1,
  "is_published_field": "is_published",
  "links": [],
- "modified": "2024-09-25 08:25:01.920994",
+ "modified": "2024-10-07 18:06:27.517687",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Member",
@@ -321,7 +313,6 @@
    "write": 1
   }
  ],
- "route": "members",
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
