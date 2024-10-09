@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class CalorieIntake(Document):
+class GymLocation(Document):
 	pass

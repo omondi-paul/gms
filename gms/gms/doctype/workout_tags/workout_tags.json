@@ -1,0 +1,44 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:class_type",
+ "creation": "2024-10-09 17:04:38.195143",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "class_type"
+ ],
+ "fields": [
+  {
+   "fieldname": "class_type",
+   "fieldtype": "Data",
+   "label": "Class Type",
+   "unique": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-10-09 17:05:25.413449",
+ "modified_by": "Administrator",
+ "module": "Gms",
+ "name": "Workout Tags",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class TrainerRatings(Document):
+class GroupClassImage(Document):
 	pass

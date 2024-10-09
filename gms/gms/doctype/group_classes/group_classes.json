@@ -7,19 +7,24 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "details_section",
   "class_name",
   "class_tag",
   "instructor",
   "status",
   "capacity",
-  "schedule",
+  "session_per_week",
   "column_break_iiton",
   "duration",
+  "duration_in",
   "difficulty",
   "price",
   "location",
-  "description",
-  "equipment_needed"
+  "equipment_needed",
+  "images_tab",
+  "table_hdwc",
+  "description_tab",
+  "description"
  ],
  "fields": [
   {
@@ -29,9 +34,9 @@
   },
   {
    "fieldname": "class_tag",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "label": "Class Tag",
-   "options": "\nYoga\nTaekwondo\nCardio\nStrength Training\nHIITS"
+   "options": "Workout Tags"
   },
   {
    "fieldname": "instructor",
@@ -47,13 +52,8 @@
   },
   {
    "fieldname": "capacity",
-   "fieldtype": "Data",
+   "fieldtype": "Int",
    "label": "Capacity"
-  },
-  {
-   "fieldname": "schedule",
-   "fieldtype": "Small Text",
-   "label": "Schedule"
   },
   {
    "fieldname": "column_break_iiton",
@@ -76,8 +76,9 @@
   },
   {
    "fieldname": "location",
-   "fieldtype": "Data",
-   "label": "Location"
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Gym Location"
   },
   {
    "fieldname": "description",
@@ -86,15 +87,47 @@
   },
   {
    "fieldname": "equipment_needed",
-   "fieldtype": "Small Text",
+   "fieldtype": "Table MultiSelect",
    "label": "Equipment Needed",
+   "options": "Gym Equipment Select",
    "print_width": "6",
    "width": "5"
+  },
+  {
+   "fieldname": "details_section",
+   "fieldtype": "Section Break",
+   "label": "Details"
+  },
+  {
+   "fieldname": "images_tab",
+   "fieldtype": "Tab Break",
+   "label": "Images"
+  },
+  {
+   "fieldname": "table_hdwc",
+   "fieldtype": "Table",
+   "options": "Group Class Image"
+  },
+  {
+   "fieldname": "session_per_week",
+   "fieldtype": "Int",
+   "label": "Session Per Week"
+  },
+  {
+   "fieldname": "duration_in",
+   "fieldtype": "Select",
+   "label": "Duration In?",
+   "options": "\nWeeks\nMonths"
+  },
+  {
+   "fieldname": "description_tab",
+   "fieldtype": "Tab Break",
+   "label": "Description"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-25 08:27:26.051266",
+ "modified": "2024-10-09 17:25:46.617004",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Group Classes",

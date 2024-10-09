@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class GroupClassBooking(Document):
+class WorkoutTags(Document):
 	pass

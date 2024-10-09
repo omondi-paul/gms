@@ -1,0 +1,40 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-10-09 16:55:30.774306",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "image_qlwt",
+  "not_published"
+ ],
+ "fields": [
+  {
+   "fieldname": "image_qlwt",
+   "fieldtype": "Image"
+  },
+  {
+   "default": "0",
+   "fieldname": "not_published",
+   "fieldtype": "Check",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Not Published"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-10-09 16:59:32.371524",
+ "modified_by": "Administrator",
+ "module": "Gms",
+ "name": "Group Class Image",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
