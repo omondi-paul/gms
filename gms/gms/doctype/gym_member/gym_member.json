@@ -19,7 +19,8 @@
   "emergency_contact",
   "date_joined",
   "is_published",
-  "title"
+  "title",
+  "password"
  ],
  "fields": [
   {
@@ -93,11 +94,16 @@
    "fieldname": "title",
    "fieldtype": "Data",
    "label": "Title"
+  },
+  {
+   "fieldname": "password",
+   "fieldtype": "Data",
+   "label": "Password"
   }
  ],
  "is_published_field": "is_published",
  "links": [],
- "modified": "2024-10-09 17:28:42.873132",
+ "modified": "2024-10-09 17:49:31.260973",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Member",
