@@ -9,8 +9,9 @@
  "engine": "InnoDB",
  "field_order": [
   "locker_number",
-  "status",
   "occupant",
+  "column_break_bdup",
+  "status",
   "next_date_available"
  ],
  "fields": [
@@ -42,11 +43,15 @@
    "fieldname": "next_date_available",
    "fieldtype": "Data",
    "label": "Next Date Available"
+  },
+  {
+   "fieldname": "column_break_bdup",
+   "fieldtype": "Column Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-05 10:48:44.919078",
+ "modified": "2024-11-05 11:31:14.727582",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Locker Number",

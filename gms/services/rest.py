@@ -255,12 +255,14 @@ def create_user_for_trainer(doc):
 
 
 
-@frappe.whitelist()
+@frappe.whitelist(allow_guest=True)
 def add_locker_numbers():
-    customer = frappe.get_doc({
-        "doctype": "Gym Locker Number",
-        "locker_number": 1,
-    })
-    customer.insert(ignore_mandatory=True)
+    for locker_number in range(1, 101):
+        customer = frappe.get_doc({
+            "doctype": "Gym Locker Number",
+            "locker_number": locker_number,
+        })
+        customer.insert(ignore_permissions=True)
     frappe.db.commit()
     return True
+
