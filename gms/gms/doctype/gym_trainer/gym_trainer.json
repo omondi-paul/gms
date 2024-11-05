@@ -136,8 +136,7 @@
   {
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
-   "label": "Date of Birth",
-   "reqd": 1
+   "label": "Date of Birth"
   },
   {
    "fieldname": "date_of_joining",
@@ -148,7 +147,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-05 09:10:33.812295",
+ "modified": "2024-11-05 09:28:06.024490",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Trainer",

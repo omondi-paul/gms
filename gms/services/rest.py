@@ -146,63 +146,56 @@ def generate_simple_password():
 
 
 
-
 @frappe.whitelist()
 def before_inserting_gym_trainer(doc, method):
     if doc.mobile_number and len(doc.mobile_number) > 10:
         frappe.throw("Phone number should not be more than 10 digits.")
-
+    
     if doc.id_number and len(doc.id_number) > 9:
         frappe.throw("ID number should not be more than 9 digits.")
-
+    
     if not doc.email:
         gym_name = get_gym_settings().gym_name.replace(" ", "").lower()
         doc.email = f"{doc.mobile_number}@{gym_name}.com"
-
+        
         if frappe.db.exists("User", doc.email):
             frappe.throw(f"A user with the email {doc.email} already exists. Please use a unique email.")
-
+    
     doc.member_no = generate_unique_trainer_no()
 
 @frappe.whitelist()
 def after_inserting_gym_trainer(doc, method):
-  try:
-    frappe.enqueue(
-    create_employee_and_user_for_trainer,
-                queue="default",
-                timeout=300,
-                is_async=True,
-                now=False,
-                doc=doc,
-            )
-  except Exception as e:
-    frappe.log_error(frappe.get_traceback(), f"{e}")
-    frappe.throw(f"Member could not be created: {str(e)}")
+    try:
+        frappe.enqueue(
+            create_employee_and_user_for_trainer,
+            queue="default",
+            timeout=300,
+            is_async=True,
+            now=False,
+            doc=doc,
+        )
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), f"{e}")
+        frappe.throw(f"Member could not be created: {str(e)}")
 
 @frappe.whitelist()
 def generate_unique_trainer_no():
     current_year = str(frappe.utils.now_datetime().year)[-2:]
-    current_month = str(frappe.utils.now_datetime().month)
-
-    if current_month.startswith('0'):
-        current_month = current_month[1]
-
+    current_month = str(frappe.utils.now_datetime().month).lstrip('0')
+    
     while True:
         random_digits = str(random.randint(1000, 9999))
         trainer_id = f"TR{current_year}{current_month}{random_digits}"
-
-        if not frappe.db.exists("Gym Trainer", {"trainer_id": trainer_no}):
+        
+        if not frappe.db.exists("Gym Trainer", {"trainer_id": trainer_id}):
             return trainer_id
-
 
 @frappe.whitelist()
 def create_employee_and_user_for_trainer(doc):
     try:
         create_employee(doc)
-        password = str(create_user_for_trainer(doc))
-
-
-        # Prepare the login message
+        password = create_user_for_trainer(doc)
+        
         login_url = frappe.utils.get_url()
         message = (
             f"Hello {doc.full_name}, Welcome to {get_gym_settings().gym_name}. "
@@ -212,9 +205,7 @@ def create_employee_and_user_for_trainer(doc):
             f"Login URL: {login_url}\n"
             f"Please log in and change your password as soon as possible."
         )
-        print("Message prepared for sending SMS.")
-
-        # Send SMS
+        
         frappe.enqueue(
             send_sms,
             queue="default",
@@ -224,15 +215,9 @@ def create_employee_and_user_for_trainer(doc):
             mobile=doc.mobile_number,
             message=message
         )
-        print(f"Password sent successfully to {doc.mobile_number}")
-
     except Exception as e:
-        # Log error with traceback
         frappe.log_error(frappe.get_traceback(), f"Error in customer or user creation: {e}")
-        print(f"An error occurred: {e}") 
-
-
-
+        frappe.throw(f"An error occurred: {e}")
 
 @frappe.whitelist()
 def create_employee(doc):
@@ -240,8 +225,8 @@ def create_employee(doc):
         "doctype": "Employee",
         "first_name": doc.full_name,
         "gender": doc.gender,
-        "date_of_joining":doc.date_of_joining,
-         "employee_number":doc.trainer_id,
+        "date_of_joining": doc.date_of_joining,
+        "employee_number": doc.trainer_id,
     })
     employee.insert(ignore_mandatory=True)
     frappe.db.commit()
@@ -249,7 +234,7 @@ def create_employee(doc):
 
 @frappe.whitelist()
 def create_user_for_trainer(doc):
-    password = str(generate_simple_password())
+    password = generate_simple_password()
     user = frappe.get_doc({
         "doctype": "User",
         "email": doc.email,
@@ -260,12 +245,10 @@ def create_user_for_trainer(doc):
         "send_welcome_email": 1,
         "user_type": "System User",
         "module_profile": "Trainer",
-        "roles": [
-            {"role": "Trainer"}
-        ],
+        "roles": [{"role": "Trainer"}],
         "ignore_password_policy": 1  
     })
     user.insert(ignore_permissions=True)
     frappe.db.commit()
     frappe.msgprint(f"User {doc.full_name} has been created successfully.")
-    return password  
+    return password
