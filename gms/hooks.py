@@ -145,6 +145,16 @@ app_license = "mit"
 # 	}
 # }
 
+
+doc_events = {
+    "Gym Member": {
+        "before_insert": "gms.services.rest.before_inserting_gym_member",
+        "after_insert": "gms.services.rest.after_inserting_gym_member"
+    },
+   
+}
+
+
 # Scheduled Tasks
 # ---------------
 

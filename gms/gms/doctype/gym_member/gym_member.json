@@ -15,7 +15,9 @@
   "age",
   "gender",
   "column_break_ftenz",
-  "contact",
+  "mobile_number",
+  "id_number",
+  "member_no",
   "emergency_contact",
   "date_joined",
   "is_published",
@@ -32,7 +34,7 @@
    "fieldname": "email",
    "fieldtype": "Data",
    "label": "Email",
-   "reqd": 1,
+   "options": "Email",
    "unique": 1
   },
   {
@@ -45,8 +47,7 @@
   {
    "fieldname": "date_of_birth",
    "fieldtype": "Date",
-   "label": "Date of Birth",
-   "reqd": 1
+   "label": "Date of Birth"
   },
   {
    "depends_on": "eval:doc.date_of_birth!=null",
@@ -69,15 +70,10 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "contact",
-   "fieldtype": "Phone",
-   "label": "Contact",
-   "reqd": 1
-  },
-  {
    "fieldname": "emergency_contact",
-   "fieldtype": "Phone",
-   "label": "Emergency Contact"
+   "fieldtype": "Data",
+   "label": "Emergency Contact",
+   "options": "Phone"
   },
   {
    "fieldname": "date_joined",
@@ -99,11 +95,29 @@
    "fieldname": "password",
    "fieldtype": "Data",
    "label": "Password"
+  },
+  {
+   "fieldname": "id_number",
+   "fieldtype": "Int",
+   "label": "ID Number"
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number",
+   "options": "Phone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "member_no",
+   "fieldtype": "Data",
+   "label": "Member No",
+   "read_only": 1
   }
  ],
  "is_published_field": "is_published",
  "links": [],
- "modified": "2024-10-09 17:49:31.260973",
+ "modified": "2024-11-05 07:10:52.283500",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Member",
