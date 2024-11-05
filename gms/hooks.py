@@ -151,7 +151,10 @@ doc_events = {
         "before_insert": "gms.services.rest.before_inserting_gym_member",
         "after_insert": "gms.services.rest.after_inserting_gym_member"
     },
-   
+   "Gym Trainer": {
+        "before_insert": "gms.services.rest.before_inserting_gym_trainer",
+        "after_insert": "gms.services.rest.after_inserting_gym_trainer"
+    },
 }
 
 
@@ -253,5 +256,7 @@ doc_events = {
 # }
 
 fixtures = [
-  "Workspace"
+  "Workspace",
+  "Role",
+  "Custom DocPerm"
 ]

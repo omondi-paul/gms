@@ -10,10 +10,15 @@
  "field_order": [
   "personal_details_tab",
   "full_name",
-  "email",
-  "contact",
-  "gender",
+  "mobile_number",
+  "id_number",
+  "date_of_birth",
   "column_break_io4eg",
+  "gender",
+  "email",
+  "trainer_id",
+  "date_of_joining",
+  "section_break_avna",
   "photo",
   "bio",
   "gym_plans_tab",
@@ -34,28 +39,26 @@
    "fieldname": "full_name",
    "fieldtype": "Data",
    "label": "Full Name",
+   "reqd": 1,
    "unique": 1
   },
   {
    "fieldname": "email",
    "fieldtype": "Data",
    "label": "Email",
+   "options": "Email",
    "unique": 1
   },
   {
-   "fieldname": "contact",
-   "fieldtype": "Phone",
-   "label": "Contact"
-  },
-  {
    "fieldname": "gender",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "in_filter": 1,
    "in_list_view": 1,
    "in_preview": 1,
    "in_standard_filter": 1,
    "label": "Gender",
-   "options": "\nMALE\nFEMALE"
+   "options": "Gender",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_io4eg",
@@ -108,11 +111,43 @@
    "in_preview": 1,
    "in_standard_filter": 1,
    "label": "Average rating"
+  },
+  {
+   "fieldname": "trainer_id",
+   "fieldtype": "Data",
+   "label": "Trainer ID"
+  },
+  {
+   "fieldname": "section_break_avna",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number",
+   "options": "Phone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "id_number",
+   "fieldtype": "Data",
+   "label": "ID Number"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "date_of_joining",
+   "fieldtype": "Date",
+   "label": "Date of Joining",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-09-25 08:25:37.588567",
+ "modified": "2024-11-05 09:28:06.024490",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Trainer",
