@@ -253,5 +253,7 @@ doc_events = {
 # }
 
 fixtures = [
-  "Workspace"
+  "Workspace",
+  "Role",
+  "Custom DocPerm"
 ]
