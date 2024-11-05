@@ -70,7 +70,7 @@ def create_customer_and_user_for_member(full_name, member_id, email, mobile_numb
         message = (
             f"Hello {full_name}, Welcome to {get_gym_settings().gym_name}. "
             f"Your login details are as follows:\n"
-            f"Email: {email}\n"
+            f"User Name: {mobile_number}\n"
             f"Password: {password}\n"
             f"Login URL: {login_url}\n"
             f"Please log in and change your password as soon as possible."
@@ -84,7 +84,7 @@ def create_customer_and_user_for_member(full_name, member_id, email, mobile_numb
             timeout=300,
             is_async=True,
             now=False,
-            mobile_number=mobile_number,
+            mobile=mobile_number,
             message=message
         )
         print(f"Password sent successfully to {mobile_number}")
