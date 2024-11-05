@@ -59,10 +59,10 @@
   },
   {
    "fieldname": "gender",
-   "fieldtype": "Select",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Gender",
-   "options": "\nMale\nFemale\nRather Not Say",
+   "options": "Gender",
    "reqd": 1
   },
   {
@@ -117,7 +117,7 @@
  ],
  "is_published_field": "is_published",
  "links": [],
- "modified": "2024-11-05 07:10:52.283500",
+ "modified": "2024-11-05 09:01:14.864765",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Member",
