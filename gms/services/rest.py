@@ -23,7 +23,7 @@ def before_inserting_gym_member(doc, method):
         if frappe.db.exists("User", doc.email):
             frappe.throw(f"A user with the email {doc.email} already exists. Please use a unique email.")
 
-    doc.member_no = generate_unique_member_no(doc)
+    doc.member_id = generate_unique_member_no()
 
 @frappe.whitelist()
 def after_inserting_gym_member(doc, method):
@@ -53,10 +53,10 @@ def generate_unique_member_no():
 
     while True:
         random_digits = str(random.randint(1000, 9999))
-        member_no = f"MEM{current_year}{current_month}{random_digits}"
+        member_id = f"MEM{current_year}{current_month}{random_digits}"
 
-        if not frappe.db.exists("Gym Member", {"member_no": member_no}):
-            return member_no
+        if not frappe.db.exists("Gym Member", {"member_id": member_id}):
+            return member_id
 
 @frappe.whitelist()
 def create_customer_and_user_for_member(full_name, member_id, email, mobile_number):
@@ -252,3 +252,15 @@ def create_user_for_trainer(doc):
     frappe.db.commit()
     frappe.msgprint(f"User {doc.full_name} has been created successfully.")
     return password
+
+
+
+@frappe.whitelist()
+def add_locker_numbers():
+    customer = frappe.get_doc({
+        "doctype": "Gym Locker Number",
+        "locker_number": 1,
+    })
+    customer.insert(ignore_mandatory=True)
+    frappe.db.commit()
+    return True

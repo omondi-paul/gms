@@ -9,20 +9,31 @@
  "engine": "InnoDB",
  "field_order": [
   "personal_details_section",
-  "email",
   "full_name",
   "date_of_birth",
+  "email",
   "age",
-  "gender",
+  "member_no",
   "column_break_ftenz",
   "mobile_number",
-  "id_number",
-  "member_no",
-  "emergency_contact",
   "date_joined",
+  "id_number",
+  "gender",
+  "emergency_contact",
+  "section_break_rbwh",
   "is_published",
+  "column_break_jgrw",
   "title",
-  "password"
+  "membership_tab",
+  "membership_type",
+  "end_date",
+  "column_break_ipiv",
+  "start_date",
+  "plan_type",
+  "section_break_eohi",
+  "access",
+  "locker_details_tab",
+  "lockers_booked"
  ],
  "fields": [
   {
@@ -92,11 +103,6 @@
    "label": "Title"
   },
   {
-   "fieldname": "password",
-   "fieldtype": "Data",
-   "label": "Password"
-  },
-  {
    "fieldname": "id_number",
    "fieldtype": "Int",
    "label": "ID Number"
@@ -113,11 +119,70 @@
    "fieldtype": "Data",
    "label": "Member No",
    "read_only": 1
+  },
+  {
+   "fieldname": "section_break_rbwh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_jgrw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "membership_tab",
+   "fieldtype": "Tab Break",
+   "label": "Membership"
+  },
+  {
+   "fieldname": "membership_type",
+   "fieldtype": "Link",
+   "label": "Membership Type",
+   "options": "Membership Type"
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Data",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "column_break_ipiv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Data",
+   "label": "Start Date"
+  },
+  {
+   "fieldname": "section_break_eohi",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "access",
+   "fieldtype": "Small Text",
+   "label": "Access"
+  },
+  {
+   "fieldname": "plan_type",
+   "fieldtype": "Link",
+   "label": "Plan Type",
+   "options": "Plan Type"
+  },
+  {
+   "fieldname": "locker_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Locker Details"
+  },
+  {
+   "fieldname": "lockers_booked",
+   "fieldtype": "Table MultiSelect",
+   "label": "Lockers Booked",
+   "options": "Booked Locker"
   }
  ],
  "is_published_field": "is_published",
  "links": [],
- "modified": "2024-11-05 09:01:14.864765",
+ "modified": "2024-11-05 10:50:38.156340",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Member",

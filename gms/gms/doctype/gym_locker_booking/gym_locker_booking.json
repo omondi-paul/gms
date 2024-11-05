@@ -1,0 +1,101 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-05 11:11:20.799002",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "member",
+  "booking_type",
+  "start_date",
+  "number_of_days",
+  "end_date",
+  "column_break_cjdm",
+  "locker_number",
+  "start_time",
+  "number_of_hours",
+  "end_time"
+ ],
+ "fields": [
+  {
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "label": "Member",
+   "options": "Gym Member"
+  },
+  {
+   "fieldname": "locker_number",
+   "fieldtype": "Link",
+   "label": " Locker Number",
+   "options": "Gym Locker Number"
+  },
+  {
+   "depends_on": "eval:doc.booking_type === 'Days'",
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "depends_on": "eval:doc.start_date",
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "column_break_cjdm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.booking_type === 'Hours'",
+   "fieldname": "start_time",
+   "fieldtype": "Datetime",
+   "label": "Start Time"
+  },
+  {
+   "fieldname": "end_time",
+   "fieldtype": "Datetime",
+   "label": "End Time"
+  },
+  {
+   "depends_on": "eval:doc.start_date",
+   "fieldname": "number_of_days",
+   "fieldtype": "Int",
+   "label": "Number of Days"
+  },
+  {
+   "fieldname": "number_of_hours",
+   "fieldtype": "Int",
+   "label": "Number of Hours"
+  },
+  {
+   "fieldname": "booking_type",
+   "fieldtype": "Select",
+   "label": "Booking Type",
+   "options": "Days\nHours"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-05 11:19:05.257280",
+ "modified_by": "Administrator",
+ "module": "Gms",
+ "name": "Gym Locker Booking",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
