@@ -1156,7 +1156,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2024-09-24 16:13:54.419236",
+  "modified": "2024-11-05 08:48:10.078128",
   "module": "CRM",
   "name": "CRM",
   "number_cards": [],
@@ -1164,7 +1164,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": "",
-  "roles": [],
+  "roles": [
+   {
+    "parent": "CRM",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "System Manager"
+   }
+  ],
   "sequence_id": 17.0,
   "shortcuts": [
    {
@@ -4325,7 +4332,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2024-09-24 16:13:54.995560",
+  "modified": "2024-11-05 08:48:27.307369",
   "module": "Automation",
   "name": "Tools",
   "number_cards": [],
@@ -4333,7 +4340,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": "",
-  "roles": [],
+  "roles": [
+   {
+    "parent": "Tools",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "System Manager"
+   }
+  ],
   "sequence_id": 18.0,
   "shortcuts": [
    {
@@ -5110,7 +5124,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2024-09-24 16:13:56.013084",
+  "modified": "2024-11-05 08:48:49.272148",
   "module": "Integrations",
   "name": "Integrations",
   "number_cards": [],
@@ -5118,7 +5132,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": "",
-  "roles": [],
+  "roles": [
+   {
+    "parent": "Integrations",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "System Manager"
+   }
+  ],
   "sequence_id": 20.0,
   "shortcuts": [],
   "title": "Integrations"
@@ -8985,7 +9006,7 @@
   "is_hidden": 1,
   "label": "ERPNext Integrations",
   "links": [],
-  "modified": "2024-09-24 16:13:56.242386",
+  "modified": "2024-11-05 08:48:59.065714",
   "module": "ERPNext Integrations",
   "name": "ERPNext Integrations",
   "number_cards": [],
@@ -8993,7 +9014,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": "",
-  "roles": [],
+  "roles": [
+   {
+    "parent": "ERPNext Integrations",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "System Manager"
+   }
+  ],
   "sequence_id": 21.0,
   "shortcuts": [
    {
@@ -9726,7 +9754,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2024-09-24 16:13:55.607054",
+  "modified": "2024-11-05 08:48:37.865127",
   "module": "Setup",
   "name": "ERPNext Settings",
   "number_cards": [],
@@ -9734,7 +9762,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": "",
-  "roles": [],
+  "roles": [
+   {
+    "parent": "ERPNext Settings",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "System Manager"
+   }
+  ],
   "sequence_id": 19.0,
   "shortcuts": [
    {
@@ -10807,7 +10842,7 @@
   "is_hidden": 1,
   "label": "Build",
   "links": [],
-  "modified": "2024-09-24 16:13:56.372608",
+  "modified": "2024-11-05 08:49:11.037036",
   "module": "Core",
   "name": "Build",
   "number_cards": [],
@@ -10815,7 +10850,14 @@
   "public": 1,
   "quick_lists": [],
   "restrict_to_domain": "",
-  "roles": [],
+  "roles": [
+   {
+    "parent": "Build",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "System Manager"
+   }
+  ],
   "sequence_id": 22.0,
   "shortcuts": [
    {
