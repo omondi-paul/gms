@@ -161,7 +161,7 @@ def before_inserting_gym_trainer(doc, method):
         if frappe.db.exists("User", doc.email):
             frappe.throw(f"A user with the email {doc.email} already exists. Please use a unique email.")
     
-    doc.member_no = generate_unique_trainer_no()
+    doc.trainer_id = generate_unique_trainer_no()
 
 @frappe.whitelist()
 def after_inserting_gym_trainer(doc, method):
@@ -234,7 +234,7 @@ def create_employee(doc):
 
 @frappe.whitelist()
 def create_user_for_trainer(doc):
-    password = generate_simple_password()
+    password = str(generate_simple_password())
     user = frappe.get_doc({
         "doctype": "User",
         "email": doc.email,
