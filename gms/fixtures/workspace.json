@@ -370,7 +370,7 @@
     "type": "Link"
    }
   ],
-  "modified": "2024-11-05 08:42:35.400922",
+  "modified": "2024-11-05 10:07:10.846032",
   "module": "Setup",
   "name": "Home",
   "number_cards": [],
@@ -383,7 +383,7 @@
     "parent": "Home",
     "parentfield": "roles",
     "parenttype": "Workspace",
-    "role": "Member"
+    "role": "System Manager"
    }
   ],
   "sequence_id": 2.0,
@@ -11063,5 +11063,61 @@
    }
   ],
   "title": "Member Portal"
+ },
+ {
+  "charts": [],
+  "content": "[{\"id\":\"UNPfNCWpyr\",\"type\":\"header\",\"data\":{\"text\":\"<span style=\\\"font-size: 18px; letter-spacing: 0.18px;\\\"><b>My Shortcuts</b></span>\",\"col\":12}},{\"id\":\"epXmqO4Yy9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"My Profile\",\"col\":3}}]",
+  "custom_blocks": [],
+  "docstatus": 0,
+  "doctype": "Workspace",
+  "for_user": "",
+  "hide_custom": 0,
+  "icon": "text",
+  "indicator_color": "green",
+  "is_hidden": 0,
+  "label": "Trainer Portal",
+  "links": [],
+  "modified": "2024-11-05 10:03:46.092534",
+  "module": "",
+  "name": "Trainer Portal",
+  "number_cards": [],
+  "parent_page": "GMS",
+  "public": 1,
+  "quick_lists": [],
+  "restrict_to_domain": null,
+  "roles": [
+   {
+    "parent": "Trainer Portal",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "System Manager"
+   },
+   {
+    "parent": "Trainer Portal",
+    "parentfield": "roles",
+    "parenttype": "Workspace",
+    "role": "Trainer"
+   }
+  ],
+  "sequence_id": 1.2,
+  "shortcuts": [
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "My Profile",
+    "link_to": "Gym Member",
+    "parent": "Trainer Portal",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": "[]",
+    "type": "DocType",
+    "url": null
+   }
+  ],
+  "title": "Trainer Portal"
  }
 ]
