@@ -258,5 +258,6 @@ doc_events = {
 fixtures = [
   "Workspace",
   "Role",
-  "Custom DocPerm"
+  "Custom DocPerm",
+  "Gym Locker Number"
 ]
