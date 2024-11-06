@@ -16,24 +16,23 @@ def create_sales_invoice(doc, method):
                 doc.end_time = now
                 if isinstance(doc.start_time, str):
                     doc.start_time = datetime.strptime(doc.start_time, "%Y-%m-%d %H:%M:%S")
-                hours = (now - doc.start_time).total_seconds() // 3600
-                doc.number_of_hours = int(hours)
+                hours = (now - doc.start_time).total_seconds() // 3600 or 1
+                doc.number_of_hours = int(hours) or 1
                 rate = get_gym_settings().locker_price_per_hour
                 qty = hours
 
             elif doc.booking_type == "Days" and doc.start_date:
                 today = date.today()
                 doc.end_date = today
-                days = (today - doc.start_date).days
-                doc.number_of_days = days
+                days = (today - doc.start_date).days 
+                doc.number_of_days = days or 1
                 rate = get_gym_settings().locker_price_per_day
-                qty = days
+                qty = days  or 1
             doc.sales_invoice_created = 1
             doc.save()
 
-            exists = frappe.db.get_all("Sales Invoice", {"custom_locker_booking": doc.name},{})
+            exists = frappe.db.get_all("Sales Invoice", {"custom_locker_booking": doc.name},{"name"})
             if not exists and rate and qty:
-                
                 items = [{
                     "item_code": "Locker",
                     "item_name":"Locker",
@@ -53,9 +52,20 @@ def create_sales_invoice(doc, method):
                 })
                 invoice.insert(ignore_permissions=True)
                 invoice.save()
-            
+
+            locker=frappe.get_doc("Gym Locker Number", doc.locker_number)
+            locker.status="Vacant"
+            locker.occupant=""
+            locker.save()
             frappe.db.commit()
             return "success"
+        elif doc.workflow_state == "Reserved":
+            locker=frappe.get_doc("Gym Locker Number", doc.locker_number)
+            locker.status="Occupied"
+            locker.occupant=doc.member
+            locker.save()
+            frappe.db.commit()
+            return
 
     except Exception as e:
         frappe.log_error(message=str(e), title="Sales Invoice Creation Error")

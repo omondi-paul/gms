@@ -101,13 +101,14 @@
    "default": "0",
    "fieldname": "sales_invoice_created",
    "fieldtype": "Check",
-   "label": "Sales Invoice Created"
+   "label": "Sales Invoice Created",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-06 08:42:01.082010",
+ "modified": "2024-11-06 09:20:18.100497",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Locker Booking",
