@@ -263,5 +263,6 @@ fixtures = [
   "Workspace",
   "Role",
   "Custom DocPerm",
-  "Gym Locker Number"
+  "Gym Locker Number",
+  "Custom Field"
 ]
