@@ -2,6 +2,9 @@ import frappe
 from frappe.model.document import Document
 from gms.services.utils import send_sms
 import random
+from datetime import datetime
+
+
 
 @frappe.whitelist()
 def get_gym_settings():
@@ -23,7 +26,7 @@ def before_inserting_gym_member(doc, method):
         if frappe.db.exists("User", doc.email):
             frappe.throw(f"A user with the email {doc.email} already exists. Please use a unique email.")
 
-    doc.member_no = generate_unique_member_no(doc)
+    doc.member_id = generate_unique_member_no()
 
 @frappe.whitelist()
 def after_inserting_gym_member(doc, method):
@@ -53,10 +56,10 @@ def generate_unique_member_no():
 
     while True:
         random_digits = str(random.randint(1000, 9999))
-        member_no = f"MEM{current_year}{current_month}{random_digits}"
+        member_id = f"MEM{current_year}{current_month}{random_digits}"
 
-        if not frappe.db.exists("Gym Member", {"member_no": member_no}):
-            return member_no
+        if not frappe.db.exists("Gym Member", {"member_id": member_id}):
+            return member_id
 
 @frappe.whitelist()
 def create_customer_and_user_for_member(full_name, member_id, email, mobile_number):
@@ -131,19 +134,6 @@ def create_user_for_member(full_name, email, mobile_number):
 
 def generate_simple_password():
     return (random.randint(1000, 9999))
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 @frappe.whitelist()
@@ -252,3 +242,32 @@ def create_user_for_trainer(doc):
     frappe.db.commit()
     frappe.msgprint(f"User {doc.full_name} has been created successfully.")
     return password
+
+
+
+@frappe.whitelist(allow_guest=True)
+def add_locker_numbers():
+    for locker_number in range(1, 101):
+        customer = frappe.get_doc({
+            "doctype": "Gym Locker Number",
+            "locker_number": locker_number,
+        })
+        customer.insert(ignore_permissions=True)
+    frappe.db.commit()
+    return True
+
+@frappe.whitelist(allow_guest=True)
+def return_locker_booking():
+    return frappe.get_all("Gym Locker Booking",{},{"*"})
+
+
+@frappe.whitelist(allow_guest=True)
+def fill_time(name):
+    doc = frappe.get_doc("Gym Locker Booking", name)
+    if doc.start_time and doc.end_time:
+        hours = doc.end_time - doc.start_time
+        return {"hours":hours.total_seconds() // 3600 } 
+
+    if doc.start_date and doc.end_date:
+        days = doc.end_date - doc.start_date
+        return {"days":days.days}

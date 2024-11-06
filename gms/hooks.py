@@ -155,6 +155,9 @@ doc_events = {
         "before_insert": "gms.services.rest.before_inserting_gym_trainer",
         "after_insert": "gms.services.rest.after_inserting_gym_trainer"
     },
+    "Gym Locker Booking": {
+        "after_save": "gms.services.rest.fill_time"
+    },
 }
 
 
@@ -258,5 +261,6 @@ doc_events = {
 fixtures = [
   "Workspace",
   "Role",
-  "Custom DocPerm"
+  "Custom DocPerm",
+  "Gym Locker Number"
 ]

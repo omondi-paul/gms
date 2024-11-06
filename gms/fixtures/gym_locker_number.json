@@ -1,0 +1,1002 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 1,
+  "modified": "2024-11-05 11:30:18.664314",
+  "name": "Locker 1",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 2,
+  "modified": "2024-11-05 11:30:19.036826",
+  "name": "Locker 2",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 3,
+  "modified": "2024-11-05 11:30:19.043275",
+  "name": "Locker 3",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 4,
+  "modified": "2024-11-05 11:30:19.049003",
+  "name": "Locker 4",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 5,
+  "modified": "2024-11-05 11:30:19.055081",
+  "name": "Locker 5",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 6,
+  "modified": "2024-11-05 11:30:19.062341",
+  "name": "Locker 6",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 7,
+  "modified": "2024-11-05 11:30:19.069350",
+  "name": "Locker 7",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 8,
+  "modified": "2024-11-05 11:30:19.074677",
+  "name": "Locker 8",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 9,
+  "modified": "2024-11-05 11:30:19.080117",
+  "name": "Locker 9",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 10,
+  "modified": "2024-11-05 11:30:19.086691",
+  "name": "Locker 10",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 11,
+  "modified": "2024-11-05 11:30:19.091970",
+  "name": "Locker 11",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 12,
+  "modified": "2024-11-05 11:30:19.097282",
+  "name": "Locker 12",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 13,
+  "modified": "2024-11-05 11:30:19.103922",
+  "name": "Locker 13",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 14,
+  "modified": "2024-11-05 11:30:19.110101",
+  "name": "Locker 14",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 15,
+  "modified": "2024-11-05 11:30:19.115732",
+  "name": "Locker 15",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 16,
+  "modified": "2024-11-05 11:30:19.121591",
+  "name": "Locker 16",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 17,
+  "modified": "2024-11-05 11:30:19.127208",
+  "name": "Locker 17",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 18,
+  "modified": "2024-11-05 11:30:19.133213",
+  "name": "Locker 18",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 19,
+  "modified": "2024-11-05 11:30:19.139599",
+  "name": "Locker 19",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 20,
+  "modified": "2024-11-05 11:30:19.144967",
+  "name": "Locker 20",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 21,
+  "modified": "2024-11-05 11:30:19.151614",
+  "name": "Locker 21",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 22,
+  "modified": "2024-11-05 11:30:19.157188",
+  "name": "Locker 22",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 23,
+  "modified": "2024-11-05 11:30:19.163334",
+  "name": "Locker 23",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 24,
+  "modified": "2024-11-05 11:30:19.169154",
+  "name": "Locker 24",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 25,
+  "modified": "2024-11-05 11:30:19.174642",
+  "name": "Locker 25",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 26,
+  "modified": "2024-11-05 11:30:19.180405",
+  "name": "Locker 26",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 27,
+  "modified": "2024-11-05 11:30:19.186338",
+  "name": "Locker 27",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 28,
+  "modified": "2024-11-05 11:30:19.191580",
+  "name": "Locker 28",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 29,
+  "modified": "2024-11-05 11:30:19.196729",
+  "name": "Locker 29",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 30,
+  "modified": "2024-11-05 11:30:19.201959",
+  "name": "Locker 30",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 31,
+  "modified": "2024-11-05 11:30:19.207171",
+  "name": "Locker 31",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 32,
+  "modified": "2024-11-05 11:30:19.212796",
+  "name": "Locker 32",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 33,
+  "modified": "2024-11-05 11:30:19.217860",
+  "name": "Locker 33",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 34,
+  "modified": "2024-11-05 11:30:19.223295",
+  "name": "Locker 34",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 35,
+  "modified": "2024-11-05 11:30:19.229349",
+  "name": "Locker 35",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 36,
+  "modified": "2024-11-05 11:30:19.235325",
+  "name": "Locker 36",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 37,
+  "modified": "2024-11-05 11:30:19.241013",
+  "name": "Locker 37",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 38,
+  "modified": "2024-11-05 11:30:19.246426",
+  "name": "Locker 38",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 39,
+  "modified": "2024-11-05 11:30:19.252608",
+  "name": "Locker 39",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 40,
+  "modified": "2024-11-05 11:30:19.258466",
+  "name": "Locker 40",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 41,
+  "modified": "2024-11-05 11:30:19.263886",
+  "name": "Locker 41",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 42,
+  "modified": "2024-11-05 11:30:19.269704",
+  "name": "Locker 42",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 43,
+  "modified": "2024-11-05 11:30:19.274911",
+  "name": "Locker 43",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 44,
+  "modified": "2024-11-05 11:30:19.280631",
+  "name": "Locker 44",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 45,
+  "modified": "2024-11-05 11:30:19.286438",
+  "name": "Locker 45",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 46,
+  "modified": "2024-11-05 11:30:19.291597",
+  "name": "Locker 46",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 47,
+  "modified": "2024-11-05 11:30:19.296911",
+  "name": "Locker 47",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 48,
+  "modified": "2024-11-05 11:30:19.302337",
+  "name": "Locker 48",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 49,
+  "modified": "2024-11-05 11:30:19.308039",
+  "name": "Locker 49",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 50,
+  "modified": "2024-11-05 11:30:19.314218",
+  "name": "Locker 50",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 51,
+  "modified": "2024-11-05 11:30:19.319668",
+  "name": "Locker 51",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 52,
+  "modified": "2024-11-05 11:30:19.326490",
+  "name": "Locker 52",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 53,
+  "modified": "2024-11-05 11:30:19.339867",
+  "name": "Locker 53",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 54,
+  "modified": "2024-11-05 11:30:19.347676",
+  "name": "Locker 54",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 55,
+  "modified": "2024-11-05 11:30:19.354342",
+  "name": "Locker 55",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 56,
+  "modified": "2024-11-05 11:30:19.360103",
+  "name": "Locker 56",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 57,
+  "modified": "2024-11-05 11:30:19.365446",
+  "name": "Locker 57",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 58,
+  "modified": "2024-11-05 11:30:19.370988",
+  "name": "Locker 58",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 59,
+  "modified": "2024-11-05 11:30:19.376589",
+  "name": "Locker 59",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 60,
+  "modified": "2024-11-05 11:30:19.382403",
+  "name": "Locker 60",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 61,
+  "modified": "2024-11-05 11:30:19.388208",
+  "name": "Locker 61",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 62,
+  "modified": "2024-11-05 11:30:19.394775",
+  "name": "Locker 62",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 63,
+  "modified": "2024-11-05 11:30:19.403675",
+  "name": "Locker 63",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 64,
+  "modified": "2024-11-05 11:30:19.411174",
+  "name": "Locker 64",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 65,
+  "modified": "2024-11-05 11:30:19.418852",
+  "name": "Locker 65",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 66,
+  "modified": "2024-11-05 11:30:19.427569",
+  "name": "Locker 66",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 67,
+  "modified": "2024-11-05 11:30:19.436377",
+  "name": "Locker 67",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 68,
+  "modified": "2024-11-05 11:30:19.442863",
+  "name": "Locker 68",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 69,
+  "modified": "2024-11-05 11:30:19.449177",
+  "name": "Locker 69",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 70,
+  "modified": "2024-11-05 11:30:19.456327",
+  "name": "Locker 70",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 71,
+  "modified": "2024-11-05 11:30:19.465893",
+  "name": "Locker 71",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 72,
+  "modified": "2024-11-05 11:30:19.475568",
+  "name": "Locker 72",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 73,
+  "modified": "2024-11-05 11:30:19.483053",
+  "name": "Locker 73",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 74,
+  "modified": "2024-11-05 11:30:19.490045",
+  "name": "Locker 74",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 75,
+  "modified": "2024-11-05 11:30:19.496526",
+  "name": "Locker 75",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 76,
+  "modified": "2024-11-05 11:30:19.505634",
+  "name": "Locker 76",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 77,
+  "modified": "2024-11-05 11:30:19.515059",
+  "name": "Locker 77",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 78,
+  "modified": "2024-11-05 11:30:19.523299",
+  "name": "Locker 78",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 79,
+  "modified": "2024-11-05 11:30:19.531424",
+  "name": "Locker 79",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 80,
+  "modified": "2024-11-05 11:30:19.540457",
+  "name": "Locker 80",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 81,
+  "modified": "2024-11-05 11:30:19.549567",
+  "name": "Locker 81",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 82,
+  "modified": "2024-11-05 11:30:19.557213",
+  "name": "Locker 82",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 83,
+  "modified": "2024-11-05 11:30:19.563969",
+  "name": "Locker 83",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 84,
+  "modified": "2024-11-05 11:30:19.570160",
+  "name": "Locker 84",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 85,
+  "modified": "2024-11-05 11:30:19.578836",
+  "name": "Locker 85",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 86,
+  "modified": "2024-11-05 11:30:19.586424",
+  "name": "Locker 86",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 87,
+  "modified": "2024-11-05 11:30:19.592810",
+  "name": "Locker 87",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 88,
+  "modified": "2024-11-05 11:30:19.599090",
+  "name": "Locker 88",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 89,
+  "modified": "2024-11-05 11:30:19.608240",
+  "name": "Locker 89",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 90,
+  "modified": "2024-11-05 11:30:19.616709",
+  "name": "Locker 90",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 91,
+  "modified": "2024-11-05 11:30:19.623390",
+  "name": "Locker 91",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 92,
+  "modified": "2024-11-05 11:30:19.635896",
+  "name": "Locker 92",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 93,
+  "modified": "2024-11-05 11:30:19.645660",
+  "name": "Locker 93",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 94,
+  "modified": "2024-11-05 11:30:19.655246",
+  "name": "Locker 94",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 95,
+  "modified": "2024-11-05 11:30:19.663239",
+  "name": "Locker 95",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 96,
+  "modified": "2024-11-05 11:30:19.670032",
+  "name": "Locker 96",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 97,
+  "modified": "2024-11-05 11:30:19.677294",
+  "name": "Locker 97",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 98,
+  "modified": "2024-11-05 11:30:19.686148",
+  "name": "Locker 98",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 99,
+  "modified": "2024-11-05 11:30:19.693964",
+  "name": "Locker 99",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 100,
+  "modified": "2024-11-05 11:30:19.700446",
+  "name": "Locker 100",
+  "next_date_available": null,
+  "occupant": null,
+  "status": "Vacant"
+ }
+]
