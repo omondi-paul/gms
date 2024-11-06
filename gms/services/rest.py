@@ -6,6 +6,19 @@ from datetime import datetime, date
 from gms.services.login import login
 from frappe.utils import add_days
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 @frappe.whitelist()
 def create_sales_invoice(doc, method):
     try:

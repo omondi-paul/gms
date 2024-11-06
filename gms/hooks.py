@@ -159,6 +159,9 @@ doc_events = {
         "after_save": "gms.services.rest.fill_time",
          "on_update": "gms.services.rest.create_sales_invoice"
     },
+     "Gym Membership": {
+         "on_update": "gms.services.rest.create_sales_invoice_for_membership"
+    },
 }
 
 

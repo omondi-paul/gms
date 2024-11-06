@@ -8,7 +8,9 @@
   "member",
   "membership_type",
   "column_break_kscb",
-  "date_of_subscription"
+  "date_of_subscription",
+  "plan_type",
+  "amended_from"
  ],
  "fields": [
   {
@@ -32,11 +34,28 @@
    "fieldtype": "Date",
    "label": "Date of Subscription",
    "options": "Today"
+  },
+  {
+   "fieldname": "plan_type",
+   "fieldtype": "Link",
+   "label": "Plan Type",
+   "options": "Plan Type"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Gym Membership",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-11-06 11:34:58.456576",
+ "modified": "2024-11-06 11:40:05.694397",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Membership",
