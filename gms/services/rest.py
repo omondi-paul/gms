@@ -18,6 +18,34 @@ def get_user_role():
             return "true"
     return False
 
+
+@frappe.whitelist()
+def get_permission_query_conditions(user, doctype):
+    try:
+        if user != "administrator":
+            user_roles = frappe.get_doc("User", user)
+            for role in user_roles.roles:
+                if role.role == "Member":
+                    doc = frappe.get_doc("Gym Member", {"email": user})
+                    if doctype == "Gym Member":
+                        return f"(`tab{doctype}`.email = '{user}')"
+                    elif doctype in ["Gym Locker Booking", "Gym Membership"]:
+                        return f"(`tab{doctype}`.member = '{doc.name}')"
+
+            else:
+                return
+
+        else:
+            return 
+
+    except frappe.DoesNotExistError as e:
+        frappe.log_error(f"Document not found: {e}", "Permission Query Error")
+        return ""
+
+    except Exception as e:
+        frappe.log_error(f"An error occurred: {e}", "Permission Query Error")
+        return ""
+
 @frappe.whitelist()
 def create_sales_invoice_for_membership(doc,method):
     try:
