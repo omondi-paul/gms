@@ -12,6 +12,15 @@ frappe.ui.form.on("Gym Locker Booking", {
         frm.set_df_property("booking_type", "read_only", 1);
       }
     }
+
+    frm.set_query("locker_number", function() {
+      return {
+          filters: [
+              ['Gym Locker Number', 'status', '=', 'Vacant']
+          ]
+      };
+  });
+
   },
   booking_type: function(frm) {
     if (frm.doc.booking_type === "Hours") {
