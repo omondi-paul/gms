@@ -6,6 +6,69 @@ from datetime import datetime, date
 
 
 
+# @frappe.whitelist()
+# def create_sales_invoice(doc, method):
+@frappe.whitelist()
+def create_sales_invoice(name):
+    doc=frappe.get_doc("Gym Locker Booking", name)
+    if doc.workflow_state == "Released":
+        if doc.booking_type == "Hours" and doc.start_time:
+            now = datetime.now()
+            doc.end_time = now
+
+            hours = (now - doc.start_time).seconds // 3600  # Calculate hours from start time
+            doc.hours = hours
+            doc.save()
+
+        elif doc.booking_type == "Days" and doc.start_date:
+            today = date.today()  # Ensure today is a date object to match start_date
+            doc.end_date = today
+
+            days = (today - doc.start_date).days  # Calculate days from start date
+            doc.days = days
+            doc.save()
+
+        frappe.db.commit()
+
+        
+#     user = frappe.get_doc({
+#         "doctype": "Sales Invoice",
+#         "customer": doc.member,
+#         "first_name": doc.full_name,
+        
+#     })
+#     user.insert(ignore_permissions=True)
+    
+
+#    items = [{
+#         "item_code": "Locker",
+#     }]
+
+    # total_overdue_days, overdue_invoices = calculate_penalty(customer_record)
+    # if total_overdue_days > 0:
+    #     penalty = {
+    #         "item_code": "Penalty",
+    #         "rate": get_chamaa_settings().mgr_penalty_amount,
+    #         "qty": total_overdue_days
+    #     }
+    #     items.append(penalty)
+
+    #     # Mark overdue invoices as penalty processed
+    #     for overdue_invoice in overdue_invoices:
+    #         frappe.db.set_value("Sales Invoice", overdue_invoice, "custom_penalty_processed", 1)
+
+    # # Create Sales Invoice
+    # due_days = get_chamaa_settings().due_days
+    # due_date = frappe.utils.add_days(frappe.utils.nowdate(), due_days)
+    # invoice = frappe.get_doc({
+    #     "doctype": "Sales Invoice",
+    #     "customer": customer_record.name,
+    #     "custom_merry_go_round_number": merry_go_round_doc.round_number,
+    #     "custom_contribution_type": "Merry Go Round",
+    #     "due_date": due_date,
+    #     "items": items
+    # })
+
 @frappe.whitelist()
 def get_gym_settings():
     gym_settings = frappe.get_single("Gym Settings")
