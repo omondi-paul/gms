@@ -2,6 +2,9 @@ import frappe
 from frappe.model.document import Document
 from gms.services.utils import send_sms
 import random
+from datetime import datetime
+
+
 
 @frappe.whitelist()
 def get_gym_settings():
@@ -133,19 +136,6 @@ def generate_simple_password():
     return (random.randint(1000, 9999))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 @frappe.whitelist()
 def before_inserting_gym_trainer(doc, method):
     if doc.mobile_number and len(doc.mobile_number) > 10:
@@ -266,3 +256,18 @@ def add_locker_numbers():
     frappe.db.commit()
     return True
 
+@frappe.whitelist(allow_guest=True)
+def return_locker_booking():
+    return frappe.get_all("Gym Locker Booking",{},{"*"})
+
+
+@frappe.whitelist(allow_guest=True)
+def fill_time(name):
+    doc = frappe.get_doc("Gym Locker Booking", name)
+    if doc.start_time and doc.end_time:
+        hours = doc.end_time - doc.start_time
+        return {"hours":hours.total_seconds() // 3600 } 
+
+    if doc.start_date and doc.end_date:
+        days = doc.end_date - doc.start_date
+        return {"days":days.days}

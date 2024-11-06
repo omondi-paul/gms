@@ -8,13 +8,14 @@
   "member",
   "booking_type",
   "start_date",
-  "number_of_days",
-  "end_date",
+  "start_time",
   "column_break_cjdm",
   "locker_number",
-  "start_time",
+  "number_of_days",
   "number_of_hours",
-  "end_time"
+  "end_date",
+  "end_time",
+  "amended_from"
  ],
  "fields": [
   {
@@ -33,13 +34,16 @@
    "depends_on": "eval:doc.booking_type === 'Days'",
    "fieldname": "start_date",
    "fieldtype": "Date",
-   "label": "Start Date"
+   "label": "Start Date",
+   "mandatory_depends_on": "eval:doc.booking_type === 'Days'",
+   "options": "Today"
   },
   {
-   "depends_on": "eval:doc.start_date",
+   "depends_on": "eval:doc.start_date && doc.booking_type==='Days' ",
    "fieldname": "end_date",
    "fieldtype": "Date",
-   "label": "End Date"
+   "label": "End Date",
+   "mandatory_depends_on": "eval:doc.start_date && doc.booking_type==='Days' && doc.workflow_state=='Reserved'"
   },
   {
    "fieldname": "column_break_cjdm",
@@ -49,34 +53,54 @@
    "depends_on": "eval:doc.booking_type === 'Hours'",
    "fieldname": "start_time",
    "fieldtype": "Datetime",
-   "label": "Start Time"
+   "label": "Start Time",
+   "mandatory_depends_on": "eval:doc.booking_type === 'Hours'",
+   "options": "Today"
   },
   {
+   "depends_on": "eval:doc.start_time && doc.booking_type === 'Hours'",
    "fieldname": "end_time",
    "fieldtype": "Datetime",
-   "label": "End Time"
+   "label": "End Time",
+   "mandatory_depends_on": "eval:doc.start_time && doc.workflow_state=='Reserved'"
   },
   {
-   "depends_on": "eval:doc.start_date",
+   "depends_on": "eval:doc.end_date",
    "fieldname": "number_of_days",
    "fieldtype": "Int",
-   "label": "Number of Days"
+   "label": "Number of Days",
+   "read_only": 1
   },
   {
+   "depends_on": "eval:doc.end_time",
    "fieldname": "number_of_hours",
    "fieldtype": "Int",
-   "label": "Number of Hours"
+   "label": "Number of Hours",
+   "read_only": 1
   },
   {
+   "depends_on": "eval:doc.locker_number",
    "fieldname": "booking_type",
    "fieldtype": "Select",
    "label": "Booking Type",
-   "options": "Days\nHours"
+   "mandatory_depends_on": "eval:doc.locker_number",
+   "options": "\nDays\nHours"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Gym Locker Booking",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-11-05 11:19:05.257280",
+ "modified": "2024-11-05 15:55:24.832520",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Locker Booking",
