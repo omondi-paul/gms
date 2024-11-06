@@ -962,9 +962,9 @@
  {
   "docstatus": 0,
   "doctype": "Gym Locker Number",
-  "locker_number": 96,
-  "modified": "2024-11-05 11:30:19.670032",
-  "name": "Locker 96",
+  "locker_number": 91,
+  "modified": "2024-11-05 11:30:19.623390",
+  "name": "Locker 91",
   "next_date_available": null,
   "occupant": null,
   "status": "Vacant"
@@ -972,9 +972,9 @@
  {
   "docstatus": 0,
   "doctype": "Gym Locker Number",
-  "locker_number": 91,
-  "modified": "2024-11-05 11:30:19.623390",
-  "name": "Locker 91",
+  "locker_number": 96,
+  "modified": "2024-11-05 11:30:19.670032",
+  "name": "Locker 96",
   "next_date_available": null,
   "occupant": null,
   "status": "Vacant"
