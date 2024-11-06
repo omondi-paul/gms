@@ -3,71 +3,64 @@ from frappe.model.document import Document
 from gms.services.utils import send_sms
 import random
 from datetime import datetime, date
+from gms.services.login import login
+from frappe.utils import add_days
 
-
-
-# @frappe.whitelist()
-# def create_sales_invoice(doc, method):
 @frappe.whitelist()
-def create_sales_invoice(name):
-    doc=frappe.get_doc("Gym Locker Booking", name)
-    if doc.workflow_state == "Released":
-        if doc.booking_type == "Hours" and doc.start_time:
-            now = datetime.now()
-            doc.end_time = now
+def create_sales_invoice(doc, method):
+    try:
+        if doc.workflow_state == "Released" and not doc.sales_invoice_created:
+            doc=frappe.get_doc("Gym Locker Booking", doc.name)
+            if doc.booking_type == "Hours" and doc.start_time:
+                now = datetime.now()
+                doc.end_time = now
+                if isinstance(doc.start_time, str):
+                    doc.start_time = datetime.strptime(doc.start_time, "%Y-%m-%d %H:%M:%S")
+                hours = (now - doc.start_time).total_seconds() // 3600
+                doc.number_of_hours = int(hours)
+                rate = get_gym_settings().locker_price_per_hour
+                qty = hours
 
-            hours = (now - doc.start_time).seconds // 3600  # Calculate hours from start time
-            doc.hours = hours
+            elif doc.booking_type == "Days" and doc.start_date:
+                today = date.today()
+                doc.end_date = today
+                days = (today - doc.start_date).days
+                doc.number_of_days = days
+                rate = get_gym_settings().locker_price_per_day
+                qty = days
+            doc.sales_invoice_created = 1
             doc.save()
 
-        elif doc.booking_type == "Days" and doc.start_date:
-            today = date.today()  # Ensure today is a date object to match start_date
-            doc.end_date = today
+            exists = frappe.db.get_all("Sales Invoice", {"custom_locker_booking": doc.name},{})
+            if not exists and rate and qty:
+                
+                items = [{
+                    "item_code": "Locker",
+                    "item_name":"Locker",
+                    "rate": rate,
+                    "qty": qty
+                }]
+                member = frappe.get_doc("Gym Member", doc.member)
+                due_days = get_gym_settings().sales_invoice_due_days
+                due_date = add_days(frappe.utils.nowdate(), due_days)
+                
+                invoice = frappe.get_doc({
+                    "doctype": "Sales Invoice",
+                    "customer": member.full_name,
+                    "custom_locker_booking": doc.name,
+                    "due_date": due_date,
+                    "items": items
+                })
+                invoice.insert(ignore_permissions=True)
+                invoice.save()
+            
+            frappe.db.commit()
+            return "success"
 
-            days = (today - doc.start_date).days  # Calculate days from start date
-            doc.days = days
-            doc.save()
+    except Exception as e:
+        frappe.log_error(message=str(e), title="Sales Invoice Creation Error")
+        frappe.throw("An error occurred while creating the Sales Invoice.")
 
-        frappe.db.commit()
-
-        
-#     user = frappe.get_doc({
-#         "doctype": "Sales Invoice",
-#         "customer": doc.member,
-#         "first_name": doc.full_name,
-        
-#     })
-#     user.insert(ignore_permissions=True)
-    
-
-#    items = [{
-#         "item_code": "Locker",
-#     }]
-
-    # total_overdue_days, overdue_invoices = calculate_penalty(customer_record)
-    # if total_overdue_days > 0:
-    #     penalty = {
-    #         "item_code": "Penalty",
-    #         "rate": get_chamaa_settings().mgr_penalty_amount,
-    #         "qty": total_overdue_days
-    #     }
-    #     items.append(penalty)
-
-    #     # Mark overdue invoices as penalty processed
-    #     for overdue_invoice in overdue_invoices:
-    #         frappe.db.set_value("Sales Invoice", overdue_invoice, "custom_penalty_processed", 1)
-
-    # # Create Sales Invoice
-    # due_days = get_chamaa_settings().due_days
-    # due_date = frappe.utils.add_days(frappe.utils.nowdate(), due_days)
-    # invoice = frappe.get_doc({
-    #     "doctype": "Sales Invoice",
-    #     "customer": customer_record.name,
-    #     "custom_merry_go_round_number": merry_go_round_doc.round_number,
-    #     "custom_contribution_type": "Merry Go Round",
-    #     "due_date": due_date,
-    #     "items": items
-    # })
 
 @frappe.whitelist()
 def get_gym_settings():
@@ -324,14 +317,4 @@ def return_locker_booking():
     return frappe.get_all("Gym Locker Booking",{},{"*"})
 
 
-@frappe.whitelist(allow_guest=True)
-def fill_time(name):
-    doc = frappe.get_doc("Gym Locker Booking", name)
-    if doc.start_time and doc.end_time:
-        hours = doc.end_time - doc.start_time
-        return {"hours":hours.total_seconds() // 3600 } 
-
-    if doc.start_date and doc.end_date:
-        days = doc.end_date - doc.start_date
-        return {"days":days.days}
 

@@ -9,6 +9,7 @@
   "booking_type",
   "start_date",
   "start_time",
+  "sales_invoice_created",
   "column_break_cjdm",
   "locker_number",
   "number_of_days",
@@ -95,12 +96,18 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "sales_invoice_created",
+   "fieldtype": "Check",
+   "label": "Sales Invoice Created"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-05 15:55:24.832520",
+ "modified": "2024-11-06 08:42:01.082010",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Locker Booking",
