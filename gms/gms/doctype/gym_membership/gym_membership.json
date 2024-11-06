@@ -5,17 +5,57 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_bvhr"
+  "member",
+  "membership_type",
+  "column_break_kscb",
+  "date_of_subscription",
+  "plan_type",
+  "amended_from"
  ],
  "fields": [
   {
-   "fieldname": "section_break_bvhr",
-   "fieldtype": "Section Break"
+   "fieldname": "membership_type",
+   "fieldtype": "Link",
+   "label": " Membership Type",
+   "options": "Membership Type"
+  },
+  {
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "label": "Member",
+   "options": "Gym Member"
+  },
+  {
+   "fieldname": "column_break_kscb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_of_subscription",
+   "fieldtype": "Date",
+   "label": "Date of Subscription",
+   "options": "Today"
+  },
+  {
+   "fieldname": "plan_type",
+   "fieldtype": "Link",
+   "label": "Plan Type",
+   "options": "Plan Type"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Gym Membership",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-11-05 10:27:19.090648",
+ "modified": "2024-11-06 11:40:05.694397",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Membership",

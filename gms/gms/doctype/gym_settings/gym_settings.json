@@ -11,8 +11,11 @@
   "gym_name",
   "locker_price_per_day",
   "locker_price_per_hour",
+  "sales_invoice_due_days",
   "column_break_wonw",
-  "sales_invoice_due_days"
+  "standard_membership_price",
+  "premium_membership_price",
+  "vip_membership_price"
  ],
  "fields": [
   {
@@ -38,12 +41,27 @@
    "fieldname": "sales_invoice_due_days",
    "fieldtype": "Int",
    "label": " Sales Invoice Due Days"
+  },
+  {
+   "fieldname": "standard_membership_price",
+   "fieldtype": "Currency",
+   "label": "Standard Membership Price(Per Month)"
+  },
+  {
+   "fieldname": "premium_membership_price",
+   "fieldtype": "Currency",
+   "label": "Premium Membership Price(Per Month)"
+  },
+  {
+   "fieldname": "vip_membership_price",
+   "fieldtype": "Currency",
+   "label": "VIP Membership Price(Per Month)"
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-11-06 07:41:10.039321",
+ "modified": "2024-11-06 12:08:03.910153",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Settings",

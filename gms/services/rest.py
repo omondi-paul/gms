@@ -4,7 +4,108 @@ from gms.services.utils import send_sms
 import random
 from datetime import datetime, date
 from gms.services.login import login
-from frappe.utils import add_days
+from frappe.utils import add_months, add_days
+
+
+
+@frappe.whitelist()
+def get_user_role():
+    user = frappe.session.user
+    user_roles=frappe.get_doc("User", user)
+    
+    for role in user_roles.roles:
+        if role.role == "Part User":
+            return "true"
+    return False
+
+
+@frappe.whitelist()
+def get_permission_query_conditions(user, doctype):
+    try:
+        if user != "administrator":
+            user_roles = frappe.get_doc("User", user)
+            for role in user_roles.roles:
+                if role.role == "Member":
+                    doc = frappe.get_doc("Gym Member", {"email": user})
+                    if doctype == "Gym Member":
+                        return f"(`tab{doctype}`.email = '{user}')"
+                    elif doctype in ["Gym Locker Booking", "Gym Membership"]:
+                        return f"(`tab{doctype}`.member = '{doc.name}')"
+
+            else:
+                return
+
+        else:
+            return 
+
+    except frappe.DoesNotExistError as e:
+        frappe.log_error(f"Document not found: {e}", "Permission Query Error")
+        return ""
+
+    except Exception as e:
+        frappe.log_error(f"An error occurred: {e}", "Permission Query Error")
+        return ""
+
+@frappe.whitelist()
+def create_sales_invoice_for_membership(doc,method):
+    try:
+        doc = frappe.get_doc("Gym Membership", doc.name)
+        if doc.docstatus == 1:
+            exists = frappe.get_all("Sales Invoice Item", {"custom_gym_membership": doc.name}, {"name"})
+            if not exists:
+                if doc.membership_type == "Standard":
+                    rate = get_gym_settings().standard_membership_price
+                elif doc.membership_type == "Premium":
+                    rate = get_gym_settings().premium_membership_price
+                elif doc.membership_type == "VIP":
+                    rate = get_gym_settings().vip_membership_price
+                else:
+                    rate = 0
+
+                if doc.plan_type == "Monthly":
+                    qty = 1
+                    end_date = add_months(doc.date_of_subscription, 1)
+                elif doc.plan_type == "Quarterly":
+                    qty = 3
+                    end_date = add_months(doc.date_of_subscription, 3)
+                elif doc.plan_type == "Annually":
+                    qty = 12
+                    end_date = add_months(doc.date_of_subscription, 12)
+                else:
+                    qty = 0
+
+                items = [{
+                    "item_code": "Membership",
+                    "item_name": "Membership",
+                    "custom_gym_membership": doc.name,
+                    "rate": rate,
+                    "qty": qty
+                }]
+
+                member = frappe.get_doc("Gym Member", doc.member)
+                member.sub_end_date=end_date
+                member.sub_start_date=doc.date_of_subscription
+                member.membership_type=doc.membership_type
+                member.plan_type=doc.plan_type
+                member.save()
+                due_days = get_gym_settings().sales_invoice_due_days
+                due_date = add_days(frappe.utils.nowdate(), due_days)
+
+                invoice = frappe.get_doc({
+                    "doctype": "Sales Invoice",
+                    "customer": member.full_name,
+                    "due_date": due_date,
+                    "items": items
+                })
+
+                invoice.insert(ignore_permissions=True)
+                invoice.save()
+                frappe.db.commit()
+
+        return frappe.get_all("Gym Membership", {}, {"*"})
+    except Exception as e:
+        frappe.log_error(f"Error creating sales invoice: {e}")
+        return {"error": str(e)}
 
 @frappe.whitelist()
 def create_sales_invoice(doc, method):
@@ -16,24 +117,23 @@ def create_sales_invoice(doc, method):
                 doc.end_time = now
                 if isinstance(doc.start_time, str):
                     doc.start_time = datetime.strptime(doc.start_time, "%Y-%m-%d %H:%M:%S")
-                hours = (now - doc.start_time).total_seconds() // 3600
-                doc.number_of_hours = int(hours)
+                hours = (now - doc.start_time).total_seconds() // 3600 or 1
+                doc.number_of_hours = int(hours) or 1
                 rate = get_gym_settings().locker_price_per_hour
                 qty = hours
 
             elif doc.booking_type == "Days" and doc.start_date:
                 today = date.today()
                 doc.end_date = today
-                days = (today - doc.start_date).days
-                doc.number_of_days = days
+                days = (today - doc.start_date).days 
+                doc.number_of_days = days or 1
                 rate = get_gym_settings().locker_price_per_day
-                qty = days
+                qty = days  or 1
             doc.sales_invoice_created = 1
             doc.save()
 
-            exists = frappe.db.get_all("Sales Invoice", {"custom_locker_booking": doc.name},{})
+            exists = frappe.db.get_all("Sales Invoice", {"custom_locker_booking": doc.name},{"name"})
             if not exists and rate and qty:
-                
                 items = [{
                     "item_code": "Locker",
                     "item_name":"Locker",
@@ -53,9 +153,20 @@ def create_sales_invoice(doc, method):
                 })
                 invoice.insert(ignore_permissions=True)
                 invoice.save()
-            
+
+            locker=frappe.get_doc("Gym Locker Number", doc.locker_number)
+            locker.status="Vacant"
+            locker.occupant=""
+            locker.save()
             frappe.db.commit()
             return "success"
+        elif doc.workflow_state == "Reserved":
+            locker=frappe.get_doc("Gym Locker Number", doc.locker_number)
+            locker.status="Occupied"
+            locker.occupant=doc.member
+            locker.save()
+            frappe.db.commit()
+            return
 
     except Exception as e:
         frappe.log_error(message=str(e), title="Sales Invoice Creation Error")
