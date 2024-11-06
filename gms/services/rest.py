@@ -2,8 +2,64 @@ import frappe
 from frappe.model.document import Document
 from gms.services.utils import send_sms
 import random
-from datetime import datetime
+from datetime import datetime, date
+from gms.services.login import login
+from frappe.utils import add_days
 
+@frappe.whitelist()
+def create_sales_invoice(doc, method):
+    try:
+        if doc.workflow_state == "Released" and not doc.sales_invoice_created:
+            doc=frappe.get_doc("Gym Locker Booking", doc.name)
+            if doc.booking_type == "Hours" and doc.start_time:
+                now = datetime.now()
+                doc.end_time = now
+                if isinstance(doc.start_time, str):
+                    doc.start_time = datetime.strptime(doc.start_time, "%Y-%m-%d %H:%M:%S")
+                hours = (now - doc.start_time).total_seconds() // 3600
+                doc.number_of_hours = int(hours)
+                rate = get_gym_settings().locker_price_per_hour
+                qty = hours
+
+            elif doc.booking_type == "Days" and doc.start_date:
+                today = date.today()
+                doc.end_date = today
+                days = (today - doc.start_date).days
+                doc.number_of_days = days
+                rate = get_gym_settings().locker_price_per_day
+                qty = days
+            doc.sales_invoice_created = 1
+            doc.save()
+
+            exists = frappe.db.get_all("Sales Invoice", {"custom_locker_booking": doc.name},{})
+            if not exists and rate and qty:
+                
+                items = [{
+                    "item_code": "Locker",
+                    "item_name":"Locker",
+                    "rate": rate,
+                    "qty": qty
+                }]
+                member = frappe.get_doc("Gym Member", doc.member)
+                due_days = get_gym_settings().sales_invoice_due_days
+                due_date = add_days(frappe.utils.nowdate(), due_days)
+                
+                invoice = frappe.get_doc({
+                    "doctype": "Sales Invoice",
+                    "customer": member.full_name,
+                    "custom_locker_booking": doc.name,
+                    "due_date": due_date,
+                    "items": items
+                })
+                invoice.insert(ignore_permissions=True)
+                invoice.save()
+            
+            frappe.db.commit()
+            return "success"
+
+    except Exception as e:
+        frappe.log_error(message=str(e), title="Sales Invoice Creation Error")
+        frappe.throw("An error occurred while creating the Sales Invoice.")
 
 
 @frappe.whitelist()
@@ -261,13 +317,4 @@ def return_locker_booking():
     return frappe.get_all("Gym Locker Booking",{},{"*"})
 
 
-@frappe.whitelist(allow_guest=True)
-def fill_time(name):
-    doc = frappe.get_doc("Gym Locker Booking", name)
-    if doc.start_time and doc.end_time:
-        hours = doc.end_time - doc.start_time
-        return {"hours":hours.total_seconds() // 3600 } 
 
-    if doc.start_date and doc.end_date:
-        days = doc.end_date - doc.start_date
-        return {"days":days.days}
