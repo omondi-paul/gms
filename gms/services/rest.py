@@ -4,20 +4,80 @@ from gms.services.utils import send_sms
 import random
 from datetime import datetime, date
 from gms.services.login import login
-from frappe.utils import add_days
+from frappe.utils import add_months, add_days
 
 
 
+@frappe.whitelist()
+def get_user_role():
+    user = frappe.session.user
+    user_roles=frappe.get_doc("User", user)
+    
+    for role in user_roles.roles:
+        if role.role == "Part User":
+            return "true"
+    return False
 
+@frappe.whitelist()
+def create_sales_invoice_for_membership(doc,method):
+    try:
+        doc = frappe.get_doc("Gym Membership", doc.name)
+        if doc.docstatus == 1:
+            exists = frappe.get_all("Sales Invoice Item", {"custom_gym_membership": doc.name}, {"name"})
+            if not exists:
+                if doc.membership_type == "Standard":
+                    rate = get_gym_settings().standard_membership_price
+                elif doc.membership_type == "Premium":
+                    rate = get_gym_settings().premium_membership_price
+                elif doc.membership_type == "VIP":
+                    rate = get_gym_settings().vip_membership_price
+                else:
+                    rate = 0
 
+                if doc.plan_type == "Monthly":
+                    qty = 1
+                    end_date = add_months(doc.date_of_subscription, 1)
+                elif doc.plan_type == "Quarterly":
+                    qty = 3
+                    end_date = add_months(doc.date_of_subscription, 3)
+                elif doc.plan_type == "Annually":
+                    qty = 12
+                    end_date = add_months(doc.date_of_subscription, 12)
+                else:
+                    qty = 0
 
+                items = [{
+                    "item_code": "Membership",
+                    "item_name": "Membership",
+                    "custom_gym_membership": doc.name,
+                    "rate": rate,
+                    "qty": qty
+                }]
 
+                member = frappe.get_doc("Gym Member", doc.member)
+                member.sub_end_date=end_date
+                member.sub_start_date=doc.date_of_subscription
+                member.membership_type=doc.membership_type
+                member.plan_type=doc.plan_type
+                member.save()
+                due_days = get_gym_settings().sales_invoice_due_days
+                due_date = add_days(frappe.utils.nowdate(), due_days)
 
+                invoice = frappe.get_doc({
+                    "doctype": "Sales Invoice",
+                    "customer": member.full_name,
+                    "due_date": due_date,
+                    "items": items
+                })
 
+                invoice.insert(ignore_permissions=True)
+                invoice.save()
+                frappe.db.commit()
 
-
-
-
+        return frappe.get_all("Gym Membership", {}, {"*"})
+    except Exception as e:
+        frappe.log_error(f"Error creating sales invoice: {e}")
+        return {"error": str(e)}
 
 @frappe.whitelist()
 def create_sales_invoice(doc, method):

@@ -26,9 +26,9 @@
   "title",
   "membership_tab",
   "membership_type",
-  "end_date",
+  "sub_end_date",
   "column_break_ipiv",
-  "start_date",
+  "sub_start_date",
   "plan_type",
   "section_break_eohi",
   "access",
@@ -140,18 +140,8 @@
    "options": "Membership Type"
   },
   {
-   "fieldname": "end_date",
-   "fieldtype": "Data",
-   "label": "End Date"
-  },
-  {
    "fieldname": "column_break_ipiv",
    "fieldtype": "Column Break"
-  },
-  {
-   "fieldname": "start_date",
-   "fieldtype": "Data",
-   "label": "Start Date"
   },
   {
    "fieldname": "section_break_eohi",
@@ -178,11 +168,21 @@
    "fieldtype": "Table MultiSelect",
    "label": "Lockers Booked",
    "options": "Booked Locker"
+  },
+  {
+   "fieldname": "sub_end_date",
+   "fieldtype": "Data",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "sub_start_date",
+   "fieldtype": "Data",
+   "label": "Start Date"
   }
  ],
  "is_published_field": "is_published",
  "links": [],
- "modified": "2024-11-05 10:50:38.156340",
+ "modified": "2024-11-06 17:51:21.653745",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Member",
