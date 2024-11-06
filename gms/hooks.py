@@ -156,7 +156,8 @@ doc_events = {
         "after_insert": "gms.services.rest.after_inserting_gym_trainer"
     },
     "Gym Locker Booking": {
-        "after_save": "gms.services.rest.fill_time"
+        "after_save": "gms.services.rest.fill_time",
+         "after_update": "gms.services.rest.create_sales_invoice"
     },
 }
 

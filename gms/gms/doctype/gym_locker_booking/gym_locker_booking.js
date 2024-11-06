@@ -13,6 +13,18 @@ frappe.ui.form.on("Gym Locker Booking", {
       frm.set_df_property("start_date", "read_only", 1);
       frm.set_df_property("start_time", "read_only", 1);
     }
+    frappe.call({
+      method: "gms.services.rest.create_sales_invoice",
+      args: {
+        "name": frm.doc.name
+      },
+      callback: function(r) {
+       
+      }
+    });
+
+
+
   },
   booking_type: function(frm) {
     if (frm.doc.booking_type == "Hours") {

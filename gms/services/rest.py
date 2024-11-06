@@ -2,7 +2,7 @@ import frappe
 from frappe.model.document import Document
 from gms.services.utils import send_sms
 import random
-from datetime import datetime
+from datetime import datetime, date
 
 
 
@@ -271,3 +271,4 @@ def fill_time(name):
     if doc.start_date and doc.end_date:
         days = doc.end_date - doc.start_date
         return {"days":days.days}
+
