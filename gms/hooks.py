@@ -275,5 +275,11 @@ fixtures = [
   "Role",
   "Custom DocPerm",
   "Gym Locker Number",
-  "Custom Field"
+  "Custom Field",
+  "Role Profile",
+  "Module Profile",
+  "Workflow",
+  "Workflow Action Master",
+  "Workflow State"
+
 ]

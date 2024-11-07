@@ -273,7 +273,7 @@ def create_customer(full_name, member_id):
     frappe.db.commit()
     return True
 
-@frappe.whitelist()
+@frappe.whitelist(allow_guest=True)
 def create_user_for_member(full_name, email, mobile_number):
     password = str(generate_simple_password())
     user = frappe.get_doc({
@@ -286,9 +286,7 @@ def create_user_for_member(full_name, email, mobile_number):
         "send_welcome_email": 1,
         "user_type": "System User",
         "module_profile": "Member",
-        "roles": [
-            {"role": "Member"}
-        ],
+        "role_profile":"Member",
         "ignore_password_policy": 1  
     })
     user.insert(ignore_permissions=True)
