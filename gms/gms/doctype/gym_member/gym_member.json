@@ -33,7 +33,8 @@
   "section_break_eohi",
   "access",
   "locker_details_tab",
-  "lockers_booked"
+  "locker_booked",
+  "column_break_yvwb"
  ],
  "fields": [
   {
@@ -164,12 +165,6 @@
    "label": "Locker Details"
   },
   {
-   "fieldname": "lockers_booked",
-   "fieldtype": "Table MultiSelect",
-   "label": "Lockers Booked",
-   "options": "Booked Locker"
-  },
-  {
    "fieldname": "sub_end_date",
    "fieldtype": "Data",
    "label": "End Date"
@@ -178,11 +173,21 @@
    "fieldname": "sub_start_date",
    "fieldtype": "Data",
    "label": "Start Date"
+  },
+  {
+   "fieldname": "column_break_yvwb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "locker_booked",
+   "fieldtype": "Link",
+   "label": "Locker Booked",
+   "options": "Booked Locker"
   }
  ],
  "is_published_field": "is_published",
  "links": [],
- "modified": "2024-11-06 17:51:21.653745",
+ "modified": "2024-11-07 08:40:31.229116",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Member",

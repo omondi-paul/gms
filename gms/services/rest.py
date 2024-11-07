@@ -22,7 +22,7 @@ def get_user_role():
 @frappe.whitelist()
 def get_permission_query_conditions(user, doctype):
     try:
-        if user != "administrator":
+        if user != "Administrator":
             user_roles = frappe.get_doc("User", user)
             for role in user_roles.roles:
                 if role.role == "Member":
@@ -34,7 +34,6 @@ def get_permission_query_conditions(user, doctype):
 
             else:
                 return
-
         else:
             return 
 
