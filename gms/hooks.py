@@ -129,17 +129,6 @@ permission_query_conditions = {
             "Gym Member": "gms.services.rest.get_permission_query_conditions",
             }
 
-
-
-
-
-
-
-
-
-
-
-
 # has_permission = {
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
 # }
@@ -176,7 +165,7 @@ doc_events = {
     },
     "Gym Locker Booking": {
         "after_save": "gms.services.rest.fill_time",
-         "on_update": "gms.services.rest.create_sales_invoice"
+         "on_update": "gms.services.rest.create_sales_invoice_for_locker_booking"
     },
      "Gym Membership": {
          "on_update": "gms.services.rest.create_sales_invoice_for_membership"

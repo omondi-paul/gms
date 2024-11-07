@@ -107,7 +107,7 @@ def create_sales_invoice_for_membership(doc,method):
         return {"error": str(e)}
 
 @frappe.whitelist()
-def create_sales_invoice(doc, method):
+def create_sales_invoice_for_locker_booking(doc, method):
     try:
         if doc.workflow_state == "Released" and not doc.sales_invoice_created:
             doc=frappe.get_doc("Gym Locker Booking", doc.name)
@@ -140,6 +140,8 @@ def create_sales_invoice(doc, method):
                     "qty": qty
                 }]
                 member = frappe.get_doc("Gym Member", doc.member)
+                member.locker_booked=doc.locker_number
+                member.save()
                 due_days = get_gym_settings().sales_invoice_due_days
                 due_date = add_days(frappe.utils.nowdate(), due_days)
                 
@@ -164,6 +166,9 @@ def create_sales_invoice(doc, method):
             locker.status="Occupied"
             locker.occupant=doc.member
             locker.save()
+            member = frappe.get_doc("Gym Member", doc.member)
+            member.locker_booked=doc.locker_number
+            member.save()
             frappe.db.commit()
             return
 
