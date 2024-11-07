@@ -6,8 +6,6 @@ from datetime import datetime, date
 from gms.services.login import login
 from frappe.utils import add_months, add_days
 
-
-
 @frappe.whitelist()
 def get_user_role():
     user = frappe.session.user
@@ -17,7 +15,6 @@ def get_user_role():
         if role.role == "Part User":
             return "true"
     return False
-
 
 @frappe.whitelist()
 def get_permission_query_conditions(user, doctype):
@@ -36,7 +33,6 @@ def get_permission_query_conditions(user, doctype):
                 return
         else:
             return 
-
     except frappe.DoesNotExistError as e:
         frappe.log_error(f"Document not found: {e}", "Permission Query Error")
         return ""
@@ -80,7 +76,6 @@ def create_sales_invoice_for_membership(doc,method):
                     "rate": rate,
                     "qty": qty
                 }]
-
                 member = frappe.get_doc("Gym Member", doc.member)
                 member.sub_end_date=end_date
                 member.sub_start_date=doc.date_of_subscription
@@ -96,7 +91,6 @@ def create_sales_invoice_for_membership(doc,method):
                     "due_date": due_date,
                     "items": items
                 })
-
                 invoice.insert(ignore_permissions=True)
                 invoice.save()
                 frappe.db.commit()
@@ -140,7 +134,7 @@ def create_sales_invoice_for_locker_booking(doc, method):
                     "qty": qty
                 }]
                 member = frappe.get_doc("Gym Member", doc.member)
-                member.locker_booked=doc.locker_number
+                member.locker_booked=None
                 member.save()
                 due_days = get_gym_settings().sales_invoice_due_days
                 due_date = add_days(frappe.utils.nowdate(), due_days)
@@ -175,7 +169,6 @@ def create_sales_invoice_for_locker_booking(doc, method):
     except Exception as e:
         frappe.log_error(message=str(e), title="Sales Invoice Creation Error")
         frappe.throw("An error occurred while creating the Sales Invoice.")
-
 
 @frappe.whitelist()
 def get_gym_settings():

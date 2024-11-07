@@ -88,19 +88,23 @@
    "options": "Phone"
   },
   {
+   "default": "Today",
    "fieldname": "date_joined",
    "fieldtype": "Date",
-   "label": "Date Joined"
+   "label": "Date Joined",
+   "options": "Today"
   },
   {
    "default": "0",
    "fieldname": "is_published",
    "fieldtype": "Check",
+   "hidden": 1,
    "label": "Is Published"
   },
   {
    "fieldname": "title",
    "fieldtype": "Data",
+   "hidden": 1,
    "label": "Title"
   },
   {
@@ -138,7 +142,8 @@
    "fieldname": "membership_type",
    "fieldtype": "Link",
    "label": "Membership Type",
-   "options": "Membership Type"
+   "options": "Membership Type",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_ipiv",
@@ -157,7 +162,8 @@
    "fieldname": "plan_type",
    "fieldtype": "Link",
    "label": "Plan Type",
-   "options": "Plan Type"
+   "options": "Plan Type",
+   "read_only": 1
   },
   {
    "fieldname": "locker_details_tab",
@@ -167,12 +173,14 @@
   {
    "fieldname": "sub_end_date",
    "fieldtype": "Data",
-   "label": "End Date"
+   "label": "End Date",
+   "read_only": 1
   },
   {
    "fieldname": "sub_start_date",
    "fieldtype": "Data",
-   "label": "Start Date"
+   "label": "Start Date",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_yvwb",
@@ -182,12 +190,13 @@
    "fieldname": "locker_booked",
    "fieldtype": "Link",
    "label": "Locker Booked",
-   "options": "Booked Locker"
+   "options": "Gym Locker Number",
+   "read_only": 1
   }
  ],
  "is_published_field": "is_published",
  "links": [],
- "modified": "2024-11-07 08:40:31.229116",
+ "modified": "2024-11-07 08:56:47.952795",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Member",
