@@ -1,0 +1,182 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-08 12:25:20.462551",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "machine_details_tab",
+  "machine_name",
+  "location",
+  "assigned_user",
+  "column_break_glli",
+  "machine_type",
+  "current_status",
+  "next_available_time",
+  "section_break_vhyq",
+  "description",
+  "photo",
+  "tab_2_tab",
+  "model_number",
+  "manufacturer",
+  "purchase_cost",
+  "purchase_date",
+  "column_break_wttz",
+  "serial_number",
+  "status",
+  "warranty_expiry",
+  "condition",
+  "maintenance_schedule",
+  "tab_3_tab",
+  "tab_4_tab"
+ ],
+ "fields": [
+  {
+   "fieldname": "machine_name",
+   "fieldtype": "Data",
+   "label": "Machine Name"
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "label": "Photo"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "machine_type",
+   "fieldtype": "Select",
+   "label": "Machine Type",
+   "options": "\nTreadmill\nElliptical Trainer\nStationary Bike\nRowing Machine\nStair Climber\nAir Bike"
+  },
+  {
+   "depends_on": "eval:frappe.session.user === 'administrator'",
+   "fieldname": "tab_2_tab",
+   "fieldtype": "Tab Break",
+   "label": "Purchase & Maintenance"
+  },
+  {
+   "fieldname": "model_number",
+   "fieldtype": "Data",
+   "label": "Model Number"
+  },
+  {
+   "fieldname": "serial_number",
+   "fieldtype": "Data",
+   "label": "Serial Number"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Gym Location"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Operational\nUnder Maintenance\nOut of Order"
+  },
+  {
+   "fieldname": "assigned_user",
+   "fieldtype": "Link",
+   "label": "Assigned User",
+   "options": "Gym Member"
+  },
+  {
+   "fieldname": "manufacturer",
+   "fieldtype": "Data",
+   "label": "Manufacturer"
+  },
+  {
+   "fieldname": "purchase_cost",
+   "fieldtype": "Currency",
+   "label": "Purchase Cost"
+  },
+  {
+   "fieldname": "purchase_date",
+   "fieldtype": "Date",
+   "label": "Purchase Date"
+  },
+  {
+   "fieldname": "tab_3_tab",
+   "fieldtype": "Tab Break",
+   "label": "Maintenance Schedule"
+  },
+  {
+   "fieldname": "warranty_expiry",
+   "fieldtype": "Date",
+   "label": "Warranty Expiry"
+  },
+  {
+   "fieldname": "maintenance_schedule",
+   "fieldtype": "Select",
+   "label": "Maintenance Schedule"
+  },
+  {
+   "fieldname": "condition",
+   "fieldtype": "Select",
+   "label": "Condition ",
+   "options": "\nNew\nSecond Hand\nRefurbished"
+  },
+  {
+   "fieldname": "tab_4_tab",
+   "fieldtype": "Tab Break",
+   "label": "Tab 4"
+  },
+  {
+   "fieldname": "next_available_time",
+   "fieldtype": "Datetime",
+   "label": "Next Available Time"
+  },
+  {
+   "fieldname": "current_status",
+   "fieldtype": "Select",
+   "label": "Current Status"
+  },
+  {
+   "fieldname": "column_break_glli",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_vhyq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_wttz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "machine_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Machine Details"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-08 12:45:41.360783",
+ "modified_by": "Administrator",
+ "module": "Gms",
+ "name": "Gym Cardio Machine",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

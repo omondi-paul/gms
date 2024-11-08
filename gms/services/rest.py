@@ -6,6 +6,42 @@ from datetime import datetime, date
 from gms.services.login import login
 from frappe.utils import add_months, add_days
 
+
+@frappe.whitelist()
+def after_inserting_gym_machine(doc, method):
+    try:
+        doc=frappe.get_doc("Cardio Machine Booking",doc.name)
+        base_id = doc.machine_name.strip().replace(" ", "_").lower()
+        machine_id = base_id
+        counter = 1
+
+        while frappe.db.exists("Gym Cardio Machine", machine_id):
+            machine_id = f"{base_id}_{counter}"
+            counter += 1
+
+        doc.name = machine_id
+        doc.flags.ignore_permissions = True
+        doc.save()
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), f"{e}")
+        frappe.throw(f"Machine could not be created: {str(e)}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @frappe.whitelist()
 def get_user_role():
     user = frappe.session.user

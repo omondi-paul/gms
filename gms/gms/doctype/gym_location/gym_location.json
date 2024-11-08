@@ -8,23 +8,12 @@
  "field_order": [
   "section_break_tqbx",
   "location",
-  "column_break_hryp",
-  "amended_from"
+  "column_break_hryp"
  ],
  "fields": [
   {
    "fieldname": "section_break_tqbx",
    "fieldtype": "Section Break"
-  },
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Gym Location",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
   },
   {
    "fieldname": "location",
@@ -38,9 +27,8 @@
   }
  ],
  "index_web_pages_for_search": 1,
- "is_submittable": 1,
  "links": [],
- "modified": "2024-10-09 17:10:52.483485",
+ "modified": "2024-11-08 12:56:52.760056",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Location",
@@ -57,7 +45,6 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
-   "submit": 1,
    "write": 1
   }
  ],
