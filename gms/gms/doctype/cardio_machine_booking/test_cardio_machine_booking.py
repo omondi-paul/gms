@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestGymCardioMachine(FrappeTestCase):
+class TestCardioMachineBooking(FrappeTestCase):
 	pass

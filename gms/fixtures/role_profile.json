@@ -2,21 +2,6 @@
  {
   "docstatus": 0,
   "doctype": "Role Profile",
-  "modified": "2024-11-07 09:54:59.049282",
-  "name": "Member",
-  "role_profile": "Member",
-  "roles": [
-   {
-    "parent": "Member",
-    "parentfield": "roles",
-    "parenttype": "Role Profile",
-    "role": "Member"
-   }
-  ]
- },
- {
-  "docstatus": 0,
-  "doctype": "Role Profile",
   "modified": "2024-11-07 09:56:00.136313",
   "name": "Trainer",
   "role_profile": "Trainer",
@@ -161,6 +146,21 @@
     "parentfield": "roles",
     "parenttype": "Role Profile",
     "role": "Purchase Manager"
+   }
+  ]
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Role Profile",
+  "modified": "2024-11-07 09:54:59.049282",
+  "name": "Member",
+  "role_profile": "Member",
+  "roles": [
+   {
+    "parent": "Member",
+    "parentfield": "roles",
+    "parenttype": "Role Profile",
+    "role": "Member"
    }
   ]
  }

@@ -170,6 +170,9 @@ doc_events = {
      "Gym Membership": {
          "on_update": "gms.services.rest.create_sales_invoice_for_membership"
     },
+     "Gym Cardio Machine": {
+         "on_insert": "gms.services.rest.after_inserting_gym_machine"
+    },
 }
 
 

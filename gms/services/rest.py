@@ -10,7 +10,8 @@ from frappe.utils import add_months, add_days
 @frappe.whitelist()
 def after_inserting_gym_machine(doc, method):
     try:
-        doc=frappe.get_doc("Cardio Machine Booking",doc.name)
+        doc=frappe.get_doc("Gym Cardio Machine", doc)
+        print(f"\n\n\n{doc.machine_name}\n\n\n")
         base_id = doc.machine_name.strip().replace(" ", "_").lower()
         machine_id = base_id
         counter = 1
@@ -19,9 +20,10 @@ def after_inserting_gym_machine(doc, method):
             machine_id = f"{base_id}_{counter}"
             counter += 1
 
-        doc.name = machine_id
-        doc.flags.ignore_permissions = True
+        doc.machine_name = machine_id
+        # doc.name = machine_id
         doc.save()
+        frappe.db.commit()
     except Exception as e:
         frappe.log_error(frappe.get_traceback(), f"{e}")
         frappe.throw(f"Machine could not be created: {str(e)}")

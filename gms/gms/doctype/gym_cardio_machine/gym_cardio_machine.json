@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:machine_name",
  "creation": "2024-11-08 12:25:20.462551",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -17,6 +18,7 @@
   "description",
   "photo",
   "tab_2_tab",
+  "section_break_lhix",
   "model_number",
   "manufacturer",
   "purchase_cost",
@@ -26,15 +28,14 @@
   "status",
   "warranty_expiry",
   "condition",
-  "maintenance_schedule",
-  "tab_3_tab",
-  "tab_4_tab"
+  "maintenance_schedule"
  ],
  "fields": [
   {
    "fieldname": "machine_name",
    "fieldtype": "Data",
-   "label": "Machine Name"
+   "label": "Machine Name",
+   "unique": 1
   },
   {
    "fieldname": "photo",
@@ -49,11 +50,14 @@
   {
    "fieldname": "machine_type",
    "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Machine Type",
    "options": "\nTreadmill\nElliptical Trainer\nStationary Bike\nRowing Machine\nStair Climber\nAir Bike"
   },
   {
-   "depends_on": "eval:frappe.session.user === 'administrator'",
    "fieldname": "tab_2_tab",
    "fieldtype": "Tab Break",
    "label": "Purchase & Maintenance"
@@ -77,6 +81,10 @@
   {
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Status",
    "options": "Operational\nUnder Maintenance\nOut of Order"
   },
@@ -102,11 +110,6 @@
    "label": "Purchase Date"
   },
   {
-   "fieldname": "tab_3_tab",
-   "fieldtype": "Tab Break",
-   "label": "Maintenance Schedule"
-  },
-  {
    "fieldname": "warranty_expiry",
    "fieldtype": "Date",
    "label": "Warranty Expiry"
@@ -123,19 +126,23 @@
    "options": "\nNew\nSecond Hand\nRefurbished"
   },
   {
-   "fieldname": "tab_4_tab",
-   "fieldtype": "Tab Break",
-   "label": "Tab 4"
-  },
-  {
    "fieldname": "next_available_time",
    "fieldtype": "Datetime",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Next Available Time"
   },
   {
    "fieldname": "current_status",
    "fieldtype": "Select",
-   "label": "Current Status"
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Current Status",
+   "options": "Available\nIn Use"
   },
   {
    "fieldname": "column_break_glli",
@@ -153,14 +160,20 @@
    "fieldname": "machine_details_tab",
    "fieldtype": "Tab Break",
    "label": "Machine Details"
+  },
+  {
+   "depends_on": "eval:doc.name",
+   "fieldname": "section_break_lhix",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-08 12:45:41.360783",
+ "modified": "2024-11-08 16:33:15.106290",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Cardio Machine",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
