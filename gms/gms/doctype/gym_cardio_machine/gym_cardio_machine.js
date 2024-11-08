@@ -15,5 +15,8 @@ frappe.ui.form.on("Gym Cardio Machine", {
         frappe.set_route('form', 'Cardio Machine Booking', 'new-cardio-machine-booking-mkkgspdezc');
       }).addClass('btn-primary');
     }
+
+    
+    
   },
 });
