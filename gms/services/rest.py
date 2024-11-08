@@ -7,6 +7,42 @@ from gms.services.login import login
 from frappe.utils import add_months, add_days
 
 
+@frappe.whitelist()
+def after_inserting_gym_machine(doc, method):
+    try:
+        doc=frappe.get_doc("Gym Cardio Machine", doc)
+        print(f"\n\n\n{doc.machine_name}\n\n\n")
+        base_id = doc.machine_name.strip().replace(" ", "_").lower()
+        machine_id = base_id
+        counter = 1
+
+        while frappe.db.exists("Gym Cardio Machine", machine_id):
+            machine_id = f"{base_id}_{counter}"
+            counter += 1
+
+        doc.machine_name = machine_id
+        # doc.name = machine_id
+        doc.save()
+        frappe.db.commit()
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), f"{e}")
+        frappe.throw(f"Machine could not be created: {str(e)}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @frappe.whitelist()
 def get_user_role():
@@ -18,11 +54,10 @@ def get_user_role():
             return "true"
     return False
 
-
 @frappe.whitelist()
 def get_permission_query_conditions(user, doctype):
     try:
-        if user != "administrator":
+        if user != "Administrator":
             user_roles = frappe.get_doc("User", user)
             for role in user_roles.roles:
                 if role.role == "Member":
@@ -34,10 +69,8 @@ def get_permission_query_conditions(user, doctype):
 
             else:
                 return
-
         else:
             return 
-
     except frappe.DoesNotExistError as e:
         frappe.log_error(f"Document not found: {e}", "Permission Query Error")
         return ""
@@ -81,7 +114,6 @@ def create_sales_invoice_for_membership(doc,method):
                     "rate": rate,
                     "qty": qty
                 }]
-
                 member = frappe.get_doc("Gym Member", doc.member)
                 member.sub_end_date=end_date
                 member.sub_start_date=doc.date_of_subscription
@@ -97,7 +129,6 @@ def create_sales_invoice_for_membership(doc,method):
                     "due_date": due_date,
                     "items": items
                 })
-
                 invoice.insert(ignore_permissions=True)
                 invoice.save()
                 frappe.db.commit()
@@ -108,7 +139,7 @@ def create_sales_invoice_for_membership(doc,method):
         return {"error": str(e)}
 
 @frappe.whitelist()
-def create_sales_invoice(doc, method):
+def create_sales_invoice_for_locker_booking(doc, method):
     try:
         if doc.workflow_state == "Released" and not doc.sales_invoice_created:
             doc=frappe.get_doc("Gym Locker Booking", doc.name)
@@ -141,6 +172,8 @@ def create_sales_invoice(doc, method):
                     "qty": qty
                 }]
                 member = frappe.get_doc("Gym Member", doc.member)
+                member.locker_booked=None
+                member.save()
                 due_days = get_gym_settings().sales_invoice_due_days
                 due_date = add_days(frappe.utils.nowdate(), due_days)
                 
@@ -165,13 +198,15 @@ def create_sales_invoice(doc, method):
             locker.status="Occupied"
             locker.occupant=doc.member
             locker.save()
+            member = frappe.get_doc("Gym Member", doc.member)
+            member.locker_booked=doc.locker_number
+            member.save()
             frappe.db.commit()
             return
 
     except Exception as e:
         frappe.log_error(message=str(e), title="Sales Invoice Creation Error")
         frappe.throw("An error occurred while creating the Sales Invoice.")
-
 
 @frappe.whitelist()
 def get_gym_settings():
@@ -276,7 +311,7 @@ def create_customer(full_name, member_id):
     frappe.db.commit()
     return True
 
-@frappe.whitelist()
+@frappe.whitelist(allow_guest=True)
 def create_user_for_member(full_name, email, mobile_number):
     password = str(generate_simple_password())
     user = frappe.get_doc({
@@ -289,9 +324,7 @@ def create_user_for_member(full_name, email, mobile_number):
         "send_welcome_email": 1,
         "user_type": "System User",
         "module_profile": "Member",
-        "roles": [
-            {"role": "Member"}
-        ],
+        "role_profile":"Member",
         "ignore_password_policy": 1  
     })
     user.insert(ignore_permissions=True)

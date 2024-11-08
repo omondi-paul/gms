@@ -1,0 +1,195 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:machine_name",
+ "creation": "2024-11-08 12:25:20.462551",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "machine_details_tab",
+  "machine_name",
+  "location",
+  "assigned_user",
+  "column_break_glli",
+  "machine_type",
+  "current_status",
+  "next_available_time",
+  "section_break_vhyq",
+  "description",
+  "photo",
+  "tab_2_tab",
+  "section_break_lhix",
+  "model_number",
+  "manufacturer",
+  "purchase_cost",
+  "purchase_date",
+  "column_break_wttz",
+  "serial_number",
+  "status",
+  "warranty_expiry",
+  "condition",
+  "maintenance_schedule"
+ ],
+ "fields": [
+  {
+   "fieldname": "machine_name",
+   "fieldtype": "Data",
+   "label": "Machine Name",
+   "unique": 1
+  },
+  {
+   "fieldname": "photo",
+   "fieldtype": "Attach Image",
+   "label": "Photo"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "machine_type",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Machine Type",
+   "options": "\nTreadmill\nElliptical Trainer\nStationary Bike\nRowing Machine\nStair Climber\nAir Bike"
+  },
+  {
+   "fieldname": "tab_2_tab",
+   "fieldtype": "Tab Break",
+   "label": "Purchase & Maintenance"
+  },
+  {
+   "fieldname": "model_number",
+   "fieldtype": "Data",
+   "label": "Model Number"
+  },
+  {
+   "fieldname": "serial_number",
+   "fieldtype": "Data",
+   "label": "Serial Number"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Gym Location"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Operational\nUnder Maintenance\nOut of Order"
+  },
+  {
+   "fieldname": "assigned_user",
+   "fieldtype": "Link",
+   "label": "Assigned User",
+   "options": "Gym Member"
+  },
+  {
+   "fieldname": "manufacturer",
+   "fieldtype": "Data",
+   "label": "Manufacturer"
+  },
+  {
+   "fieldname": "purchase_cost",
+   "fieldtype": "Currency",
+   "label": "Purchase Cost"
+  },
+  {
+   "fieldname": "purchase_date",
+   "fieldtype": "Date",
+   "label": "Purchase Date"
+  },
+  {
+   "fieldname": "warranty_expiry",
+   "fieldtype": "Date",
+   "label": "Warranty Expiry"
+  },
+  {
+   "fieldname": "maintenance_schedule",
+   "fieldtype": "Select",
+   "label": "Maintenance Schedule"
+  },
+  {
+   "fieldname": "condition",
+   "fieldtype": "Select",
+   "label": "Condition ",
+   "options": "\nNew\nSecond Hand\nRefurbished"
+  },
+  {
+   "fieldname": "next_available_time",
+   "fieldtype": "Datetime",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Next Available Time"
+  },
+  {
+   "fieldname": "current_status",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Current Status",
+   "options": "Available\nIn Use"
+  },
+  {
+   "fieldname": "column_break_glli",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_vhyq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_wttz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "machine_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Machine Details"
+  },
+  {
+   "depends_on": "eval:doc.name",
+   "fieldname": "section_break_lhix",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-08 16:33:15.106290",
+ "modified_by": "Administrator",
+ "module": "Gms",
+ "name": "Gym Cardio Machine",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

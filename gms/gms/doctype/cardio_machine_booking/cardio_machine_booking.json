@@ -1,0 +1,89 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-08 16:35:51.048433",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_cxnk",
+  "cardio_machine",
+  "gym_member",
+  "column_break_heoz",
+  "start_time",
+  "stop_time",
+  "section_break_xinr",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_cxnk",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Cardio Machine Booking",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "cardio_machine",
+   "fieldtype": "Link",
+   "label": "Cardio Machine",
+   "options": "Gym Cardio Machine"
+  },
+  {
+   "fieldname": "section_break_xinr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_heoz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "start_time",
+   "fieldtype": "Datetime",
+   "label": "Start Time"
+  },
+  {
+   "fieldname": "stop_time",
+   "fieldtype": "Datetime",
+   "label": "Stop Time"
+  },
+  {
+   "fieldname": "gym_member",
+   "fieldtype": "Link",
+   "label": "Gym Member",
+   "options": "Gym Member"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-11-08 16:38:45.573298",
+ "modified_by": "Administrator",
+ "module": "Gms",
+ "name": "Cardio Machine Booking",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

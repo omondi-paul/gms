@@ -8,9 +8,9 @@
  "engine": "InnoDB",
  "field_order": [
   "details_section",
+  "instructor",
   "class_name",
   "class_tag",
-  "instructor",
   "status",
   "capacity",
   "session_per_week",
@@ -18,8 +18,8 @@
   "duration",
   "duration_in",
   "difficulty",
-  "price",
   "location",
+  "price",
   "equipment_needed",
   "images_tab",
   "table_hdwc",
@@ -66,12 +66,13 @@
   },
   {
    "fieldname": "difficulty",
-   "fieldtype": "Data",
-   "label": "Difficulty"
+   "fieldtype": "Select",
+   "label": "Difficulty",
+   "options": "Low\nMedium\nHigh"
   },
   {
    "fieldname": "price",
-   "fieldtype": "Data",
+   "fieldtype": "Currency",
    "label": "Price"
   },
   {
@@ -127,7 +128,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-10-09 17:25:46.617004",
+ "modified": "2024-11-07 09:06:05.214394",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Group Classes",
