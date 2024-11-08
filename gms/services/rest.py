@@ -36,6 +36,16 @@ def after_inserting_gym_machine(doc, method):
 
 
 
+@frappe.whitelist(allow_guest=True)
+def get_cardio_machine():
+    login("administrator",".")
+    machines=frappe.get_all("Gym Cardio Machine",{},{"name"})
+    for machine in machines:
+        doc=frappe.get_doc("Gym Cardio Machine",machine.name)
+        doc.current_status="Available"
+        doc.save()
+    frappe.db.commit()
+    return "successfull"
 
 
 

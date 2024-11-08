@@ -7,8 +7,10 @@
  "field_order": [
   "section_break_cxnk",
   "cardio_machine",
-  "gym_member",
+  "machine_type",
+  "machine_location",
   "column_break_heoz",
+  "gym_member",
   "start_time",
   "stop_time",
   "section_break_xinr",
@@ -58,12 +60,24 @@
    "fieldtype": "Link",
    "label": "Gym Member",
    "options": "Gym Member"
+  },
+  {
+   "fieldname": "machine_type",
+   "fieldtype": "Select",
+   "label": "Machine Type",
+   "options": "\nTreadmill\nElliptical Trainer\nStationary Bike\nRowing Machine\nStair Climber\nAir Bike"
+  },
+  {
+   "fieldname": "machine_location",
+   "fieldtype": "Link",
+   "label": "Machine Location",
+   "options": "Gym Location"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-08 16:38:45.573298",
+ "modified": "2024-11-08 17:55:42.253603",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Cardio Machine Booking",
