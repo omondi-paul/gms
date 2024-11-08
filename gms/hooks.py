@@ -283,6 +283,7 @@ fixtures = [
   "Module Profile",
   "Workflow",
   "Workflow Action Master",
-  "Workflow State"
+  "Workflow State",
+  "Gym Cardio Machine"
 
 ]

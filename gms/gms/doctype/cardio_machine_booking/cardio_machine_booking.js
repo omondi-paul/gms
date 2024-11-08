@@ -21,6 +21,5 @@ frappe.ui.form.on("Cardio Machine Booking", {
       }
     });
   }
-
 	},
 });
