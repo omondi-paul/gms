@@ -14,7 +14,5 @@ frappe.ui.form.on("Group Class", {
         frappe.set_route('form', 'Join Class', 'new-join-class-1');
       }).addClass('btn-primary');
     }
-
-
 	},
 });

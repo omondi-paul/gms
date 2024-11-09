@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{group_class}-{gym_member}",
  "creation": "2024-11-09 10:19:35.349531",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -33,14 +34,18 @@
   {
    "fieldname": "gym_member",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Gym Member",
-   "options": "Gym Member"
+   "options": "Gym Member",
+   "reqd": 1
   },
   {
    "fieldname": "group_class",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Group Class",
-   "options": "Group Class"
+   "options": "Group Class",
+   "reqd": 1
   },
   {
    "fieldname": "column_break_liho",
@@ -75,10 +80,11 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-09 10:49:11.338860",
+ "modified": "2024-11-09 11:21:37.344650",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Join Class",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
