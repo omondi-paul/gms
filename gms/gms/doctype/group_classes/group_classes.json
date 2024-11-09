@@ -21,16 +21,19 @@
   "location",
   "price",
   "equipment_needed",
+  "section_break_mcdf",
+  "description",
   "images_tab",
   "table_hdwc",
-  "description_tab",
-  "description"
+  "description_tab"
  ],
  "fields": [
   {
    "fieldname": "class_name",
    "fieldtype": "Data",
-   "label": "Class Name"
+   "in_list_view": 1,
+   "label": "Class Name",
+   "reqd": 1
   },
   {
    "fieldname": "class_tag",
@@ -124,11 +127,15 @@
    "fieldname": "description_tab",
    "fieldtype": "Tab Break",
    "label": "Description"
+  },
+  {
+   "fieldname": "section_break_mcdf",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-07 09:06:05.214394",
+ "modified": "2024-11-09 07:06:47.793366",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Group Classes",
