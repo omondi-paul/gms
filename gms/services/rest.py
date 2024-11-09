@@ -8,21 +8,24 @@ from frappe.utils import add_months, add_days
 
 
 
-@frappe.whitelist()
-def get_user_role():
-    user = frappe.session.user
-    user_roles=frappe.get_doc("User", user)
+@frappe.whitelist(allow_guest=True)
+def fetch_class_attendees(group_class):
+    members = frappe.get_all(
+        "Join Class",
+        filters={"docstatus": 1, "group_class": group_class},
+        fields=["gym_member"],
+        distinct=True
+    )
     
-    for role in user_roles.roles:
-        if role.role == "Part User":
-            return "true"
-    return False
+    # Convert the list to the required format
+    unique_members = [{"member": member.gym_member} for member in members]
+    return unique_members
+
 
 @frappe.whitelist()
 def after_inserting_gym_machine(doc, method):
     try:
         doc=frappe.get_doc("Gym Cardio Machine", doc)
-        print(f"\n\n\n{doc.machine_name}\n\n\n")
         base_id = doc.machine_name.strip().replace(" ", "_").lower()
         machine_id = base_id
         counter = 1

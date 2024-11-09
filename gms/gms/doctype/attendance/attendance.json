@@ -5,7 +5,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "class",
+  "group_class",
   "date",
   "column_break_hwvp",
   "start_time",
@@ -14,12 +14,6 @@
   "attendees"
  ],
  "fields": [
-  {
-   "fieldname": "class",
-   "fieldtype": "Link",
-   "label": "Class",
-   "options": "Group Class"
-  },
   {
    "default": "Today",
    "fieldname": "date",
@@ -50,11 +44,17 @@
    "fieldtype": "Table",
    "label": "Attendees",
    "options": "Class Attendance"
+  },
+  {
+   "fieldname": "group_class",
+   "fieldtype": "Link",
+   "label": "Group Class",
+   "options": "Group Class"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-09 08:30:56.724327",
+ "modified": "2024-11-09 12:18:40.479146",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Attendance",
