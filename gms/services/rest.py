@@ -76,6 +76,8 @@ def get_permission_query_conditions(user, doctype):
                         return f"(`tab{doctype}`.email = '{user}')"
                     elif doctype in ["Gym Locker Booking", "Gym Membership"]:
                         return f"(`tab{doctype}`.member = '{doc.name}')"
+                    elif doctype in ["Join Class"]:
+                        return f"(`tab{doctype}`.gym_member = '{doc.name}')"
 
             else:
                 return
