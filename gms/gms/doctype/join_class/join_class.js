@@ -23,6 +23,7 @@ frappe.ui.form.on("Join Class", {
     });
   }
 
+
   },
 
   class_type: function(frm) {
