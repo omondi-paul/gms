@@ -7,6 +7,17 @@ from gms.services.login import login
 from frappe.utils import add_months, add_days
 
 
+
+@frappe.whitelist()
+def get_user_role():
+    user = frappe.session.user
+    user_roles=frappe.get_doc("User", user)
+    
+    for role in user_roles.roles:
+        if role.role == "Part User":
+            return "true"
+    return False
+
 @frappe.whitelist()
 def after_inserting_gym_machine(doc, method):
     try:
@@ -30,12 +41,6 @@ def after_inserting_gym_machine(doc, method):
 
 
 
-
-
-
-
-
-
 @frappe.whitelist(allow_guest=True)
 def get_cardio_machine():
     login("administrator",".")
@@ -46,13 +51,6 @@ def get_cardio_machine():
         doc.save()
     frappe.db.commit()
     return "successfull"
-
-
-
-
-
-
-
 
 @frappe.whitelist()
 def get_user_role():
