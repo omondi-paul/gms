@@ -23,13 +23,18 @@ frappe.ui.form.on("Join Class", {
     });
   }
 
-    frm.set_query("locker_number", function() {
-      return {
-          filters: [
-              ['Gym Locker Number', 'status', '=', 'Vacant']
-          ]
-      };
-  });
-
   },
+
+  class_type: function(frm) {
+    if(frm.doc.class_type){
+      frm.set_query("group_class", function() {
+        return {
+            filters: [
+                ['Group Class', 'class_tag', '=', frm.doc.class_type]
+            ]
+        };
+    });
+    }
+  
+},
 });
