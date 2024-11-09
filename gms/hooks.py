@@ -284,6 +284,8 @@ fixtures = [
   "Workflow",
   "Workflow Action Master",
   "Workflow State",
-  "Gym Cardio Machine"
+  "Gym Cardio Machine",
+  "Location",
+  "Group Classes"
 
 ]

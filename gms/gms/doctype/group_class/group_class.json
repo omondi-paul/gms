@@ -24,8 +24,7 @@
   "section_break_mcdf",
   "description",
   "images_tab",
-  "table_hdwc",
-  "description_tab"
+  "table_hdwc"
  ],
  "fields": [
   {
@@ -38,8 +37,12 @@
   {
    "fieldname": "class_tag",
    "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Class Tag",
-   "options": "Workout Tags"
+   "options": "Workout Tag"
   },
   {
    "fieldname": "instructor",
@@ -91,9 +94,8 @@
   },
   {
    "fieldname": "equipment_needed",
-   "fieldtype": "Table MultiSelect",
+   "fieldtype": "Data",
    "label": "Equipment Needed",
-   "options": "Gym Equipment Select",
    "print_width": "6",
    "width": "5"
   },
@@ -120,13 +122,8 @@
   {
    "fieldname": "duration_in",
    "fieldtype": "Select",
-   "label": "Duration In?",
+   "label": "Duration In",
    "options": "\nWeeks\nMonths"
-  },
-  {
-   "fieldname": "description_tab",
-   "fieldtype": "Tab Break",
-   "label": "Description"
   },
   {
    "fieldname": "section_break_mcdf",
@@ -135,10 +132,10 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-09 07:06:47.793366",
+ "modified": "2024-11-09 07:26:20.294185",
  "modified_by": "Administrator",
  "module": "Gms",
- "name": "Group Classes",
+ "name": "Group Class",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [

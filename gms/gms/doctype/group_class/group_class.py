@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class GroupClasses(Document):
+class GroupClass(Document):
 	pass
