@@ -7,11 +7,25 @@ from gms.services.login import login
 from frappe.utils import add_months, add_days
 
 
+
+@frappe.whitelist(allow_guest=True)
+def fetch_class_attendees(group_class):
+    members = frappe.get_all(
+        "Join Class",
+        filters={"docstatus": 1, "group_class": group_class},
+        fields=["gym_member"],
+        distinct=True
+    )
+    
+    # Convert the list to the required format
+    unique_members = [{"member": member.gym_member} for member in members]
+    return unique_members
+
+
 @frappe.whitelist()
 def after_inserting_gym_machine(doc, method):
     try:
         doc=frappe.get_doc("Gym Cardio Machine", doc)
-        print(f"\n\n\n{doc.machine_name}\n\n\n")
         base_id = doc.machine_name.strip().replace(" ", "_").lower()
         machine_id = base_id
         counter = 1
@@ -30,19 +44,16 @@ def after_inserting_gym_machine(doc, method):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+@frappe.whitelist(allow_guest=True)
+def get_cardio_machine():
+    login("administrator",".")
+    machines=frappe.get_all("Gym Cardio Machine",{},{"name"})
+    for machine in machines:
+        doc=frappe.get_doc("Gym Cardio Machine",machine.name)
+        doc.current_status="Available"
+        doc.save()
+    frappe.db.commit()
+    return "successfull"
 
 @frappe.whitelist()
 def get_user_role():
@@ -66,6 +77,8 @@ def get_permission_query_conditions(user, doctype):
                         return f"(`tab{doctype}`.email = '{user}')"
                     elif doctype in ["Gym Locker Booking", "Gym Membership"]:
                         return f"(`tab{doctype}`.member = '{doc.name}')"
+                    elif doctype in ["Join Class"]:
+                        return f"(`tab{doctype}`.gym_member = '{doc.name}')"
 
             else:
                 return

@@ -14,6 +14,7 @@
   "status",
   "capacity",
   "session_per_week",
+  "start_date",
   "column_break_iiton",
   "duration",
   "duration_in",
@@ -21,34 +22,43 @@
   "location",
   "price",
   "equipment_needed",
+  "section_break_mcdf",
+  "description",
   "images_tab",
-  "table_hdwc",
-  "description_tab",
-  "description"
+  "table_hdwc"
  ],
  "fields": [
   {
    "fieldname": "class_name",
    "fieldtype": "Data",
-   "label": "Class Name"
+   "in_list_view": 1,
+   "label": "Class Name",
+   "reqd": 1
   },
   {
    "fieldname": "class_tag",
    "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Class Tag",
-   "options": "Workout Tags"
+   "options": "Workout Tag",
+   "reqd": 1
   },
   {
    "fieldname": "instructor",
    "fieldtype": "Link",
    "label": "Instructor",
-   "options": "Gym Trainer"
+   "options": "Gym Trainer",
+   "reqd": 1
   },
   {
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Active\nCancelled\nCompleted"
+   "options": "Active\nCancelled\nCompleted",
+   "reqd": 1
   },
   {
    "fieldname": "capacity",
@@ -68,7 +78,8 @@
    "fieldname": "difficulty",
    "fieldtype": "Select",
    "label": "Difficulty",
-   "options": "Low\nMedium\nHigh"
+   "options": "Low\nMedium\nHigh",
+   "reqd": 1
   },
   {
    "fieldname": "price",
@@ -79,7 +90,8 @@
    "fieldname": "location",
    "fieldtype": "Link",
    "label": "Location",
-   "options": "Gym Location"
+   "options": "Gym Location",
+   "reqd": 1
   },
   {
    "fieldname": "description",
@@ -88,9 +100,8 @@
   },
   {
    "fieldname": "equipment_needed",
-   "fieldtype": "Table MultiSelect",
+   "fieldtype": "Data",
    "label": "Equipment Needed",
-   "options": "Gym Equipment Select",
    "print_width": "6",
    "width": "5"
   },
@@ -117,21 +128,26 @@
   {
    "fieldname": "duration_in",
    "fieldtype": "Select",
-   "label": "Duration In?",
+   "label": "Duration In",
    "options": "\nWeeks\nMonths"
   },
   {
-   "fieldname": "description_tab",
-   "fieldtype": "Tab Break",
-   "label": "Description"
+   "fieldname": "section_break_mcdf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Datetime",
+   "label": "Start Date",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-07 09:06:05.214394",
+ "modified": "2024-11-09 10:27:59.556674",
  "modified_by": "Administrator",
  "module": "Gms",
- "name": "Group Classes",
+ "name": "Group Class",
  "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [

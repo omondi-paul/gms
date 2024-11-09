@@ -21,7 +21,7 @@
  "modified": "2024-10-09 17:05:25.413449",
  "modified_by": "Administrator",
  "module": "Gms",
- "name": "Workout Tags",
+ "name": "Workout Tag",
  "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [

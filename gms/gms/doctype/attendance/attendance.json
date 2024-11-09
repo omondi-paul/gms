@@ -1,0 +1,79 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-09 08:19:31.564406",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "group_class",
+  "date",
+  "column_break_hwvp",
+  "start_time",
+  "stop__time",
+  "section_break_wrcx",
+  "attendees"
+ ],
+ "fields": [
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date "
+  },
+  {
+   "fieldname": "column_break_hwvp",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Now",
+   "fieldname": "start_time",
+   "fieldtype": "Time",
+   "label": "Start Time"
+  },
+  {
+   "fieldname": "stop__time",
+   "fieldtype": "Time",
+   "label": "Stop  Time"
+  },
+  {
+   "fieldname": "section_break_wrcx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "attendees",
+   "fieldtype": "Table",
+   "label": "Attendees",
+   "options": "Class Attendance"
+  },
+  {
+   "fieldname": "group_class",
+   "fieldtype": "Link",
+   "label": "Group Class",
+   "options": "Group Class"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-09 12:18:40.479146",
+ "modified_by": "Administrator",
+ "module": "Gms",
+ "name": "Attendance",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
