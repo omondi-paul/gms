@@ -287,6 +287,6 @@ fixtures = [
   "Workflow State",
   "Gym Cardio Machine",
   "Location",
-  "Group Classes"
+  "Group Class"
 
 ]
