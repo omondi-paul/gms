@@ -1,0 +1,90 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-09 08:25:38.855986",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "member",
+  "mobile_number",
+  "presence",
+  "column_break_hslk",
+  "time_in",
+  "time_out"
+ ],
+ "fields": [
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "member",
+   "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": " Member",
+   "options": "Gym Member",
+   "reqd": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fetch_from": "member.mobile_number",
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Mobile Number",
+   "options": "Phone",
+   "read_only": 1
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "presence",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Presence",
+   "options": "\nPresent\nAbsent With Apology\nAbsent"
+  },
+  {
+   "fieldname": "column_break_hslk",
+   "fieldtype": "Column Break"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "time_in",
+   "fieldtype": "Time",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Time In"
+  },
+  {
+   "allow_in_quick_entry": 1,
+   "fieldname": "time_out",
+   "fieldtype": "Time",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Time Out"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-11-09 08:33:11.225588",
+ "modified_by": "Administrator",
+ "module": "Gms",
+ "name": "Class Attendance",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
