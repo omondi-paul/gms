@@ -48,7 +48,7 @@
    "in_preview": 1,
    "in_standard_filter": 1,
    "label": "Presence",
-   "options": "\nPresent\nAbsent With Apology\nAbsent"
+   "options": "Present\nLate\nExcused\nAbsent"
   },
   {
    "fieldname": "column_break_hslk",
@@ -62,7 +62,8 @@
    "in_list_view": 1,
    "in_preview": 1,
    "in_standard_filter": 1,
-   "label": "Time In"
+   "label": "Time In",
+   "read_only_depends_on": "eval:doc.presence != 'Present'"
   },
   {
    "allow_in_quick_entry": 1,
@@ -72,13 +73,14 @@
    "in_list_view": 1,
    "in_preview": 1,
    "in_standard_filter": 1,
-   "label": "Time Out"
+   "label": "Time Out",
+   "read_only_depends_on": "eval:doc.presence != 'Present'"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2024-11-09 08:33:11.225588",
+ "modified": "2024-11-10 09:32:22.519146",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Class Attendance",

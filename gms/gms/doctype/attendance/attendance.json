@@ -1,15 +1,18 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "format:{date}-{group_class}",
  "creation": "2024-11-09 08:19:31.564406",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "group_class",
   "date",
+  "total_attendance",
   "column_break_hwvp",
   "start_time",
   "stop__time",
+  "location",
   "section_break_wrcx",
   "attendees"
  ],
@@ -50,14 +53,27 @@
    "fieldtype": "Link",
    "label": "Group Class",
    "options": "Group Class"
+  },
+  {
+   "fieldname": "total_attendance",
+   "fieldtype": "Data",
+   "label": "Total Attendance"
+  },
+  {
+   "fetch_from": "group_class.location",
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Gym Location"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-09 12:18:40.479146",
+ "modified": "2024-11-10 09:24:12.944803",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Attendance",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {
