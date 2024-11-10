@@ -8,26 +8,37 @@ def execute(filters=None):
 
 def get_data(filters):
     conditions = []
-    
+    user = frappe.session.user
+
+    if user != "Administrator":
+        user_roles = frappe.get_doc("User", user)
+        if 'Member' in [role.role for role in user_roles.roles]:
+            doc = frappe.get_doc("Gym Member", {"email": user})
+            if 'member_name' not in filters:
+                filters['member_name'] = []
+            if isinstance(filters['member_name'], str):
+                filters['member_name'] = [filters['member_name']]
+            filters['member_name'].append(doc.full_name)
+
     if filters.get("meeting_id"):
         conditions.append(f"CA.name = '{filters['meeting_id']}'")
-    
+
     if filters.get("member_name"):
         member_names = ', '.join(f"'{name}'" for name in filters['member_name'])
         conditions.append(f"M.full_name IN ({member_names})")
-    
+
     if filters.get("location"):
         conditions.append(f"A.location LIKE '%{filters['location']}%'")
-    
+
     if filters.get("attendance_status"):
         conditions.append(f"CA.presence = '{filters['attendance_status']}'")
-    
+
     if filters.get("from_date"):
         conditions.append(f"A.meeting_date >= '{filters['from_date']}'")
-    
+
     if filters.get("to_date"):
         conditions.append(f"A.meeting_date <= '{filters['to_date']}'")
-    
+
     SQL_query = f"""
         SELECT
             CA.member AS member_id,
@@ -55,12 +66,12 @@ def get_data(filters):
 
 def get_columns():
     return [
-        {"fieldname": "meeting_id", "label": "Meeting ID", "fieldtype": "Data", "width": 150, "align": "left"},
+        {"fieldname": "meeting_id", "label": "Group Workout ID", "fieldtype": "Data", "width": 150, "align": "left"},
         {"fieldname": "member_name", "label": "Member Name", "fieldtype": "Data", "width": 150, "align": "left"},
         {"fieldname": "attendance_status", "label": "Attendance Status", "fieldtype": "Data", "width": 150, "align": "left"},
         {"fieldname": "time_in", "label": "Time In", "fieldtype": "Time", "width": 150, "align": "left"},
         {"fieldname": "time_out", "label": "Time Out", "fieldtype": "Time", "width": 150, "align": "left"},
         {"fieldname": "location", "label": "Location", "fieldtype": "Data", "width": 150, "align": "left"},
-        {"fieldname": "meeting_date", "label": "Meeting Date", "fieldtype": "Date", "width": 130, "align": "left"},
+        {"fieldname": "meeting_date", "label": "Workout Date", "fieldtype": "Date", "width": 130, "align": "left"},
         {"fieldname": "total_attendance", "label": "Tot Attendance", "fieldtype": "Int", "width": 75, "align": "left"},
     ]
