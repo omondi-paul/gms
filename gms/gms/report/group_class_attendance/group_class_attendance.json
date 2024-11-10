@@ -9,7 +9,7 @@
  "idx": 0,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2024-11-10 09:42:31.096330",
+ "modified": "2024-11-10 10:13:56.208962",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Group Class Attendance",
@@ -24,6 +24,9 @@
   },
   {
    "role": "Member"
+  },
+  {
+   "role": "Trainer"
   }
  ],
  "timeout": 0

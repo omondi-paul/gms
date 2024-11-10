@@ -4,6 +4,8 @@ from frappe import _
 def execute(filters=None):
     columns = get_columns()
     data = get_data(filters)
+    if not data:
+        return [], []
     return columns, data
 
 def get_data(filters):
@@ -12,6 +14,9 @@ def get_data(filters):
 
     if user != "Administrator":
         user_roles = frappe.get_doc("User", user)
+        if 'Trainer' not in [role.role for role in user_roles.roles] and 'Member' not in [role.role for role in user_roles.roles]:
+            return None
+
         if 'Member' in [role.role for role in user_roles.roles]:
             doc = frappe.get_doc("Gym Member", {"email": user})
             if 'member_name' not in filters:
