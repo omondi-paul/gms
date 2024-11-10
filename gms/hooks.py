@@ -8,6 +8,55 @@ app_license = "mit"
 # Apps
 # ------------------
 
+
+permission_query_conditions = {
+            "Gym Locker Booking": "gms.services.rest.get_permission_query_conditions",
+            "Gym Membership": "gms.services.rest.get_permission_query_conditions",
+            "Gym Member": "gms.services.rest.get_permission_query_conditions",
+            "Join Class": "gms.services.rest.get_permission_query_conditions",
+            }
+
+
+doc_events = {
+    "Gym Member": {
+        "before_insert": "gms.services.rest.before_inserting_gym_member",
+        "after_insert": "gms.services.rest.after_inserting_gym_member"
+    },
+   "Gym Trainer": {
+        "before_insert": "gms.services.rest.before_inserting_gym_trainer",
+        "after_insert": "gms.services.rest.after_inserting_gym_trainer"
+    },
+    "Gym Locker Booking": {
+        "after_save": "gms.services.rest.fill_time",
+         "on_update": "gms.services.rest.create_sales_invoice_for_locker_booking"
+    },
+     "Gym Membership": {
+         "on_update": "gms.services.rest.create_sales_invoice_for_membership"
+    },
+     "Gym Cardio Machine": {
+         "on_insert": "gms.services.rest.after_inserting_gym_machine"
+    },
+}
+
+
+fixtures = [
+  "Workspace",
+  "Role",
+  "Custom DocPerm",
+  "Gym Locker Number",
+  "Custom Field",
+  "Role Profile",
+  "Module Profile",
+  "Workflow",
+  "Workflow Action Master",
+  "Workflow State",
+  "Gym Cardio Machine",
+  "Location",
+  "Group Class"
+
+]
+
+
 # required_apps = []
 
 # Each item in the list will be shown as an app in the apps page
@@ -117,18 +166,9 @@ app_license = "mit"
 # -----------
 # Permissions evaluated in scripted ways
 
-# permission_query_conditions = {
-# 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
-# }
 
 
 
-permission_query_conditions = {
-            "Gym Locker Booking": "gms.services.rest.get_permission_query_conditions",
-            "Gym Membership": "gms.services.rest.get_permission_query_conditions",
-            "Gym Member": "gms.services.rest.get_permission_query_conditions",
-            "Join Class": "gms.services.rest.get_permission_query_conditions",
-            }
 
 # has_permission = {
 # 	"Event": "frappe.desk.doctype.event.event.has_permission",
@@ -155,26 +195,6 @@ permission_query_conditions = {
 # }
 
 
-doc_events = {
-    "Gym Member": {
-        "before_insert": "gms.services.rest.before_inserting_gym_member",
-        "after_insert": "gms.services.rest.after_inserting_gym_member"
-    },
-   "Gym Trainer": {
-        "before_insert": "gms.services.rest.before_inserting_gym_trainer",
-        "after_insert": "gms.services.rest.after_inserting_gym_trainer"
-    },
-    "Gym Locker Booking": {
-        "after_save": "gms.services.rest.fill_time",
-         "on_update": "gms.services.rest.create_sales_invoice_for_locker_booking"
-    },
-     "Gym Membership": {
-         "on_update": "gms.services.rest.create_sales_invoice_for_membership"
-    },
-     "Gym Cardio Machine": {
-         "on_insert": "gms.services.rest.after_inserting_gym_machine"
-    },
-}
 
 
 # Scheduled Tasks
@@ -274,19 +294,4 @@ doc_events = {
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
-fixtures = [
-  "Workspace",
-  "Role",
-  "Custom DocPerm",
-  "Gym Locker Number",
-  "Custom Field",
-  "Role Profile",
-  "Module Profile",
-  "Workflow",
-  "Workflow Action Master",
-  "Workflow State",
-  "Gym Cardio Machine",
-  "Location",
-  "Group Class"
 
-]

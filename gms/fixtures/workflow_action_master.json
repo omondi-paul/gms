@@ -2,27 +2,6 @@
  {
   "docstatus": 0,
   "doctype": "Workflow Action Master",
-  "modified": "2024-11-07 11:37:29.637588",
-  "name": "Approve",
-  "workflow_action_name": "Approve"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow Action Master",
-  "modified": "2024-11-07 11:37:29.639342",
-  "name": "Reject",
-  "workflow_action_name": "Reject"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow Action Master",
-  "modified": "2024-11-07 11:37:29.640777",
-  "name": "Review",
-  "workflow_action_name": "Review"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow Action Master",
   "modified": "2024-11-07 10:49:10.021617",
   "name": "Reserve",
   "workflow_action_name": "Reserve"
@@ -37,8 +16,64 @@
  {
   "docstatus": 0,
   "doctype": "Workflow Action Master",
-  "modified": "2024-11-07 10:50:29.673200",
+  "modified": "2024-05-30 13:17:25.083098",
+  "name": "Reject",
+  "workflow_action_name": "Reject"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2024-05-30 13:17:25.079242",
+  "name": "Approve",
+  "workflow_action_name": "Approve"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2024-07-02 23:00:44.075284",
+  "name": "Submit",
+  "workflow_action_name": "Submit"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2024-07-02 23:01:15.914475",
   "name": "Cancel",
   "workflow_action_name": "Cancel"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2024-05-30 13:17:25.085905",
+  "name": "Review",
+  "workflow_action_name": "Review"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2024-08-22 10:15:21.784279",
+  "name": "Send for Review",
+  "workflow_action_name": "Send for Review"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2024-08-22 10:17:45.645511",
+  "name": "Send",
+  "workflow_action_name": "Send"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2024-10-16 12:12:47.362257",
+  "name": "Send To Technician",
+  "workflow_action_name": "Send To Technician"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2024-10-16 12:13:38.357331",
+  "name": "Close",
+  "workflow_action_name": "Close"
  }
 ]

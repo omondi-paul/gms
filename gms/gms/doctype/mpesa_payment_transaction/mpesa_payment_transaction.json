@@ -1,0 +1,83 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-11-10 19:48:59.155171",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "mpesa_receipt_number",
+  "mobile_number",
+  "merchant_request_id",
+  "result_code",
+  "column_break_kedo",
+  "amount",
+  "transaction_date",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "mpesa_receipt_number",
+   "fieldtype": "Data",
+   "label": "MPesa Receipt Number"
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number"
+  },
+  {
+   "fieldname": "merchant_request_id",
+   "fieldtype": "Data",
+   "label": "Merchant Request ID"
+  },
+  {
+   "fieldname": "column_break_kedo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount"
+  },
+  {
+   "fieldname": "transaction_date",
+   "fieldtype": "Date",
+   "label": "Transaction Date"
+  },
+  {
+   "fieldname": "result_code",
+   "fieldtype": "Data",
+   "label": "Result Code"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Pending\nReconciled"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-11-10 19:51:57.370879",
+ "modified_by": "Administrator",
+ "module": "Gms",
+ "name": "MPesa Payment Transaction",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
