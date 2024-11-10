@@ -5,17 +5,37 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "section_break_jgvb"
+  "sales_invoice",
+  "mobile_number",
+  "column_break_ofyu",
+  "amount"
  ],
  "fields": [
   {
-   "fieldname": "section_break_jgvb",
-   "fieldtype": "Section Break"
+   "fieldname": "sales_invoice",
+   "fieldtype": "Link",
+   "label": "Sales Invoice",
+   "options": "Sales Invoice"
+  },
+  {
+   "fieldname": "mobile_number",
+   "fieldtype": "Data",
+   "label": "Mobile Number",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "column_break_ofyu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-10 19:59:46.901366",
+ "modified": "2024-11-10 20:46:43.598251",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Request Payment",

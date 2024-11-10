@@ -9,12 +9,11 @@ from gms.services.utils import send_sms
 from datetime import datetime
 
 
-
 @frappe.whitelist(methods=['GET'], allow_guest=True)
 def make_payment(amount, mobile_number, invoice_number):
     try:
         existing_transaction_name = frappe.db.get_all(
-            'Pending Payment Transactions',
+            'Payment Transaction',
             filters={
                 'invoice_number': invoice_number,
                 'mobile_number': mobile_number,
@@ -24,16 +23,16 @@ def make_payment(amount, mobile_number, invoice_number):
         )
 
         for transaction in existing_transaction_name:
-            frappe.db.delete("Pending Payment Transactions", {
+            frappe.db.delete("Payment Transaction", {
                 "name": transaction.name,
             })
         
         frappe.db.commit()
 
-        paybill_number, account_number = frappe.db.get_value('Chamakit Payment Account', None, ['paybill_number', 'account_number'])
+        paybill_number, account_number = frappe.db.get_value('GMS Payment Account', None, ['paybill_number', 'account_number'])
 
         doc = frappe.get_doc({
-            'doctype': 'Pending Payment Transactions',
+            'doctype': 'Payment Transaction',
             'invoice_number': invoice_number,
             'mobile_number': mobile_number,
             'amount': amount,
@@ -77,7 +76,7 @@ def stk_push_response():
     
     try:
         doc = frappe.get_doc({
-            'doctype': 'Mpesa Payment Transactions',
+            'doctype': 'Mpesa Payment Transaction',
             'merchant_request_id': response['MerchantRequestID'],
             'result_code': reference_code, 
             'amount': Amount,

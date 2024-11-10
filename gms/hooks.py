@@ -36,6 +36,9 @@ doc_events = {
      "Gym Cardio Machine": {
          "on_insert": "gms.services.rest.after_inserting_gym_machine"
     },
+    "Request Payment": {
+        "after_insert": "gms.services.rest.call_make_payment"
+    },
 }
 
 
@@ -56,6 +59,16 @@ fixtures = [
 
 ]
 
+
+
+# jinja = {
+#     "methods": [
+#     "chama_app.services.rest.get_amount",
+#     "chama_app.services.rest.get_current_month" ,
+#     "chama_app.services.rest.get_due_date_formatted",
+#      "chama_app.services.rest.get_invoice_pay_link"   
+#     ]
+# }
 
 # required_apps = []
 
