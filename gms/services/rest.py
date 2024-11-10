@@ -6,7 +6,12 @@ from datetime import datetime, date
 from gms.services.login import login
 from frappe.utils import add_months, add_days
 
+# frappe.user_roles.includes('Custom Role')
 
+
+# @frappe.whitelist(allow_guest=True)
+# def fetch_class_attendees(group_class):
+#     return
 
 @frappe.whitelist(allow_guest=True)
 def fetch_class_attendees(group_class):
@@ -65,32 +70,59 @@ def get_user_role():
             return "true"
     return False
 
+# @frappe.whitelist()
+# def get_permission_query_conditions(user, doctype):
+#     try:
+#         if user != "Administrator":
+#             user_roles = frappe.get_doc("User", user)
+#             for role in user_roles.roles:
+#                 if role.role == "Member":
+#                     doc = frappe.get_doc("Gym Member", {"email": user})
+#                     if doctype == "Gym Member":
+#                         return f"(`tab{doctype}`.email = '{user}')"
+#                     elif doctype in ["Gym Locker Booking", "Gym Membership"]:
+#                         return f"(`tab{doctype}`.member = '{doc.name}')"
+#                     elif doctype in ["Join Class"]:
+#                         return f"(`tab{doctype}`.gym_member = '{doc.name}')"
+
+#             else:
+#                 return
+#         else:
+#             return 
+#     except frappe.DoesNotExistError as e:
+#         frappe.log_error(f"Document not found: {e}", "Permission Query Error")
+#         return ""
+
+#     except Exception as e:
+#         frappe.log_error(f"An error occurred: {e}", "Permission Query Error")
+#         return ""
+
+
+
 @frappe.whitelist()
 def get_permission_query_conditions(user, doctype):
     try:
         if user != "Administrator":
             user_roles = frappe.get_doc("User", user)
-            for role in user_roles.roles:
-                if role.role == "Member":
-                    doc = frappe.get_doc("Gym Member", {"email": user})
-                    if doctype == "Gym Member":
-                        return f"(`tab{doctype}`.email = '{user}')"
-                    elif doctype in ["Gym Locker Booking", "Gym Membership"]:
-                        return f"(`tab{doctype}`.member = '{doc.name}')"
-                    elif doctype in ["Join Class"]:
-                        return f"(`tab{doctype}`.gym_member = '{doc.name}')"
-
+            if 'Member' in [role.role for role in user_roles.roles]:
+                doc = frappe.get_doc("Gym Member", {"email": user})
+                if doctype == "Gym Member":
+                    return f"(`tab{doctype}`.email = '{user}')"
+                elif doctype in ["Gym Locker Booking", "Gym Membership"]:
+                    return f"(`tab{doctype}`.member = '{doc.name}')"
+                elif doctype == "Join Class":
+                    return f"(`tab{doctype}`.gym_member = '{doc.name}')"
             else:
-                return
+                return  
         else:
             return 
     except frappe.DoesNotExistError as e:
         frappe.log_error(f"Document not found: {e}", "Permission Query Error")
         return ""
-
     except Exception as e:
         frappe.log_error(f"An error occurred: {e}", "Permission Query Error")
         return ""
+
 
 @frappe.whitelist()
 def create_sales_invoice_for_membership(doc,method):
