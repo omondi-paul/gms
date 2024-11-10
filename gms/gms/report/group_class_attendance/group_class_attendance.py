@@ -11,7 +11,6 @@ def execute(filters=None):
 def get_data(filters):
     conditions = []
     user = frappe.session.user
-
     if user != "Administrator":
         user_roles = frappe.get_doc("User", user)
         if 'Trainer' not in [role.role for role in user_roles.roles] and 'Member' not in [role.role for role in user_roles.roles]:
@@ -19,18 +18,17 @@ def get_data(filters):
 
         if 'Member' in [role.role for role in user_roles.roles]:
             doc = frappe.get_doc("Gym Member", {"email": user})
-            if 'member_name' not in filters:
-                filters['member_name'] = []
-            if isinstance(filters['member_name'], str):
-                filters['member_name'] = [filters['member_name']]
-            filters['member_name'].append(doc.full_name)
+            if 'member_id' not in filters:
+                filters['member_id'] = []
+            if isinstance(filters['member_id'], str):
+                filters['member_id'] = [filters['member_id']]
+            filters['member_id'].append(doc.name)
 
     if filters.get("meeting_id"):
         conditions.append(f"CA.name = '{filters['meeting_id']}'")
 
-    if filters.get("member_name"):
-        member_names = ', '.join(f"'{name}'" for name in filters['member_name'])
-        conditions.append(f"M.full_name IN ({member_names})")
+    if filters.get("member_id"):
+        conditions.append(f"CA.member = '{filters['member_id']}'")
 
     if filters.get("location"):
         conditions.append(f"A.location LIKE '%{filters['location']}%'")
@@ -72,6 +70,7 @@ def get_data(filters):
 def get_columns():
     return [
         {"fieldname": "meeting_id", "label": "Group Workout ID", "fieldtype": "Data", "width": 150, "align": "left"},
+        {"fieldname": "member_id", "label": "Member ID", "fieldtype": "data",  "width": 150, "align": "left"},
         {"fieldname": "member_name", "label": "Member Name", "fieldtype": "Data", "width": 150, "align": "left"},
         {"fieldname": "attendance_status", "label": "Attendance Status", "fieldtype": "Data", "width": 150, "align": "left"},
         {"fieldname": "time_in", "label": "Time In", "fieldtype": "Time", "width": 150, "align": "left"},

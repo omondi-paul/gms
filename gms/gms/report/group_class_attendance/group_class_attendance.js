@@ -4,19 +4,17 @@ frappe.query_reports["Group Class Attendance"] = {
 			fieldname: "meeting_id",
 			label: __("Meeting ID"),
 			fieldtype: "Link",
-			options: "Meeting",
+			options: "Attendance",
 			width: 150,
 			reqd: 0
 		},
 		{
-			fieldname: "member_name",
-			label: __("Member Name"),
-			fieldtype: "MultiSelectList",
+			fieldname: "member_id",
+			label: __("Member ID"),
+			fieldtype: "Link",
 			width: 150,
 			reqd: 0,
-			get_data: function(txt) {
-				return frappe.db.get_link_options("Gym Member", txt);
-			}
+			options: "Gym Member",
 		},
 		{
 			fieldname: "location",
