@@ -7,6 +7,7 @@
  "field_order": [
   "invoice_number",
   "amount",
+  "date",
   "column_break_nenz",
   "mobile_number",
   "status"
@@ -15,11 +16,20 @@
   {
    "fieldname": "amount",
    "fieldtype": "Currency",
-   "label": "Amount"
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Amount",
+   "print_width": "2"
   },
   {
    "fieldname": "invoice_number",
    "fieldtype": "Link",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Invoice Number",
    "options": "Sales Invoice"
   },
@@ -30,22 +40,37 @@
   {
    "fieldname": "mobile_number",
    "fieldtype": "Data",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Mobile Number",
    "options": "Phone"
   },
   {
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Status",
-   "options": "Pending\nReconciled"
+   "options": "Pending\nReconciled",
+   "print_width": "2"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Datetime",
+   "label": "Date ",
+   "options": "Today"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-10 19:19:37.341683",
+ "modified": "2024-11-11 09:29:48.070072",
  "modified_by": "Administrator",
  "module": "Gms",
- "name": "Payment Trasactions",
+ "name": "Payment Transaction",
  "owner": "Administrator",
  "permissions": [
   {
