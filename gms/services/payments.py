@@ -6,7 +6,7 @@ from gms.services.utils import format_mobile_number
 from gms.services.utils import create_payment_entry
 from gms.services.utils import send_sms
 from datetime import datetime
-from gms.services.rest import update_mgr_status, enqueue_member_contribution, update_table_banking_fund, process_loan_repayment
+from gms.services.update import update_mgr_status, enqueue_member_contribution, update_table_banking_fund, process_loan_repayment
 
 
 
@@ -34,7 +34,6 @@ class ProcessPayment:
                 "Content-Type": "application/json",
                 "Authorization": f"Bearer { self.generate_access_token() }"
             }
-
             response = requests.request("POST", url, json=payload, headers=headers)
             return response.json()
         except Exception as e:
@@ -134,9 +133,6 @@ def make_payment(amount, mobile_number, invoice_number):
         return {'error': str(e)}, 400
 
 
-
-    
-
 @frappe.whitelist(allow_guest=True)
 def stk_push_response():
     # data = frappe.request.get_json(force=True)
@@ -183,8 +179,8 @@ def stk_push_response():
 
 
 
-
-def process_payment_and_reconcile_member_invoice(MpesaReceiptNumber, TransactionDate, PhoneNumber, Amount):
+@frappe.whitelist(allow_guest=True)
+def process_payment_and_reconcile_member_invoice():
     try:
         data={'Body': {'stkCallback': {'MerchantRequestID': '4f9d-4622-a0da-1c77977dad0c137103410', 
         'CheckoutRequestID': 'ws_CO_11112024114458752768135284', 'ResultCode': 0,
@@ -225,14 +221,14 @@ def process_payment_and_reconcile_member_invoice(MpesaReceiptNumber, Transaction
         }]
 
         customer = frappe.db.get_value("Sales Invoice", {"name": pending_transaction[0].invoice_number}, "customer")
-        return customer
 
         if not customer:
             frappe.log_error(f"No customer found for member with phone number {standardized_phone_number}", "Payment Reconciliation Error")
             return {'error': 'Customer not found'}, 404
 
+        
         create_payment_entry("M-Pesa", customer, Amount, paid_to_account, MpesaReceiptNumber, TransactionDate, payment_reference, pending_transaction[0].name)
-
+        
         def update_invoice_status(invoice_name):
             invoice_doc = frappe.get_doc("Sales Invoice", invoice_name)
             invoice_doc.reload()

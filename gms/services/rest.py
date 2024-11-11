@@ -23,23 +23,7 @@ from gms.services.payments import make_payment
 #     return URL
 
 
-def call_make_payment(doc,method):
-    make_payment(round(doc.amount), doc.mobile_number, doc.sales_invoice)
-    return True
 
-
-def update_mgr_status():
-    pass
-def enqueue_member_contribution():
-    pass
-
-def  update_table_banking_fund():
-    pass
-def process_loan_repayments():
-    pass
-
-def process_loan_repayment():
-    pass
 
 @frappe.whitelist(allow_guest=True)
 def fetch_class_attendees(group_class):
