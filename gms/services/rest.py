@@ -22,8 +22,7 @@ from gms.services.payments import make_payment
 #     URL =f"{BASE_URL}/payment-requests/new?amount={doc.outstanding_amount}&mobile_number={phone}&sales_invoice={doc.name}"
 #     return URL
 
-def after_insert(doc,):
-    # BASE_URL = frappe.utils.get_url()
+def call_make_payment(doc,method):
     rounded_amount = round(doc.amount)  
     make_payment(rounded_amount, doc.mobile_number, doc.sales_invoice)
     return True

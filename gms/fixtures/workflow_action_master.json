@@ -2,20 +2,6 @@
  {
   "docstatus": 0,
   "doctype": "Workflow Action Master",
-  "modified": "2024-11-07 10:49:10.021617",
-  "name": "Reserve",
-  "workflow_action_name": "Reserve"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow Action Master",
-  "modified": "2024-11-07 10:49:54.247284",
-  "name": "Release",
-  "workflow_action_name": "Release"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow Action Master",
   "modified": "2024-05-30 13:17:25.083098",
   "name": "Reject",
   "workflow_action_name": "Reject"
@@ -26,13 +12,6 @@
   "modified": "2024-05-30 13:17:25.079242",
   "name": "Approve",
   "workflow_action_name": "Approve"
- },
- {
-  "docstatus": 0,
-  "doctype": "Workflow Action Master",
-  "modified": "2024-07-02 23:00:44.075284",
-  "name": "Submit",
-  "workflow_action_name": "Submit"
  },
  {
   "docstatus": 0,
@@ -75,5 +54,26 @@
   "modified": "2024-10-16 12:13:38.357331",
   "name": "Close",
   "workflow_action_name": "Close"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2024-11-07 10:49:10.021617",
+  "name": "Reserve",
+  "workflow_action_name": "Reserve"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2024-11-07 10:49:54.247284",
+  "name": "Release",
+  "workflow_action_name": "Release"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Workflow Action Master",
+  "modified": "2024-07-02 23:00:44.075284",
+  "name": "Submit",
+  "workflow_action_name": "Submit"
  }
 ]

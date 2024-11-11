@@ -942,16 +942,6 @@
  {
   "docstatus": 0,
   "doctype": "Gym Locker Number",
-  "locker_number": 100,
-  "modified": "2024-11-05 11:30:19.700446",
-  "name": "Locker 100",
-  "next_date_available": null,
-  "occupant": null,
-  "status": "Vacant"
- },
- {
-  "docstatus": 0,
-  "doctype": "Gym Locker Number",
   "locker_number": 92,
   "modified": "2024-11-05 11:30:19.635896",
   "name": "Locker 92",
@@ -997,6 +987,16 @@
   "name": "Locker 93",
   "next_date_available": null,
   "occupant": null,
+  "status": "Vacant"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Locker Number",
+  "locker_number": 100,
+  "modified": "2024-11-10 21:12:23.364428",
+  "name": "Locker 100",
+  "next_date_available": null,
+  "occupant": "",
   "status": "Vacant"
  }
 ]

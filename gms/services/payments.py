@@ -4,7 +4,6 @@ import os
 from dotenv import load_dotenv
 from gms.services.utils import format_mobile_number
 from gms.services.utils import create_payment_entry
-from gms.services.rest import update_mgr_status, enqueue_member_contribution, update_table_banking_fund, process_loan_repayment
 from gms.services.utils import send_sms
 from datetime import datetime
 
@@ -28,8 +27,7 @@ def make_payment(amount, mobile_number, invoice_number):
             })
         
         frappe.db.commit()
-
-        paybill_number, account_number = frappe.db.get_value('GMS Payment Account', None, ['paybill_number', 'account_number'])
+        paybill, account_number = frappe.db.get_value('GMS Payment Account', None, ['paybill', 'account_number'])
 
         doc = frappe.get_doc({
             'doctype': 'Payment Transaction',
@@ -43,7 +41,7 @@ def make_payment(amount, mobile_number, invoice_number):
         frappe.db.commit()
 
         context = {
-            "paybill_number": paybill_number,
+            "paybill": paybill,
             "bank_account_number": account_number,
             "amount": amount,
             "mobile_number": format_mobile_number(mobile_number)
@@ -146,40 +144,40 @@ def process_payment_and_reconcile_member_invoice(MpesaReceiptNumber, Transaction
                 current_month = datetime.now().strftime("%B")
                 month_to_use = invoice_doc.custom_invoice_month if invoice_doc.custom_invoice_month else current_month
                 
-                enqueue_member_contribution(
-                    member=member_name,
-                    amount=Amount,
-                    contribution_type=invoice_doc.custom_contribution_type,
-                    month=month_to_use,  
-                    date_of_contribution=TransactionDate,
-                    phone_number=standardized_phone_number,
-                    invoice_name=pending_transaction[0].invoice_number, 
-                    merry_go_round_number=invoice_doc.custom_merry_go_round_number,  
-                    table_banking_fund_number=invoice_doc.custom_table_banking_number 
-                )
+                # enqueue_member_contribution(
+                #     member=member_name,
+                #     amount=Amount,
+                #     contribution_type=invoice_doc.custom_contribution_type,
+                #     month=month_to_use,  
+                #     date_of_contribution=TransactionDate,
+                #     phone_number=standardized_phone_number,
+                #     invoice_name=pending_transaction[0].invoice_number, 
+                #     merry_go_round_number=invoice_doc.custom_merry_go_round_number,  
+                #     table_banking_fund_number=invoice_doc.custom_table_banking_number 
+                # )
 
         if invoice_doc.custom_contribution_type == "Merry Go Round":
             round_number = invoice_doc.custom_merry_go_round_number  
-            update_mgr_status(round_number, pending_transaction[0].invoice_number, Amount) 
+            # update_mgr_status(round_number, pending_transaction[0].invoice_number, Amount) 
 
         elif invoice_doc.custom_contribution_type == "Table Banking Fund":
             table_banking_fund_number = invoice_doc.custom_table_banking_number
-            update_table_banking_fund(
-                member=member_name,
-                amount=Amount,
-                date_of_contribution=TransactionDate,
-                table_banking_fund_number=table_banking_fund_number
-            )
+            # update_table_banking_fund(
+            #     member=member_name,
+            #     amount=Amount,
+            #     date_of_contribution=TransactionDate,
+            #     table_banking_fund_number=table_banking_fund_number
+            # )
         elif invoice_doc.custom_contribution_type == "Loan Repayment":
             loan_name = frappe.db.get_value('Loan', {'loan_invoice': invoice_doc.name}, 'name')
-            if loan_name:
-                process_loan_repayment(
-                    loan_name=loan_name,
-                    amount_to_pay=Amount,
-                    invoice_name=invoice_doc.name
-                )
+            # if loan_name:
+                # process_loan_repayment(
+                #     loan_name=loan_name,
+                #     amount_to_pay=Amount,
+                #     invoice_name=invoice_doc.name
+                # )
 
-        frappe.db.commit()
+        # frappe.db.commit()
 
         full_name = frappe.db.get_value('Member', {"name": member_name}, "full_name")
         message = f" Dear {full_name}, Thank you for your {invoice_doc.custom_contribution_type} contribution of {Amount}. It has been successfully received."
@@ -246,11 +244,11 @@ class ProcessPayment:
                 "TransactionType": "CustomerPayBillOnline",
                 "Amount": f"{payload['amount']}",
                 "PartyA": f"{payload['mobile_number']}",
-                "PartyB": f"{payload['paybill_number']}",
+                "PartyB": f"{payload['paybill']}",
                 "PhoneNumber": f"{payload['mobile_number']}",
-                "CallBackURL": "https://kajiz.chamakit.com/api/method/gms.services.payments.stk_push_response",
+                "CallBackURL": "http://192.168.1.110:8007/api/method/gms.services.payments.stk_push_response",
                 "AccountReference": f"{payload['bank_account_number']}",
-                "TransactionDesc": "Chama Payment"
+                "TransactionDesc": "Gym Payment"
             }
             
 
