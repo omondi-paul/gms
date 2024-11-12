@@ -6,6 +6,7 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "section_break_kgzb",
   "mpesa_receipt_number",
   "mobile_number",
   "merchant_request_id",
@@ -23,7 +24,8 @@
    "in_list_view": 1,
    "in_preview": 1,
    "in_standard_filter": 1,
-   "label": "MPesa Receipt Number"
+   "label": "MPesa Receipt Number",
+   "read_only": 1
   },
   {
    "fieldname": "mobile_number",
@@ -32,12 +34,15 @@
    "in_list_view": 1,
    "in_preview": 1,
    "in_standard_filter": 1,
-   "label": "Mobile Number"
+   "label": "Mobile Number",
+   "read_only": 1
   },
   {
    "fieldname": "merchant_request_id",
    "fieldtype": "Data",
-   "label": "Merchant Request ID"
+   "hidden": 1,
+   "label": "Merchant Request ID",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_kedo",
@@ -50,7 +55,8 @@
    "in_list_view": 1,
    "in_preview": 1,
    "in_standard_filter": 1,
-   "label": "Amount"
+   "label": "Amount",
+   "read_only": 1
   },
   {
    "fieldname": "transaction_date",
@@ -59,12 +65,15 @@
    "in_list_view": 1,
    "in_preview": 1,
    "in_standard_filter": 1,
-   "label": "Transaction Date"
+   "label": "Transaction Date",
+   "read_only": 1
   },
   {
    "fieldname": "result_code",
    "fieldtype": "Data",
-   "label": "Result Code"
+   "hidden": 1,
+   "label": "Result Code",
+   "read_only": 1
   },
   {
    "fieldname": "status",
@@ -74,12 +83,17 @@
    "in_preview": 1,
    "in_standard_filter": 1,
    "label": "Status",
-   "options": "Pending\nReconciled"
+   "options": "Pending\nReconciled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_kgzb",
+   "fieldtype": "Section Break"
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-11 12:01:00.139806",
+ "modified": "2024-11-12 14:42:57.055778",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "MPesa Payment Transaction",

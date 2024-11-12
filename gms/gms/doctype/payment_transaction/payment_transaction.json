@@ -21,7 +21,8 @@
    "in_preview": 1,
    "in_standard_filter": 1,
    "label": "Amount",
-   "print_width": "2"
+   "print_width": "2",
+   "read_only": 1
   },
   {
    "fieldname": "invoice_number",
@@ -31,7 +32,8 @@
    "in_preview": 1,
    "in_standard_filter": 1,
    "label": "Invoice Number",
-   "options": "Sales Invoice"
+   "options": "Sales Invoice",
+   "read_only": 1
   },
   {
    "fieldname": "column_break_nenz",
@@ -45,7 +47,8 @@
    "in_preview": 1,
    "in_standard_filter": 1,
    "label": "Mobile Number",
-   "options": "Phone"
+   "options": "Phone",
+   "read_only": 1
   },
   {
    "fieldname": "status",
@@ -56,18 +59,20 @@
    "in_standard_filter": 1,
    "label": "Status",
    "options": "Pending\nReconciled",
-   "print_width": "2"
+   "print_width": "2",
+   "read_only": 1
   },
   {
    "fieldname": "date",
    "fieldtype": "Datetime",
    "label": "Date ",
-   "options": "Today"
+   "options": "Today",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-11 09:29:48.070072",
+ "modified": "2024-11-12 14:51:54.466615",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Payment Transaction",

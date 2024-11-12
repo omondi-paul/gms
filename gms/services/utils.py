@@ -99,7 +99,6 @@ def create_payment_entry(mode_of_payment, customer, amount, paid_to, reference_n
 
 def create_payment_entry_job(mode_of_payment, customer, amount, paid_to, reference_number, reference_date, payment_reference, pending_transaction):
     try:
-        print(f"\n\n\n succcessssfulll \n\n\n")
         frappe.set_user('Administrator')
 
         payment_entry_data = {
@@ -116,8 +115,6 @@ def create_payment_entry_job(mode_of_payment, customer, amount, paid_to, referen
                 "reference_date": reference_date,
                 "paid_to_account_currency": "KES"
             }
-        print(f"\n\n\n{payment_entry_data}\n\n\n")
-        print(f"\n\n\n successfulll again \n\n\n")
             
         if payment_reference:
             payment_entry_data["references"] = payment_reference
@@ -126,15 +123,15 @@ def create_payment_entry_job(mode_of_payment, customer, amount, paid_to, referen
         payment_entry.insert(ignore_permissions=True, ignore_mandatory=True)
         if payment_entry.submit():
             existing_mpesa_payment_name = frappe.db.get_value(
-                'Mpesa Payment Transactions', 
+                'MPesa Payment Transaction', 
                 {
                     'mpesa_receipt_number': reference_number
                 },
                 'name'
             )
 
-            frappe.db.set_value('Mpesa Payment Transactions', existing_mpesa_payment_name, 'status', 'Reconciled')
-            frappe.db.set_value('Pending Payment Transactions', pending_transaction, 'status', 'Reconciled')
+            frappe.db.set_value('MPesa Payment Transaction', existing_mpesa_payment_name, 'status', 'Reconciled')
+            frappe.db.set_value('Payment Transaction', pending_transaction, 'status', 'Reconciled')
 
 
         frappe.db.commit()
