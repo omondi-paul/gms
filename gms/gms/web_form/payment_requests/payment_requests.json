@@ -10,7 +10,7 @@
  "amount_based_on_field": 0,
  "anonymous": 0,
  "apply_document_permissions": 0,
- "button_label": "Save",
+ "button_label": "Pay",
  "condition_json": "[]",
  "creation": "2024-11-12 17:04:40.399790",
  "currency": "KES",
@@ -22,7 +22,7 @@
  "list_columns": [],
  "login_required": 0,
  "max_attachment_size": 0,
- "modified": "2024-11-12 17:04:48.539613",
+ "modified": "2024-11-12 17:34:10.010797",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "payment-requests",
@@ -33,7 +33,9 @@
  "show_attachments": 0,
  "show_list": 0,
  "show_sidebar": 0,
- "title": "Payment Requests",
+ "success_message": "Please check you phone, we have sent you a request to complete payment!",
+ "success_title": "Request Successful!",
+ "title": "Make Payment",
  "web_form_fields": [
   {
    "allow_read_on_all_link_options": 0,
@@ -46,7 +48,7 @@
    "options": "Sales Invoice",
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {
@@ -60,7 +62,7 @@
    "options": "Phone",
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   },
   {
@@ -85,7 +87,7 @@
    "max_value": 0,
    "precision": "",
    "read_only": 0,
-   "reqd": 0,
+   "reqd": 1,
    "show_in_filter": 0
   }
  ]
