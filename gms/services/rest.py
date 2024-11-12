@@ -146,10 +146,11 @@ def get_permission_query_conditions(user, doctype):
         return ""
 
 
-@frappe.whitelist()
-def create_sales_invoice_for_membership(doc,method):
+@frappe.whitelist(allow_guest=True)
+# def create_sales_invoice_for_membership(doc,method):
+def create_sales_invoice_for_membership(doc):
     try:
-        doc = frappe.get_doc("Gym Membership", doc.name)
+        doc = frappe.get_doc("Gym Membership", doc)
         if doc.docstatus == 1:
             exists = frappe.get_all("Sales Invoice Item", {"custom_gym_membership": doc.name}, {"name"})
             if not exists:
@@ -194,13 +195,14 @@ def create_sales_invoice_for_membership(doc,method):
                     "doctype": "Sales Invoice",
                     "customer": member.full_name,
                     "due_date": due_date,
+                    "custom_payment_type":"Membership Subscription",
                     "items": items
                 })
                 invoice.insert(ignore_permissions=True)
                 invoice.save()
                 frappe.db.commit()
 
-        return frappe.get_all("Gym Membership", {}, {"*"})
+        return 
     except Exception as e:
         frappe.log_error(f"Error creating sales invoice: {e}")
         return {"error": str(e)}
@@ -248,6 +250,7 @@ def create_sales_invoice_for_locker_booking(doc, method):
                     "doctype": "Sales Invoice",
                     "customer": member.full_name,
                     "custom_locker_booking": doc.name,
+                    "custom_payment_type":"Locker Charges",
                     "due_date": due_date,
                     "items": items
                 })
