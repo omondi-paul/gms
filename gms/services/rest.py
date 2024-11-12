@@ -8,6 +8,12 @@ from frappe.utils import add_months, add_days
 from gms.services.payments import make_payment
 
 
+@frappe.whitelist()
+def get_current_month(doc):
+    month = datetime.now().strftime("%B")
+    gym_settings = frappe.get_single("Gym Settings")
+    gym_name = gym_settings.gym_name
+    return f"{gym_name}, {month}"  
 
 @frappe.whitelist()
 def get_invoice_pay_link(doc):

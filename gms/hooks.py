@@ -58,13 +58,15 @@ fixtures = [
   "Group Class",
   "Print Format",
   "Membership Type",
-  "Payment Type"
+  "Payment Type",
+  "Letter Head"
 
 ]
 
 jinja = {
-    "methods": [
-     "gms.services.rest.get_invoice_pay_link"   
+    "methods": [  
+     "gms.services.rest.get_invoice_pay_link",
+     "gms.services.rest.get_current_month"   
     ]
 }
 
