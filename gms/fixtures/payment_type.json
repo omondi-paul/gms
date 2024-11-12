@@ -1,0 +1,16 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Payment Type",
+  "modified": "2024-11-12 16:12:30.419239",
+  "name": "Locker Charges",
+  "payment_type": "Locker Charges"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Payment Type",
+  "modified": "2024-11-12 16:44:11.831000",
+  "name": "Membership Subscription",
+  "payment_type": "Membership Subscription"
+ }
+]

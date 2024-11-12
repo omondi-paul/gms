@@ -56,7 +56,9 @@ fixtures = [
   "Gym Cardio Machine",
   "Location",
   "Group Class",
-  "Print Format"
+  "Print Format",
+  "Membership Type",
+  "Payment Type"
 
 ]
 
