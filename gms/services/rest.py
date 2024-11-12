@@ -7,20 +7,15 @@ from gms.services.login import login
 from frappe.utils import add_months, add_days
 from gms.services.payments import make_payment
 
-# frappe.user_roles.includes('Custom Role')
 
 
-# @frappe.whitelist(allow_guest=True)
-# def fetch_class_attendees(group_class):
-#     return
-
-# @frappe.whitelist()
-# def get_invoice_pay_link(doc):
-#     BASE_URL = frappe.utils.get_url()
-#     customer=frappe.get_value("Customer",{"name":doc.customer}, "custom_chamaa_member")
-#     phone=frappe.get_value("Member",{"name":customer}, "phone_number")
-#     URL =f"{BASE_URL}/payment-requests/new?amount={doc.outstanding_amount}&mobile_number={phone}&sales_invoice={doc.name}"
-#     return URL
+@frappe.whitelist()
+def get_invoice_pay_link(doc):
+    BASE_URL = frappe.utils.get_url()
+    customer=frappe.get_value("Customer",{"name":doc.customer}, "custom_chamaa_member")
+    phone=frappe.get_value("Member",{"name":customer}, "phone_number")
+    URL =f"{BASE_URL}/payment-requests/new?amount={doc.outstanding_amount}&mobile_number={phone}&sales_invoice={doc.name}"
+    return URL
 
 
 @frappe.whitelist(allow_guest=True)
@@ -30,10 +25,6 @@ def call_make_payment(doc, method):
     make_payment(round(doc.amount), doc.mobile_number, doc.sales_invoice)
     return True
 
-# @frappe.whitelist(allow_guest=True)
-# def call_make_payment(amount, mobile_number, sales_invoice):
-#     make_payment(round(float(amount)), mobile_number, sales_invoice)
-#     return True
 
 @frappe.whitelist(allow_guest=True)
 def fetch_class_attendees(group_class):
