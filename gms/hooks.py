@@ -62,16 +62,12 @@ fixtures = [
 
 ]
 
+jinja = {
+    "methods": [
+     "gms.services.rest.get_invoice_pay_link"   
+    ]
+}
 
-
-# jinja = {
-#     "methods": [
-#     "chama_app.services.rest.get_amount",
-#     "chama_app.services.rest.get_current_month" ,
-#     "chama_app.services.rest.get_due_date_formatted",
-#      "chama_app.services.rest.get_invoice_pay_link"   
-#     ]
-# }
 
 # required_apps = []
 

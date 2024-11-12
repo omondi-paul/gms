@@ -12,16 +12,14 @@ from gms.services.payments import make_payment
 @frappe.whitelist()
 def get_invoice_pay_link(doc):
     BASE_URL = frappe.utils.get_url()
-    customer=frappe.get_value("Customer",{"name":doc.customer}, "custom_chamaa_member")
-    phone=frappe.get_value("Member",{"name":customer}, "phone_number")
+    customer=frappe.get_value("Customer",{"name":doc.customer}, "custom_gym_member")
+    phone=frappe.get_value("Gym Member",{"name":customer}, "mobile_number")
     URL =f"{BASE_URL}/payment-requests/new?amount={doc.outstanding_amount}&mobile_number={phone}&sales_invoice={doc.name}"
     return URL
 
 
 @frappe.whitelist(allow_guest=True)
 def call_make_payment(doc, method):
-    print(f"\n\n\n call make payements \n\n\n")
-
     make_payment(round(doc.amount), doc.mobile_number, doc.sales_invoice)
     return True
 
@@ -360,7 +358,7 @@ def create_customer_and_user_for_member(full_name, member_id, email, mobile_numb
 @frappe.whitelist()
 def create_customer(full_name, member_id):
     customer = frappe.get_doc({
-        "doctype": "Customer",
+        "doctype":"Customer",
         "customer_name": full_name,
         "customer_group": "Individual",
         "customer_type": "Individual",
@@ -375,7 +373,7 @@ def create_customer(full_name, member_id):
 def create_user_for_member(full_name, email, mobile_number):
     password = str(generate_simple_password())
     user = frappe.get_doc({
-        "doctype": "User",
+        "doctype":"User",
         "email": email,
         "first_name": full_name,
         "enabled": 1,
