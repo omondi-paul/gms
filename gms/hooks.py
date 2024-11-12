@@ -55,7 +55,8 @@ fixtures = [
   "Workflow State",
   "Gym Cardio Machine",
   "Location",
-  "Group Class"
+  "Group Class",
+  "Print Format"
 
 ]
 
