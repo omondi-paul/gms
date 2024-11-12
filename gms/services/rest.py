@@ -147,10 +147,9 @@ def get_permission_query_conditions(user, doctype):
 
 
 @frappe.whitelist(allow_guest=True)
-# def create_sales_invoice_for_membership(doc,method):
-def create_sales_invoice_for_membership(doc):
+def create_sales_invoice_for_membership(doc,method):
     try:
-        doc = frappe.get_doc("Gym Membership", doc)
+        doc = frappe.get_doc("Gym Membership", doc.name)
         if doc.docstatus == 1:
             exists = frappe.get_all("Sales Invoice Item", {"custom_gym_membership": doc.name}, {"name"})
             if not exists:
@@ -202,7 +201,7 @@ def create_sales_invoice_for_membership(doc):
                 invoice.save()
                 frappe.db.commit()
 
-        return 
+        return True
     except Exception as e:
         frappe.log_error(f"Error creating sales invoice: {e}")
         return {"error": str(e)}
