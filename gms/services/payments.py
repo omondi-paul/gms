@@ -24,7 +24,7 @@ class ProcessPayment:
                 "PartyA": f"{context['mobile_number']}",
                 "PartyB": f"{context['paybill']}",
                 "PhoneNumber": f"{context['mobile_number']}",
-                "CallBackURL": "https://52f3-102-213-179-89.ngrok-free.app/api/method/gms.services.payments.stk_push_response",
+                "CallBackURL": "https://313c-102-0-8-236.ngrok-free.app/api/method/gms.services.payments.stk_push_response",
                 "AccountReference": f"{context['bank_account_number']}",
                 "TransactionDesc": "Gym Payment"
             }
@@ -137,8 +137,7 @@ def make_payment(amount, mobile_number, invoice_number):
 
 @frappe.whitelist(allow_guest=True)
 def stk_push_response():
-    # data = frappe.request.get_json(force=True)
-    data={'Body': {'stkCallback': {'MerchantRequestID': '60e4-4f14-997e-f04c8c4f586d142963096', 'CheckoutRequestID': 'ws_CO_12112024122212507768135284', 'ResultCode': 0, 'ResultDesc': 'The service request is processed successfully.', 'CallbackMetadata': {'Item': [{'Name': 'Amount', 'Value': 1.0}, {'Name': 'MpesaReceiptNumber', 'Value': 'SKC2ILC7T0'}, {'Name': 'Balance'}, {'Name': 'TransactionDate', 'Value': 20241112122236}, {'Name': 'PhoneNumber', 'Value': 254768135284}]}}}}
+    data = frappe.request.get_json(force=True)
     
     response = data['Body']['stkCallback'] 
 
