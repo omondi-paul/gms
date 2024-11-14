@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestPaymentTransaction(FrappeTestCase):
+class TestGymURL(FrappeTestCase):
 	pass

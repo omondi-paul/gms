@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class GMSPaymentAccount(Document):
+class GymURL(Document):
 	pass

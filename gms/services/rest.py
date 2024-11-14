@@ -6,6 +6,8 @@ from datetime import datetime, date
 from gms.services.login import login
 from frappe.utils import add_months, add_days
 from gms.services.payments import make_payment
+from gms.services.whatsapp import send_invoice_whatsapp
+    
 
 
 @frappe.whitelist()
@@ -17,7 +19,8 @@ def get_current_month(doc):
 
 @frappe.whitelist()
 def get_invoice_pay_link(doc):
-    BASE_URL = frappe.utils.get_url()
+    # BASE_URL = frappe.utils.get_url()
+    BASE_URL=frappe.get_single("Gym URL").url
     customer=frappe.get_value("Customer",{"name":doc.customer}, "custom_gym_member")
     phone=frappe.get_value("Gym Member",{"name":customer}, "mobile_number")
     URL =f"{BASE_URL}/payment-requests/new?amount={doc.outstanding_amount}&mobile_number={phone}&sales_invoice={doc.name}"
@@ -143,6 +146,7 @@ def get_permission_query_conditions(user, doctype):
 
 @frappe.whitelist(allow_guest=True)
 def create_sales_invoice_for_membership(doc,method):
+# def create_sales_invoice_for_membership(doc):
     try:
         doc = frappe.get_doc("Gym Membership", doc.name)
         if doc.docstatus == 1:
@@ -195,6 +199,10 @@ def create_sales_invoice_for_membership(doc,method):
                 invoice.insert(ignore_permissions=True)
                 invoice.save()
                 frappe.db.commit()
+                
+                gym_member = frappe.get_doc("Gym Member",doc.member)
+
+                send_invoice_whatsapp(gym_member.mobile_number, invoice.name)
 
         return True
     except Exception as e:
@@ -202,7 +210,8 @@ def create_sales_invoice_for_membership(doc,method):
         return {"error": str(e)}
 
 @frappe.whitelist()
-def create_sales_invoice_for_locker_booking(doc, method):
+# def create_sales_invoice_for_locker_booking(doc, method):
+def create_sales_invoice_for_locker_booking(doc):
     try:
         if doc.workflow_state == "Released" and not doc.sales_invoice_created:
             doc=frappe.get_doc("Gym Locker Booking", doc.name)
