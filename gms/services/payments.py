@@ -6,6 +6,7 @@ from gms.services.utils import format_mobile_number
 from gms.services.utils import create_payment_entry
 from gms.services.utils import send_sms
 from datetime import datetime
+   
 
 
 
@@ -14,6 +15,7 @@ class ProcessPayment:
     def safaricom_stk_push_request(self, context):
         try:
             url = "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
+            BASE_URL=frappe.get_single("Gym URL").url
 
             payload = {
                 "BusinessShortCode": "4237271",
@@ -24,7 +26,7 @@ class ProcessPayment:
                 "PartyA": f"{context['mobile_number']}",
                 "PartyB": f"{context['paybill']}",
                 "PhoneNumber": f"{context['mobile_number']}",
-                "CallBackURL": "https://313c-102-0-8-236.ngrok-free.app/api/method/gms.services.payments.stk_push_response",
+                "CallBackURL":  f"{BASE_URL}/api/method/gms.services.payments.stk_push_response",
                 "AccountReference": f"{context['bank_account_number']}",
                 "TransactionDesc": "Gym Payment"
             }

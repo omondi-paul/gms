@@ -19,8 +19,7 @@ def get_current_month(doc):
 
 @frappe.whitelist()
 def get_invoice_pay_link(doc):
-    # BASE_URL = frappe.utils.get_url()
-    BASE_URL=frappe.get_single("Gym URL").url
+    BASE_URL = frappe.utils.get_url()
     customer=frappe.get_value("Customer",{"name":doc.customer}, "custom_gym_member")
     phone=frappe.get_value("Gym Member",{"name":customer}, "mobile_number")
     URL =f"{BASE_URL}/payment-requests/new?amount={doc.outstanding_amount}&mobile_number={phone}&sales_invoice={doc.name}"
@@ -42,7 +41,6 @@ def fetch_class_attendees(group_class):
         distinct=True
     )
     
-    # Convert the list to the required format
     unique_members = [{"member": member.gym_member} for member in members]
     return unique_members
 
@@ -146,7 +144,6 @@ def get_permission_query_conditions(user, doctype):
 
 @frappe.whitelist(allow_guest=True)
 def create_sales_invoice_for_membership(doc,method):
-# def create_sales_invoice_for_membership(doc):
     try:
         doc = frappe.get_doc("Gym Membership", doc.name)
         if doc.docstatus == 1:
