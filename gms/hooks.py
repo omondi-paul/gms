@@ -55,7 +55,12 @@ fixtures = [
   "Print Format",
   "Membership Type",
   "Payment Type",
-  "Letter Head"
+  "Letter Head",
+  "Workout Tag",
+  "Gym Location",
+  "Plan Type",
+  "GMS Payment Account"
+
 
 ]
 

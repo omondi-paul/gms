@@ -1,0 +1,23 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Plan Type",
+  "modified": "2024-11-12 16:31:21.041586",
+  "name": "Monthly",
+  "plan": "Monthly"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Plan Type",
+  "modified": "2024-11-12 16:33:25.492932",
+  "name": "Quarterly",
+  "plan": "Quarterly"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Plan Type",
+  "modified": "2024-11-12 16:33:33.203664",
+  "name": "Annually",
+  "plan": "Annually"
+ }
+]

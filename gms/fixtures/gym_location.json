@@ -1,0 +1,170 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Main Entrance",
+  "modified": "2024-11-09 08:06:03.648528",
+  "name": "Main Entrance"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Reception Area",
+  "modified": "2024-11-09 08:06:03.677735",
+  "name": "Reception Area"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Strength Training Area",
+  "modified": "2024-11-09 08:06:03.690375",
+  "name": "Strength Training Area"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Free Weights Section",
+  "modified": "2024-11-09 08:06:03.706029",
+  "name": "Free Weights Section"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Functional Training Zone",
+  "modified": "2024-11-09 08:06:03.722998",
+  "name": "Functional Training Zone"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Group Fitness Studio",
+  "modified": "2024-11-09 08:06:03.735790",
+  "name": "Group Fitness Studio"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Spin Room",
+  "modified": "2024-11-09 08:06:03.752170",
+  "name": "Spin Room"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Yoga Studio",
+  "modified": "2024-11-09 08:06:03.768193",
+  "name": "Yoga Studio"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Pilates Studio",
+  "modified": "2024-11-09 08:06:03.780765",
+  "name": "Pilates Studio"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Locker Rooms",
+  "modified": "2024-11-09 08:06:03.798008",
+  "name": "Locker Rooms"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Shower Area",
+  "modified": "2024-11-09 08:06:03.810823",
+  "name": "Shower Area"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Sauna Room",
+  "modified": "2024-11-09 08:06:03.829619",
+  "name": "Sauna Room"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Steam Room",
+  "modified": "2024-11-09 08:06:03.846630",
+  "name": "Steam Room"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Swimming Pool",
+  "modified": "2024-11-09 08:06:03.860535",
+  "name": "Swimming Pool"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Outdoor Training Area",
+  "modified": "2024-11-09 08:06:03.877078",
+  "name": "Outdoor Training Area"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Personal Training Room",
+  "modified": "2024-11-09 08:06:03.891465",
+  "name": "Personal Training Room"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Kids' Play Area",
+  "modified": "2024-11-09 08:06:03.905810",
+  "name": "Kids' Play Area"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Juice Bar",
+  "modified": "2024-11-09 08:06:03.923917",
+  "name": "Juice Bar"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Equipment Storage Room",
+  "modified": "2024-11-09 08:06:03.941265",
+  "name": "Equipment Storage Room"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Cardio Zone",
+  "modified": "2024-11-08 12:55:22.515197",
+  "name": "Cardio Zone"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Cycling Room",
+  "modified": "2024-11-08 12:53:22.459205",
+  "name": "Cycling Room"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Main Gym - Cardio Section",
+  "modified": "2024-11-08 12:59:45.745535",
+  "name": "Main Gym - Cardio Section"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Fitness Studio",
+  "modified": "2024-11-08 12:53:30.880707",
+  "name": "Fitness Studio"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "CrossFit Area",
+  "modified": "2024-11-08 12:54:59.697478",
+  "name": "CrossFit Area"
+ }
+]

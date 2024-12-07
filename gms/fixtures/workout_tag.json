@@ -1,0 +1,212 @@
+[
+ {
+  "class_type": "Yoga",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:55.969897",
+  "name": "Yoga"
+ },
+ {
+  "class_type": "Pilates",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:55.999494",
+  "name": "Pilates"
+ },
+ {
+  "class_type": "HIIT (High-Intensity Interval Training)",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.011772",
+  "name": "HIIT (High-Intensity Interval Training)"
+ },
+ {
+  "class_type": "Zumba",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.029225",
+  "name": "Zumba"
+ },
+ {
+  "class_type": "Spin",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.041274",
+  "name": "Spin"
+ },
+ {
+  "class_type": "CrossFit",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.057270",
+  "name": "CrossFit"
+ },
+ {
+  "class_type": "Strength Training",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.087629",
+  "name": "Strength Training"
+ },
+ {
+  "class_type": "Kickboxing",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.119855",
+  "name": "Kickboxing"
+ },
+ {
+  "class_type": "Dance Cardio",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.143937",
+  "name": "Dance Cardio"
+ },
+ {
+  "class_type": "Body Pump",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.163133",
+  "name": "Body Pump"
+ },
+ {
+  "class_type": "Bootcamp",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.180509",
+  "name": "Bootcamp"
+ },
+ {
+  "class_type": "Aqua Aerobics",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.194846",
+  "name": "Aqua Aerobics"
+ },
+ {
+  "class_type": "Functional Training",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.209785",
+  "name": "Functional Training"
+ },
+ {
+  "class_type": "Stretch & Flex",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.226136",
+  "name": "Stretch & Flex"
+ },
+ {
+  "class_type": "Core Conditioning",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.239989",
+  "name": "Core Conditioning"
+ },
+ {
+  "class_type": "Circuit Training",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.259049",
+  "name": "Circuit Training"
+ },
+ {
+  "class_type": "Barre",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.274995",
+  "name": "Barre"
+ },
+ {
+  "class_type": "TRX Suspension",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.288877",
+  "name": "TRX Suspension"
+ },
+ {
+  "class_type": "Powerlifting",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.305945",
+  "name": "Powerlifting"
+ },
+ {
+  "class_type": "Martial Arts",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.322972",
+  "name": "Martial Arts"
+ },
+ {
+  "class_type": "Kettlebell Workout",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.337814",
+  "name": "Kettlebell Workout"
+ },
+ {
+  "class_type": "Mobility & Recovery",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.355105",
+  "name": "Mobility & Recovery"
+ },
+ {
+  "class_type": "Athletic Conditioning",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.367945",
+  "name": "Athletic Conditioning"
+ },
+ {
+  "class_type": "Tabata",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.384578",
+  "name": "Tabata"
+ },
+ {
+  "class_type": "BoxFit",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.432554",
+  "name": "BoxFit"
+ },
+ {
+  "class_type": "Cardio Blast",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.492977",
+  "name": "Cardio Blast"
+ },
+ {
+  "class_type": "Power Yoga",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.522801",
+  "name": "Power Yoga"
+ },
+ {
+  "class_type": "Meditation & Relaxation",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.556678",
+  "name": "Meditation & Relaxation"
+ },
+ {
+  "class_type": "Strength & Conditioning",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.465106",
+  "name": "Strength & Conditioning"
+ },
+ {
+  "class_type": "Step Aerobics",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.406181",
+  "name": "Step Aerobics"
+ }
+]
