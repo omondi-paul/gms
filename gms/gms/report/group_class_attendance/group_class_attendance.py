@@ -25,22 +25,26 @@ def get_data(filters):
             filters['member_id'].append(doc.name)
 
     if filters.get("meeting_id"):
-        conditions.append(f"CA.name = '{filters['meeting_id']}'")
+        conditions.append("CA.name = %(meeting_id)s")
 
     if filters.get("member_id"):
-        conditions.append(f"CA.member = '{filters['member_id']}'")
+        # Handle list of member_ids
+        member_ids = ", ".join([frappe.db.escape(member) for member in filters['member_id']])
+        conditions.append(f"CA.member IN ({member_ids})")
 
     if filters.get("location"):
-        conditions.append(f"A.location LIKE '%{filters['location']}%'")
+        conditions.append("A.location LIKE %(location)s")
 
     if filters.get("attendance_status"):
-        conditions.append(f"CA.presence = '{filters['attendance_status']}'")
+        conditions.append("CA.presence = %(attendance_status)s")
 
     if filters.get("from_date"):
-        conditions.append(f"A.meeting_date >= '{filters['from_date']}'")
+        conditions.append("A.date >= %(from_date)s")
 
     if filters.get("to_date"):
-        conditions.append(f"A.meeting_date <= '{filters['to_date']}'")
+        conditions.append("A.date <= %(to_date)s")
+
+    where_clause = f"WHERE {' AND '.join(conditions)}" if conditions else ""
 
     SQL_query = f"""
         SELECT
@@ -59,13 +63,14 @@ def get_data(filters):
             `tabGym Member` AS M ON CA.member = M.name
         JOIN
             `tabAttendance` AS A ON CA.parent = A.name
-        {'WHERE ' + ' AND '.join(conditions) if conditions else ''}
+        {where_clause}
         ORDER BY
             A.date DESC
     """
 
-    data = frappe.db.sql(SQL_query, as_dict=True)
+    data = frappe.db.sql(SQL_query, filters, as_dict=True)
     return data
+
 
 def get_columns():
     return [

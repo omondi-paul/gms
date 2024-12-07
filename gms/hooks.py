@@ -5,10 +5,6 @@ app_description = "An app for managing a fintness center"
 app_email = "okemopaulo@gmail.comj"
 app_license = "mit"
 
-# Apps
-# ------------------
-
-
 permission_query_conditions = {
             "Gym Locker Booking": "gms.services.rest.get_permission_query_conditions",
             "Gym Membership": "gms.services.rest.get_permission_query_conditions",

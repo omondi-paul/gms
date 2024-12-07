@@ -254,6 +254,7 @@ def process_payment_and_reconcile_member_invoice(MpesaReceiptNumber, Transaction
 
 
 
+@frappe.whitelist(allow_guest=True)
 def format_mobile_number_on_processing(mobile_number):
     if isinstance(mobile_number, int):
         mobile_number = str(mobile_number) 
@@ -264,6 +265,7 @@ def format_mobile_number_on_processing(mobile_number):
         return mobile_number  
  
 
+@frappe.whitelist(allow_guest=True)
 def request_payment(invoice_number):
     pass
 

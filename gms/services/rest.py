@@ -10,14 +10,16 @@ from gms.services.whatsapp import send_invoice_whatsapp
     
 
 
-@frappe.whitelist()
+
+@frappe.whitelist(allow_guest=True)
 def get_current_month(doc):
     month = datetime.now().strftime("%B")
     gym_settings = frappe.get_single("Gym Settings")
     gym_name = gym_settings.gym_name
     return f"{gym_name}, {month}"  
 
-@frappe.whitelist()
+
+@frappe.whitelist(allow_guest=True)
 def get_invoice_pay_link(doc):
     BASE_URL = frappe.utils.get_url()
     customer=frappe.get_value("Customer",{"name":doc.customer}, "custom_gym_member")
@@ -45,7 +47,8 @@ def fetch_class_attendees(group_class):
     return unique_members
 
 
-@frappe.whitelist()
+
+@frappe.whitelist(allow_guest=True)
 def after_inserting_gym_machine(doc, method):
     try:
         doc=frappe.get_doc("Gym Cardio Machine", doc)
@@ -78,7 +81,8 @@ def get_cardio_machine():
     frappe.db.commit()
     return "successfull"
 
-@frappe.whitelist()
+
+@frappe.whitelist(allow_guest=True)
 def get_user_role():
     user = frappe.session.user
     user_roles=frappe.get_doc("User", user)
@@ -88,7 +92,8 @@ def get_user_role():
             return "true"
     return False
 
-# @frappe.whitelist()
+# 
+@frappe.whitelist(allow_guest=True)
 # def get_permission_query_conditions(user, doctype):
 #     try:
 #         if user != "Administrator":
@@ -117,7 +122,8 @@ def get_user_role():
 
 
 
-@frappe.whitelist()
+
+@frappe.whitelist(allow_guest=True)
 def get_permission_query_conditions(user, doctype):
     try:
         if user != "Administrator":
@@ -206,9 +212,9 @@ def create_sales_invoice_for_membership(doc,method):
         frappe.log_error(f"Error creating sales invoice: {e}")
         return {"error": str(e)}
 
-@frappe.whitelist()
-# def create_sales_invoice_for_locker_booking(doc, method):
-def create_sales_invoice_for_locker_booking(doc):
+
+@frappe.whitelist(allow_guest=True)
+def create_sales_invoice_for_locker_booking(doc, method):
     try:
         if doc.workflow_state == "Released" and not doc.sales_invoice_created:
             doc=frappe.get_doc("Gym Locker Booking", doc.name)
@@ -278,12 +284,14 @@ def create_sales_invoice_for_locker_booking(doc):
         frappe.log_error(message=str(e), title="Sales Invoice Creation Error")
         frappe.throw("An error occurred while creating the Sales Invoice.")
 
-@frappe.whitelist()
+
+@frappe.whitelist(allow_guest=True)
 def get_gym_settings():
     gym_settings = frappe.get_single("Gym Settings")
     return gym_settings
 
-@frappe.whitelist()
+
+@frappe.whitelist(allow_guest=True)
 def before_inserting_gym_member(doc, method):
     if doc.mobile_number and len(doc.mobile_number) > 10:
         frappe.throw("Phone number should not be more than 10 digits.")
@@ -300,7 +308,8 @@ def before_inserting_gym_member(doc, method):
 
     doc.member_id = generate_unique_member_no()
 
-@frappe.whitelist()
+
+@frappe.whitelist(allow_guest=True)
 def after_inserting_gym_member(doc, method):
   try:
     frappe.enqueue(
@@ -318,7 +327,8 @@ def after_inserting_gym_member(doc, method):
     frappe.log_error(frappe.get_traceback(), f"{e}")
     frappe.throw(f"Member could not be created: {str(e)}")
 
-@frappe.whitelist()
+
+@frappe.whitelist(allow_guest=True)
 def generate_unique_member_no():
     current_year = str(frappe.utils.now_datetime().year)[-2:]
     current_month = str(frappe.utils.now_datetime().month)
@@ -333,7 +343,8 @@ def generate_unique_member_no():
         if not frappe.db.exists("Gym Member", {"member_id": member_id}):
             return member_id
 
-@frappe.whitelist()
+
+@frappe.whitelist(allow_guest=True)
 def create_customer_and_user_for_member(full_name, member_id, email, mobile_number):
     try:
         create_customer(full_name, member_id)
@@ -350,7 +361,6 @@ def create_customer_and_user_for_member(full_name, member_id, email, mobile_numb
         )
         print("Message prepared for sending SMS.")
 
-        # Send SMS
         frappe.enqueue(
             send_sms,
             queue="default",
@@ -367,7 +377,8 @@ def create_customer_and_user_for_member(full_name, member_id, email, mobile_numb
         frappe.log_error(frappe.get_traceback(), f"Error in customer or user creation: {e}")
         print(f"An error occurred: {e}") 
 
-@frappe.whitelist()
+
+@frappe.whitelist(allow_guest=True)
 def create_customer(full_name, member_id):
     customer = frappe.get_doc({
         "doctype":"Customer",
@@ -405,8 +416,7 @@ def create_user_for_member(full_name, email, mobile_number):
 def generate_simple_password():
     return (random.randint(1000, 9999))
 
-
-@frappe.whitelist()
+@frappe.whitelist(allow_guest=True)
 def before_inserting_gym_trainer(doc, method):
     if doc.mobile_number and len(doc.mobile_number) > 10:
         frappe.throw("Phone number should not be more than 10 digits.")
@@ -423,7 +433,7 @@ def before_inserting_gym_trainer(doc, method):
     
     doc.trainer_id = generate_unique_trainer_no()
 
-@frappe.whitelist()
+@frappe.whitelist(allow_guest=True)
 def after_inserting_gym_trainer(doc, method):
     try:
         frappe.enqueue(
@@ -438,7 +448,7 @@ def after_inserting_gym_trainer(doc, method):
         frappe.log_error(frappe.get_traceback(), f"{e}")
         frappe.throw(f"Member could not be created: {str(e)}")
 
-@frappe.whitelist()
+@frappe.whitelist(allow_guest=True)
 def generate_unique_trainer_no():
     current_year = str(frappe.utils.now_datetime().year)[-2:]
     current_month = str(frappe.utils.now_datetime().month).lstrip('0')
@@ -450,7 +460,8 @@ def generate_unique_trainer_no():
         if not frappe.db.exists("Gym Trainer", {"trainer_id": trainer_id}):
             return trainer_id
 
-@frappe.whitelist()
+
+@frappe.whitelist(allow_guest=True)
 def create_employee_and_user_for_trainer(doc):
     try:
         create_employee(doc)
@@ -479,7 +490,8 @@ def create_employee_and_user_for_trainer(doc):
         frappe.log_error(frappe.get_traceback(), f"Error in customer or user creation: {e}")
         frappe.throw(f"An error occurred: {e}")
 
-@frappe.whitelist()
+
+@frappe.whitelist(allow_guest=True)
 def create_employee(doc):
     employee = frappe.get_doc({
         "doctype": "Employee",
@@ -492,7 +504,8 @@ def create_employee(doc):
     frappe.db.commit()
     return True
 
-@frappe.whitelist()
+
+@frappe.whitelist(allow_guest=True)
 def create_user_for_trainer(doc):
     password = str(generate_simple_password())
     user = frappe.get_doc({
