@@ -50,8 +50,7 @@
    "fieldname": "instructor",
    "fieldtype": "Link",
    "label": "Instructor",
-   "options": "Gym Trainer",
-   "reqd": 1
+   "options": "Gym Trainer"
   },
   {
    "fieldname": "status",
@@ -144,7 +143,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-09 10:27:59.556674",
+ "modified": "2024-12-07 16:44:24.725739",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Group Class",

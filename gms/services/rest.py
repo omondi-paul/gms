@@ -149,6 +149,39 @@ def get_permission_query_conditions(user, doctype):
 
 
 @frappe.whitelist(allow_guest=True)
+def create_sales_invoice_for_group_class(doc, method):
+    try:
+        doc = frappe.get_doc("Join Class", doc.name)
+        if doc.docstatus == 1:
+            items = [{
+                "item_code": "Group Class",
+                "custom_join_class_id": doc.name,
+                "rate": doc.price,
+                "qty": 1
+            }]
+            member = frappe.get_doc("Gym Member", doc.gym_member)
+            due_days = get_gym_settings().sales_invoice_due_days
+            due_date = add_days(frappe.utils.nowdate(), due_days)
+
+            invoice = frappe.get_doc({
+                "doctype": "Sales Invoice",
+                "customer": member.full_name,
+                "due_date": due_date,
+                "custom_payment_type": "Group Class",
+                "items": items,
+            })
+            invoice.insert(ignore_permissions=True)
+            invoice.submit()
+            invoice.save()
+
+            frappe.db.commit()
+
+        return True
+    except Exception as e:
+        frappe.log_error(f"Error creating sales invoice: {e}")
+        return {"error": str(e)}
+
+@frappe.whitelist(allow_guest=True)
 def create_sales_invoice_for_membership(doc,method):
     try:
         doc = frappe.get_doc("Gym Membership", doc.name)
@@ -197,10 +230,12 @@ def create_sales_invoice_for_membership(doc,method):
                     "customer": member.full_name,
                     "due_date": due_date,
                     "custom_payment_type":"Membership Subscription",
-                    "items": items
+                    "items": items,
                 })
                 invoice.insert(ignore_permissions=True)
+                invoice.submit()
                 invoice.save()
+    
                 frappe.db.commit()
                 
                 gym_member = frappe.get_doc("Gym Member",doc.member)
@@ -306,12 +341,13 @@ def before_inserting_gym_member(doc, method):
         if frappe.db.exists("User", doc.email):
             frappe.throw(f"A user with the email {doc.email} already exists. Please use a unique email.")
 
-    doc.member_id = generate_unique_member_no()
+    doc.member_no = generate_unique_member_no()
 
 
 @frappe.whitelist(allow_guest=True)
 def after_inserting_gym_member(doc, method):
   try:
+    # doc=frappe.get_doc("Gym Member",doc)
     frappe.enqueue(
     create_customer_and_user_for_member,
                 queue="default",
@@ -319,7 +355,7 @@ def after_inserting_gym_member(doc, method):
                 is_async=True,
                 now=False,
                 full_name=doc.full_name,
-                member_id=doc.member_id,
+                member_id=doc.member_no,
                 email=doc.email,
                 mobile_number=doc.mobile_number
             )
@@ -347,10 +383,12 @@ def generate_unique_member_no():
 @frappe.whitelist(allow_guest=True)
 def create_customer_and_user_for_member(full_name, member_id, email, mobile_number):
     try:
-        create_customer(full_name, member_id)
+        create_customer(full_name, member_id, email)
+
         password = str(create_user_for_member(full_name, email, mobile_number))
 
-        login_url = frappe.utils.get_url()
+        # login_url = frappe.utils.get_url()
+        login_url = frappe.get_single("Gym URL").url
         message = (
             f"Hello {full_name}, Welcome to {get_gym_settings().gym_name}. "
             f"Your login details are as follows:\n"
@@ -360,7 +398,6 @@ def create_customer_and_user_for_member(full_name, member_id, email, mobile_numb
             f"Please log in and change your password as soon as possible."
         )
         print("Message prepared for sending SMS.")
-
         frappe.enqueue(
             send_sms,
             queue="default",
@@ -379,13 +416,18 @@ def create_customer_and_user_for_member(full_name, member_id, email, mobile_numb
 
 
 @frappe.whitelist(allow_guest=True)
-def create_customer(full_name, member_id):
+def get_single():
+    return frappe.get_single("Gym URL").url
+
+@frappe.whitelist(allow_guest=True)
+def create_customer(full_name, member_id, email):
+
     customer = frappe.get_doc({
         "doctype":"Customer",
         "customer_name": full_name,
         "customer_group": "Individual",
         "customer_type": "Individual",
-        "custom_gym_member": member_id,
+        "custom_gym_member": email,
         "territory": "Kenya"
     })
     customer.insert(ignore_mandatory=True)
@@ -405,7 +447,9 @@ def create_user_for_member(full_name, email, mobile_number):
         "send_welcome_email": 1,
         "user_type": "System User",
         "module_profile": "Member",
-        "role_profile":"Member",
+         "roles": [
+            {"role": "Member"}
+        ],
         "ignore_password_policy": 1  
     })
     user.insert(ignore_permissions=True)

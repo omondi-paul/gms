@@ -35,6 +35,9 @@ doc_events = {
     "Request Payment": {
         "after_insert": "gms.services.rest.call_make_payment"
     },
+     "Join Class": {
+         "on_update": "gms.services.rest.create_sales_invoice_for_group_class"
+    },
 }
 
 

@@ -12,10 +12,10 @@ def send_whatsapp_job(mobile_number, invoice_number):
 
 @frappe.whitelist(allow_guest=True)
 def send_invoice_whatsapp(mobile_number, invoice_name):
-    
+    whatsapp_url=frappe.get_single("Gym URL").url
     member_name = frappe.db.get_value("Gym Member", {"mobile_number": mobile_number}, ['full_name'])
     payment_type = frappe.db.get_value('Sales Invoice', invoice_name, 'custom_payment_type')
-    media_url = f"{get_url()}/api/method/frappe.utils.print_format.download_pdf?doctype=Sales%20Invoice&name={invoice_name}&format=Gym%20Invoice&no_letterhead=0&letterhead=Gym%20Invoice%20LH"
+    media_url = f"{whatsapp_url}/api/method/frappe.utils.print_format.download_pdf?doctype=Sales%20Invoice&name={invoice_name}&format=Gym%20Invoice&no_letterhead=0&letterhead=Gym%20Invoice%20LH"
     msg = f"Hello {member_name},\n\nThis is a reminder to complete your {payment_type} on time to continue enjoying our services.\n\nThank you for staying fit with us!"
     
     try:
