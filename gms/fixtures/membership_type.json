@@ -2,13 +2,6 @@
  {
   "docstatus": 0,
   "doctype": "Membership Type",
-  "modified": "2024-11-12 16:30:47.518344",
-  "name": "VIP",
-  "type": "VIP"
- },
- {
-  "docstatus": 0,
-  "doctype": "Membership Type",
   "modified": "2024-11-12 16:30:04.346274",
   "name": "Standard",
   "type": "Standard"
@@ -19,5 +12,12 @@
   "modified": "2024-11-12 16:30:39.883021",
   "name": "Premium",
   "type": "Premium"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Membership Type",
+  "modified": "2024-11-12 16:30:47.518344",
+  "name": "VIP",
+  "type": "VIP"
  }
 ]

@@ -10,6 +10,29 @@ from gms.services.whatsapp import send_invoice_whatsapp
     
 
 
+@frappe.whitelist(allow_guest=True)
+def check_user_access(password):
+    try:
+        user_access = frappe.get_all(
+            "User Access",
+            filters={"fingerprint": password},
+            fields=["user_id"]
+        )
+
+        if user_access:
+            frappe.get_doc({
+                "doctype": "Attendance List",
+                "member": user_access[0].get("user_id"),
+                "date": frappe.utils.nowdate(),
+                "time": frappe.utils.nowtime()
+            }).insert(ignore_permissions=True)
+            return True
+
+        return False
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), "Error in check_user_access")
+        return False
+
 
 @frappe.whitelist(allow_guest=True)
 def get_current_month(doc):
@@ -33,7 +56,6 @@ def call_make_payment(doc, method):
     make_payment(round(doc.amount), doc.mobile_number, doc.sales_invoice)
     return True
 
-
 @frappe.whitelist(allow_guest=True)
 def fetch_class_attendees(group_class):
     members = frappe.get_all(
@@ -45,8 +67,6 @@ def fetch_class_attendees(group_class):
     
     unique_members = [{"member": member.gym_member} for member in members]
     return unique_members
-
-
 
 @frappe.whitelist(allow_guest=True)
 def after_inserting_gym_machine(doc, method):
@@ -67,8 +87,6 @@ def after_inserting_gym_machine(doc, method):
     except Exception as e:
         frappe.log_error(frappe.get_traceback(), f"{e}")
         frappe.throw(f"Machine could not be created: {str(e)}")
-
-
 
 @frappe.whitelist(allow_guest=True)
 def get_cardio_machine():
@@ -91,35 +109,6 @@ def get_user_role():
         if role.role == "Part User":
             return "true"
     return False
-
-# 
-@frappe.whitelist(allow_guest=True)
-# def get_permission_query_conditions(user, doctype):
-#     try:
-#         if user != "Administrator":
-#             user_roles = frappe.get_doc("User", user)
-#             for role in user_roles.roles:
-#                 if role.role == "Member":
-#                     doc = frappe.get_doc("Gym Member", {"email": user})
-#                     if doctype == "Gym Member":
-#                         return f"(`tab{doctype}`.email = '{user}')"
-#                     elif doctype in ["Gym Locker Booking", "Gym Membership"]:
-#                         return f"(`tab{doctype}`.member = '{doc.name}')"
-#                     elif doctype in ["Join Class"]:
-#                         return f"(`tab{doctype}`.gym_member = '{doc.name}')"
-
-#             else:
-#                 return
-#         else:
-#             return 
-#     except frappe.DoesNotExistError as e:
-#         frappe.log_error(f"Document not found: {e}", "Permission Query Error")
-#         return ""
-
-#     except Exception as e:
-#         frappe.log_error(f"An error occurred: {e}", "Permission Query Error")
-#         return ""
-
 
 
 

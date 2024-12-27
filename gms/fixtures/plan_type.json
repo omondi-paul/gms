@@ -9,15 +9,15 @@
  {
   "docstatus": 0,
   "doctype": "Plan Type",
-  "modified": "2024-11-12 16:33:25.492932",
-  "name": "Quarterly",
-  "plan": "Quarterly"
+  "modified": "2024-11-12 16:33:33.203664",
+  "name": "Annually",
+  "plan": "Annually"
  },
  {
   "docstatus": 0,
   "doctype": "Plan Type",
-  "modified": "2024-11-12 16:33:33.203664",
-  "name": "Annually",
-  "plan": "Annually"
+  "modified": "2024-11-12 16:33:25.492932",
+  "name": "Quarterly",
+  "plan": "Quarterly"
  }
 ]
