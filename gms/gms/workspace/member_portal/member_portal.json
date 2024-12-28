@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Member Portal",
  "links": [],
- "modified": "2024-12-26 12:57:58.378498",
+ "modified": "2024-12-28 11:12:38.292057",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Member Portal",
@@ -30,7 +30,7 @@
    "role": "Member"
   }
  ],
- "sequence_id": 5.0,
+ "sequence_id": 3.0,
  "shortcuts": [
   {
    "color": "Grey",
