@@ -140,27 +140,6 @@
   "name": "Martial Arts"
  },
  {
-  "class_type": "Kettlebell Workout",
-  "docstatus": 0,
-  "doctype": "Workout Tag",
-  "modified": "2024-11-09 07:28:56.337814",
-  "name": "Kettlebell Workout"
- },
- {
-  "class_type": "Mobility & Recovery",
-  "docstatus": 0,
-  "doctype": "Workout Tag",
-  "modified": "2024-11-09 07:28:56.355105",
-  "name": "Mobility & Recovery"
- },
- {
-  "class_type": "Athletic Conditioning",
-  "docstatus": 0,
-  "doctype": "Workout Tag",
-  "modified": "2024-11-09 07:28:56.367945",
-  "name": "Athletic Conditioning"
- },
- {
   "class_type": "Tabata",
   "docstatus": 0,
   "doctype": "Workout Tag",
@@ -168,18 +147,11 @@
   "name": "Tabata"
  },
  {
-  "class_type": "BoxFit",
+  "class_type": "Kettlebell Workout",
   "docstatus": 0,
   "doctype": "Workout Tag",
-  "modified": "2024-11-09 07:28:56.432554",
-  "name": "BoxFit"
- },
- {
-  "class_type": "Cardio Blast",
-  "docstatus": 0,
-  "doctype": "Workout Tag",
-  "modified": "2024-11-09 07:28:56.492977",
-  "name": "Cardio Blast"
+  "modified": "2024-11-09 07:28:56.337814",
+  "name": "Kettlebell Workout"
  },
  {
   "class_type": "Power Yoga",
@@ -196,6 +168,27 @@
   "name": "Meditation & Relaxation"
  },
  {
+  "class_type": "Athletic Conditioning",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.367945",
+  "name": "Athletic Conditioning"
+ },
+ {
+  "class_type": "BoxFit",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.432554",
+  "name": "BoxFit"
+ },
+ {
+  "class_type": "Cardio Blast",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.492977",
+  "name": "Cardio Blast"
+ },
+ {
   "class_type": "Strength & Conditioning",
   "docstatus": 0,
   "doctype": "Workout Tag",
@@ -208,5 +201,12 @@
   "doctype": "Workout Tag",
   "modified": "2024-11-09 07:28:56.406181",
   "name": "Step Aerobics"
+ },
+ {
+  "class_type": "Mobility & Recovery",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.355105",
+  "name": "Mobility & Recovery"
  }
 ]

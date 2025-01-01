@@ -100,13 +100,6 @@
  {
   "docstatus": 0,
   "doctype": "Gym Location",
-  "location": "Outdoor Training Area",
-  "modified": "2024-11-09 08:06:03.877078",
-  "name": "Outdoor Training Area"
- },
- {
-  "docstatus": 0,
-  "doctype": "Gym Location",
   "location": "Personal Training Room",
   "modified": "2024-11-09 08:06:03.891465",
   "name": "Personal Training Room"
@@ -124,6 +117,20 @@
   "location": "Juice Bar",
   "modified": "2024-11-09 08:06:03.923917",
   "name": "Juice Bar"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Main Gym - Cardio Section",
+  "modified": "2024-11-08 12:59:45.745535",
+  "name": "Main Gym - Cardio Section"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Outdoor Training Area",
+  "modified": "2024-11-09 08:06:03.877078",
+  "name": "Outdoor Training Area"
  },
  {
   "docstatus": 0,
@@ -149,9 +156,9 @@
  {
   "docstatus": 0,
   "doctype": "Gym Location",
-  "location": "Main Gym - Cardio Section",
-  "modified": "2024-11-08 12:59:45.745535",
-  "name": "Main Gym - Cardio Section"
+  "location": "CrossFit Area",
+  "modified": "2024-11-08 12:54:59.697478",
+  "name": "CrossFit Area"
  },
  {
   "docstatus": 0,
@@ -159,12 +166,5 @@
   "location": "Fitness Studio",
   "modified": "2024-11-08 12:53:30.880707",
   "name": "Fitness Studio"
- },
- {
-  "docstatus": 0,
-  "doctype": "Gym Location",
-  "location": "CrossFit Area",
-  "modified": "2024-11-08 12:54:59.697478",
-  "name": "CrossFit Area"
  }
 ]

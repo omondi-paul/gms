@@ -10,12 +10,100 @@ from gms.services.whatsapp import send_invoice_whatsapp
     
 
 
+
 @frappe.whitelist(allow_guest=True)
-def check_user_access(password):
+def get_group_class_members(group_class):
     try:
+        classes = frappe.get_all(
+            "Join Class",
+            filters={"group_class": group_class, "docstatus": 1},
+            fields=["gym_member"]
+        )
+        members = [item["gym_member"] for item in classes if item.get("gym_member")]
+        return members if members else []
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), "Error in get_group_class_members")
+        frappe.throw(_("An error occurred while fetching group class members. Please check the logs."))
+
+
+
+@frappe.whitelist(allow_guest=True)
+def get_total_attendance(name):
+    try:
+        present_members = frappe.get_all(
+            "Class Attendance",
+            filters={"parent": name, "presence": "Present"},
+            fields=["name"]
+        )
+        total_attendance = len(present_members)
+
+        frappe.db.sql(
+            """
+            UPDATE `tabAttendance`
+            SET total_attendance = %s
+            WHERE name = %s
+            """,
+            (total_attendance, name)
+        )
+        frappe.db.commit()
+        return True
+
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), "Error in get_total_attendance")
+        return False
+
+
+@frappe.whitelist()
+def get_permission_query_conditions_for_trainer(user, doctype):
+    try:
+        if user != "Administrator": 
+            user_doc = frappe.get_doc("User", user)
+            user_roles = [role.role for role in user_doc.roles]
+
+            if user_roles == ["Trainer"]:
+                trainer_doc = frappe.get_doc("Gym Trainer", {"email": user})
+                
+                if doctype == "Gym Trainer":
+                    return f"(`tab{doctype}`.email = '{trainer_doc.email}')"
+                elif doctype == "Group Class":
+                    return f"(`tab{doctype}`.instructor = '{trainer_doc.name}')"
+            else:
+                return
+        else:
+            return 
+
+    except frappe.DoesNotExistError as e:
+        frappe.log_error(f"Document not found: {e}", "Permission Query Error")
+        return ""
+
+    except Exception as e:
+        frappe.log_error(f"An error occurred: {e}", "Permission Query Error")
+        return ""
+
+
+
+
+@frappe.whitelist(allow_guest=True)
+def enroll_fingerprint_id(fingerprint_id):
+    try:
+      
+        frappe.get_doc({
+                "doctype": "User Access",
+                "fingerprint_id":fingerprint_id,
+                "date": frappe.utils.nowdate()
+            }).insert(ignore_permissions=True)
+        return True
+    except Exception as e:
+        frappe.log_error(frappe.get_traceback(), "Error in check_user_access")
+        return False
+
+@frappe.whitelist(allow_guest=True)
+def check_user_access(fingerprint_id):
+    try:
+        print(f"\n\n\n{fingerprint_id}\n\n\n")
         user_access = frappe.get_all(
             "User Access",
-            filters={"fingerprint": password},
+            filters={"fingerprint": fingerprint_id},
             fields=["user_id"]
         )
 

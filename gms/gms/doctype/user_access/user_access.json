@@ -1,22 +1,19 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:user_id",
  "creation": "2024-12-25 09:15:29.882407",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "user_type",
   "user_id",
+  "date",
+  "column_break_ymly",
+  "fingerprint_id",
   "user_name",
-  "fingerprint",
-  "user_type"
+  "amended_from"
  ],
  "fields": [
-  {
-   "fieldname": "fingerprint",
-   "fieldtype": "Data",
-   "label": "Fingerprint"
-  },
   {
    "fieldname": "user_type",
    "fieldtype": "Select",
@@ -35,15 +32,39 @@
    "fieldname": "user_name",
    "fieldtype": "Data",
    "label": "User Name"
+  },
+  {
+   "fieldname": "column_break_ymly",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "User Access",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "fingerprint_id",
+   "fieldtype": "Data",
+   "label": "Fingerprint ID"
+  },
+  {
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2024-12-25 09:23:47.224191",
+ "modified": "2024-12-31 10:36:34.958497",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "User Access",
- "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -59,6 +80,7 @@
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": []

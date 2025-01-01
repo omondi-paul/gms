@@ -102,9 +102,13 @@
    "label": "Is Published"
   },
   {
+   "default": "{full_name}",
    "fieldname": "title",
    "fieldtype": "Data",
-   "hidden": 1,
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Title"
   },
   {
@@ -195,7 +199,7 @@
  ],
  "is_published_field": "is_published",
  "links": [],
- "modified": "2024-12-07 16:52:25.096617",
+ "modified": "2024-12-30 15:14:22.596906",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Member",
@@ -216,9 +220,11 @@
    "write": 1
   }
  ],
+ "show_title_field_in_link": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "states": [],
+ "title_field": "title",
  "track_changes": 1,
  "track_seen": 1,
  "website_search_field": "email"

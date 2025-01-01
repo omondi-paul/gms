@@ -21,9 +21,6 @@
   "section_break_avna",
   "photo",
   "bio",
-  "gym_plans_tab",
-  "gym_plans",
-  "clients",
   "ratings_section",
   "total_ratings",
   "column_break_ebhtr",
@@ -73,21 +70,6 @@
    "fieldname": "bio",
    "fieldtype": "Text",
    "label": "Bio"
-  },
-  {
-   "fieldname": "gym_plans_tab",
-   "fieldtype": "Tab Break",
-   "label": "GYM PLANS"
-  },
-  {
-   "fieldname": "gym_plans",
-   "fieldtype": "Small Text",
-   "label": "Gym Plans"
-  },
-  {
-   "fieldname": "clients",
-   "fieldtype": "Small Text",
-   "label": "Clients"
   },
   {
    "fieldname": "ratings_section",
@@ -147,7 +129,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-11-05 09:28:06.024490",
+ "modified": "2025-01-01 18:41:17.135147",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Trainer",
