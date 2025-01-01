@@ -60,7 +60,9 @@
    "in_preview": 1,
    "in_standard_filter": 1,
    "label": "Group Class",
-   "options": "Group Class"
+   "options": "Group Class",
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
    "fieldname": "total_attendance",
@@ -81,7 +83,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-01 19:21:36.883414",
+ "modified": "2025-01-01 20:20:04.719380",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Attendance",

@@ -23,7 +23,6 @@ def get_group_class_members(group_class):
         return members if members else []
     except Exception as e:
         frappe.log_error(frappe.get_traceback(), "Error in get_group_class_members")
-        frappe.throw(_("An error occurred while fetching group class members. Please check the logs."))
 
 
 
