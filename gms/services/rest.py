@@ -204,7 +204,7 @@ def get_permission_query_conditions(user, doctype):
     try:
         if user != "Administrator":
             user_roles = frappe.get_doc("User", user)
-            if 'Member' in [role.role for role in user_roles.roles]:
+            if ['Member']== [role.role for role in user_roles.roles]:
                 doc = frappe.get_doc("Gym Member", {"email": user})
                 if doctype == "Gym Member":
                     return f"(`tab{doctype}`.email = '{user}')"
@@ -212,6 +212,8 @@ def get_permission_query_conditions(user, doctype):
                     return f"(`tab{doctype}`.member = '{doc.name}')"
                 elif doctype == "Join Class":
                     return f"(`tab{doctype}`.gym_member = '{doc.name}')"
+                elif doctype == "Rating":
+                    return f"(`tab{doctype}`.member = '{doc.name}')"
             else:
                 return  
         else:
