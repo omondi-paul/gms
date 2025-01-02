@@ -16,13 +16,22 @@ def get_data(filters):
         if 'Trainer' not in [role.role for role in user_roles.roles] and 'Member' not in [role.role for role in user_roles.roles]:
             return None
 
-        if 'Member' in [role.role for role in user_roles.roles]:
+        if ['Member'] == [role.role for role in user_roles.roles]:
             doc = frappe.get_doc("Gym Member", {"email": user})
             if 'member_id' not in filters:
                 filters['member_id'] = []
             if isinstance(filters['member_id'], str):
                 filters['member_id'] = [filters['member_id']]
-            filters['member_id'].append(doc.name)
+            filters['member_id'].append(doc.full_name)
+        if ['Trainer'] == [role.role for role in user_roles.roles]:
+            print(f"\n\n\n{user}\n\n\n")
+            doc = frappe.get_doc("Gym Trainer", {"email": user})
+            if 'instructor' not in filters:
+                filters['instructor'] = []
+            if isinstance(filters['instructor'], str):
+                filters['instructor'] = [filters['instructor']]
+            filters['instructor'].append(doc.name)
+            
 
     if filters.get("group_class"):
         conditions.append("A.group_class = %(group_class)s")
@@ -34,6 +43,9 @@ def get_data(filters):
 
     if filters.get("location"):
         conditions.append("A.location LIKE %(location)s")
+
+    if filters.get("instructor"):
+        conditions.append("GC.instructor LIKE %(instructor)s")
 
     if filters.get("attendance_status"):
         conditions.append("CA.presence = %(attendance_status)s")
@@ -57,21 +69,22 @@ def get_data(filters):
             CA.time_out AS time_out,
             A.location AS location,
             A.date AS meeting_date,
-            A.total_attendance AS total_attendance
+            A.total_attendance AS total_attendance,
+            GC.instructor AS instructor
         FROM
             `tabClass Attendance` AS CA
         JOIN
             `tabGym Member` AS M ON CA.member = M.full_name
         JOIN
             `tabAttendance` AS A ON CA.parent = A.name
+        JOIN
+            `tabGroup Class` AS GC ON A.group_class = GC.name
         {where_clause}
         ORDER BY
             A.date DESC
     """
 
     data = frappe.db.sql(SQL_query, filters, as_dict=True)
-
-    print(f"\n\n\n {data}\n\n\n")
     return data
 
 
@@ -79,10 +92,11 @@ def get_columns():
     return [
         {"fieldname": "group_class", "label": "Workout Class", "fieldtype": "Data", "width": 150, "align": "left"},
         {"fieldname": "member_name", "label": "Member Name", "fieldtype": "Data", "width": 150, "align": "left"},
+        {"fieldname": "instructor", "label": "INSTRUCTOR", "fieldtype": "Data", "width": 130, "align": "left"},
         {"fieldname": "attendance_status", "label": "Attendance Status", "fieldtype": "Data", "width": 150, "align": "left"},
-        {"fieldname": "time_in", "label": "Time In", "fieldtype": "Time", "width": 150, "align": "left"},
-        {"fieldname": "time_out", "label": "Time Out", "fieldtype": "Time", "width": 150, "align": "left"},
-        {"fieldname": "location", "label": "Location", "fieldtype": "Data", "width": 150, "align": "left"},
-        {"fieldname": "meeting_date", "label": "Workout Date", "fieldtype": "Date", "width": 130, "align": "left"},
-        {"fieldname": "total_attendance", "label": "Tot Attendance", "fieldtype": "Int", "width": 75, "align": "left"},
+        {"fieldname": "time_in", "label": "Time In", "fieldtype": "Time", "width": 100, "align": "left"},
+        {"fieldname": "time_out", "label": "Time Out", "fieldtype": "Time", "width": 100, "align": "left"},
+        {"fieldname": "location", "label": "Location", "fieldtype": "Data", "width": 120, "align": "left"},
+        {"fieldname": "meeting_date", "label": "Date", "fieldtype": "Date", "width": 120, "align": "left"},
+        {"fieldname": "total_attendance", "label": "Tot Attendance", "fieldtype": "Int", "width": 100, "align": "left"},
     ]

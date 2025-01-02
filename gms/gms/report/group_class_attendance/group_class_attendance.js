@@ -17,6 +17,14 @@ frappe.query_reports["Group Class Attendance"] = {
 			options: "Gym Member",
 		},
 		{
+			fieldname: "instructor",
+			label: __("INSTRUCTOR"),
+			fieldtype: "Link",
+			width: 150,
+			reqd: 0,
+			options: "Gym Trainer",
+		},
+		{
 			fieldname: "location",
 			label: __("Location"),
 			fieldtype: "Link",
