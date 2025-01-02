@@ -480,8 +480,8 @@ def create_customer_and_user_for_member(full_name, member_id, email, mobile_numb
 
         password = str(create_user_for_member(full_name, email, mobile_number))
 
-        # login_url = frappe.utils.get_url()
-        login_url = frappe.get_single("Gym URL").url
+
+        login_url = frappe.utils.get_url()
         message = (
             f"Hello {full_name}, Welcome to {get_gym_settings().gym_name}. "
             f"Your login details are as follows:\n"
@@ -503,14 +503,13 @@ def create_customer_and_user_for_member(full_name, member_id, email, mobile_numb
         print(f"Password sent successfully to {mobile_number}")
 
     except Exception as e:
-        # Log error with traceback
         frappe.log_error(frappe.get_traceback(), f"Error in customer or user creation: {e}")
         print(f"An error occurred: {e}") 
 
 
 @frappe.whitelist(allow_guest=True)
 def get_single():
-    return frappe.get_single("Gym URL").url
+    return frappe.utils.get_url()
 
 @frappe.whitelist(allow_guest=True)
 def create_customer(full_name, member_id, email):

@@ -15,7 +15,7 @@ class ProcessPayment:
     def safaricom_stk_push_request(self, context):
         try:
             url = "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
-            BASE_URL=frappe.get_single("Gym URL").url
+            BASE_URL= frappe.utils.get_url()
 
             payload = {
                 "BusinessShortCode": "4237271",

@@ -1,7 +1,6 @@
 import frappe
 from frappe import _
 from whatsapp_integration.service.rest import send_whatsapp_media
-from frappe.utils import get_url
 
 
 def send_whatsapp_job(mobile_number, invoice_number):
@@ -12,7 +11,7 @@ def send_whatsapp_job(mobile_number, invoice_number):
 
 @frappe.whitelist(allow_guest=True)
 def send_invoice_whatsapp(mobile_number, invoice_name):
-    whatsapp_url=frappe.get_single("Gym URL").url
+    whatsapp_url=frappe.utils.get_url()
     member_name = frappe.db.get_value("Gym Member", {"mobile_number": mobile_number}, ['full_name'])
     payment_type = frappe.db.get_value('Sales Invoice', invoice_name, 'custom_payment_type')
     media_url = f"{whatsapp_url}/api/method/frappe.utils.print_format.download_pdf?doctype=Sales%20Invoice&name={invoice_name}&format=Gym%20Invoice&no_letterhead=0&letterhead=Gym%20Invoice%20LH"
