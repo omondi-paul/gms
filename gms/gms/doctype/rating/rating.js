@@ -4,7 +4,7 @@
 frappe.ui.form.on("Rating", {
   refresh: function(frm) {
     if (frappe.session.user != 'Administrator') {
-    frm.set_df_property("gym_member", "read_only", 1);
+    frm.set_df_property("member", "read_only", 1);
 
     frappe.call({
       method: "frappe.client.get",
@@ -15,7 +15,7 @@ frappe.ui.form.on("Rating", {
       callback: function(r) {
         if (r.message) {
           let member = r.message;
-          frm.set_value("gym_member", member.name);
+          frm.set_value("member", member.full_name);
         } else {
           frappe.msgprint(__("Member not found for the current user email."));
         }

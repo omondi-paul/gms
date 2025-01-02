@@ -4,6 +4,7 @@
  "autoname": "format:{instructor}-{member}",
  "creation": "2025-01-02 09:30:50.140282",
  "doctype": "DocType",
+ "document_type": "Document",
  "engine": "InnoDB",
  "field_order": [
   "instructor",
@@ -15,17 +16,24 @@
  ],
  "fields": [
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "instructor",
    "fieldtype": "Link",
    "label": "Instructor",
    "options": "Gym Trainer"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "rating",
    "fieldtype": "Rating",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
    "label": "Rating"
   },
   {
+   "allow_in_quick_entry": 1,
    "depends_on": "eval:frappe.user ==\"Administrator\"",
    "fieldname": "member",
    "fieldtype": "Link",
@@ -41,6 +49,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "comment",
    "fieldtype": "Small Text",
    "label": "Comment"
@@ -48,7 +57,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-02 09:43:34.081652",
+ "modified": "2025-01-02 10:05:23.679699",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Rating",
@@ -68,7 +77,11 @@
    "write": 1
   }
  ],
+ "quick_entry": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "instructor",
+ "track_changes": 1,
+ "track_views": 1
 }

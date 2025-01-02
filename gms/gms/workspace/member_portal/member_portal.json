@@ -1,7 +1,7 @@
 {
  "charts": [],
- "content": "[{\"id\":\"UNPfNCWpyr\",\"type\":\"header\",\"data\":{\"text\":\"<span style=\\\"font-size: 18px; letter-spacing: 0.18px;\\\"><b>My Shortcuts</b></span>\",\"col\":12}},{\"id\":\"epXmqO4Yy9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"My Profile\",\"col\":3}},{\"id\":\"mz8PUlq9oc\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Classes Joined\",\"col\":3}},{\"id\":\"-VdyMoR4wN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"My Attendance Record\",\"col\":3}},{\"id\":\"7zE9Mh-HuE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Gym Classes\",\"col\":3}},{\"id\":\"3_xIhAwELl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Gym Membership\",\"col\":3}},{\"id\":\"TQvTjXFR-2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Gym Member\",\"col\":3}},{\"id\":\"FdexYhxZWU\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>PAYMENTS</b></span>\",\"col\":12}},{\"id\":\"__9wxBgnRO\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"M-Pesa Payment Transactions\",\"col\":5}},{\"id\":\"4BhmgtYwdH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Invoice List\",\"col\":3}}]",
- "creation": "2024-12-07 19:09:26.771594",
+ "content": "[{\"id\":\"UNPfNCWpyr\",\"type\":\"header\",\"data\":{\"text\":\"<span style=\\\"font-size: 18px; letter-spacing: 0.18px;\\\"><b>My Shortcuts</b></span>\",\"col\":12}},{\"id\":\"epXmqO4Yy9\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"My Profile\",\"col\":3}},{\"id\":\"mz8PUlq9oc\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Classes Joined\",\"col\":3}},{\"id\":\"-VdyMoR4wN\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"My Attendance Record\",\"col\":3}},{\"id\":\"7zE9Mh-HuE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Gym Classes\",\"col\":3}},{\"id\":\"3_xIhAwELl\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Gym Membership\",\"col\":3}},{\"id\":\"TQvTjXFR-2\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Gym Member\",\"col\":3}},{\"id\":\"SGRY61-vPz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Instructor Ratings\",\"col\":3}},{\"id\":\"FdexYhxZWU\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>PAYMENTS</b></span>\",\"col\":12}},{\"id\":\"__9wxBgnRO\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"M-Pesa Payment Transactions\",\"col\":5}},{\"id\":\"4BhmgtYwdH\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Invoice List\",\"col\":3}}]",
+ "creation": "2025-01-02 09:53:34.057714",
  "custom_blocks": [],
  "docstatus": 0,
  "doctype": "Workspace",
@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Member Portal",
  "links": [],
- "modified": "2024-12-28 11:12:38.292057",
+ "modified": "2025-01-02 10:02:23.539077",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Member Portal",
@@ -37,6 +37,14 @@
    "doc_view": "List",
    "label": "Classes Joined",
    "link_to": "Join Class",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Instructor Ratings",
+   "link_to": "Rating",
    "stats_filter": "[]",
    "type": "DocType"
   },
