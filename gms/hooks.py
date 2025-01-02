@@ -65,7 +65,10 @@ fixtures = [
   "Workout Tag",
   "Gym Location",
   "Plan Type",
-  "GMS Payment Account"
+  "GMS Payment Account",
+  "Gym Settings",
+  "Gym URL", 
+  "Item"
 
 
 ]

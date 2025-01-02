@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{email}",
+ "autoname": "field:member_no",
  "creation": "2024-02-19 09:58:40.682952",
  "default_view": "List",
  "doctype": "DocType",
@@ -10,20 +10,20 @@
  "field_order": [
   "personal_details_section",
   "full_name",
-  "date_of_birth",
   "email",
   "age",
   "member_no",
+  "title",
+  "id_number",
   "column_break_ftenz",
   "mobile_number",
-  "date_joined",
-  "id_number",
   "gender",
+  "date_joined",
   "emergency_contact",
   "section_break_rbwh",
   "is_published",
   "column_break_jgrw",
-  "title",
+  "date_of_birth",
   "membership_tab",
   "membership_type",
   "sub_end_date",
@@ -126,7 +126,9 @@
   {
    "fieldname": "member_no",
    "fieldtype": "Data",
-   "label": "Member No"
+   "label": "Member ID",
+   "read_only": 1,
+   "unique": 1
   },
   {
    "fieldname": "section_break_rbwh",
@@ -199,11 +201,11 @@
  ],
  "is_published_field": "is_published",
  "links": [],
- "modified": "2024-12-30 15:14:22.596906",
+ "modified": "2025-01-02 22:10:26.910015",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Member",
- "naming_rule": "Expression (old style)",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

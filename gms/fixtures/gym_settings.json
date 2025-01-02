@@ -1,0 +1,15 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Gym Settings",
+  "gym_name": "Fitness Nation",
+  "locker_price_per_day": 1.0,
+  "locker_price_per_hour": 1.0,
+  "modified": "2024-12-07 16:49:07.930258",
+  "name": "Gym Settings",
+  "premium_membership_price": 1.0,
+  "sales_invoice_due_days": 10,
+  "standard_membership_price": 0.5,
+  "vip_membership_price": 1.5
+ }
+]

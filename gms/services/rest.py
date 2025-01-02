@@ -4,7 +4,7 @@ from gms.services.utils import send_sms
 import random
 from datetime import datetime, date
 from gms.services.login import login
-from frappe.utils import add_months, add_days
+from frappe.utils import add_months, add_days, get_url
 from gms.services.payments import make_payment
 from gms.services.whatsapp import send_invoice_whatsapp
     
@@ -208,11 +208,6 @@ def get_cardio_machine():
         doc.save()
     frappe.db.commit()
     return "successfull"
-
-
-
-
-
 
 @frappe.whitelist(allow_guest=True)
 def get_permission_query_conditions(user, doctype):
@@ -440,7 +435,6 @@ def before_inserting_gym_member(doc, method):
 @frappe.whitelist(allow_guest=True)
 def after_inserting_gym_member(doc, method):
   try:
-    # doc=frappe.get_doc("Gym Member",doc)
     frappe.enqueue(
     create_customer_and_user_for_member,
                 queue="default",
@@ -469,7 +463,7 @@ def generate_unique_member_no():
         random_digits = str(random.randint(1000, 9999))
         member_id = f"MEM{current_year}{current_month}{random_digits}"
 
-        if not frappe.db.exists("Gym Member", {"member_id": member_id}):
+        if not frappe.db.exists("Gym Member", {"member_no": member_id}):
             return member_id
 
 
@@ -519,7 +513,7 @@ def create_customer(full_name, member_id, email):
         "customer_name": full_name,
         "customer_group": "Individual",
         "customer_type": "Individual",
-        "custom_gym_member": email,
+        "custom_gym_member": member_id,
         "territory": "Kenya"
     })
     customer.insert(ignore_mandatory=True)
