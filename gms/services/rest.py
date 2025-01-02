@@ -9,7 +9,30 @@ from gms.services.payments import make_payment
 from gms.services.whatsapp import send_invoice_whatsapp
     
 
-
+@frappe.whitelist(allow_guest=True)
+def calculate_total_rating(instructor):
+    try:
+        ratings = frappe.get_all("Rating", {"instructor": instructor}, {"rating"})
+        tot_ratings = len(ratings)
+        sum_ratings = 0
+        for rating in ratings:
+            sum_ratings += rating.rating
+        if sum_ratings:
+            average_rating = sum_ratings / tot_ratings
+            frappe.db.sql(
+                """
+                UPDATE `tabGym Trainer`
+                SET total_ratings = %s,
+                average_ratings = %s
+                WHERE name = %s
+                """,
+                (tot_ratings, average_rating, instructor)
+            )
+            frappe.db.commit()
+            return True
+    except Exception as e:
+        frappe.log_error(f"Error in calculate_total_rating: {str(e)}")
+        return False
 
 @frappe.whitelist(allow_guest=True)
 def get_group_class_members(group_class):
@@ -187,15 +210,7 @@ def get_cardio_machine():
     return "successfull"
 
 
-@frappe.whitelist(allow_guest=True)
-def get_user_role():
-    user = frappe.session.user
-    user_roles=frappe.get_doc("User", user)
-    
-    for role in user_roles.roles:
-        if role.role == "Part User":
-            return "true"
-    return False
+
 
 
 

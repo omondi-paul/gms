@@ -87,7 +87,7 @@
   },
   {
    "fieldname": "average_ratings",
-   "fieldtype": "Data",
+   "fieldtype": "Rating",
    "in_filter": 1,
    "in_list_view": 1,
    "in_preview": 1,
@@ -129,7 +129,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-01 18:41:17.135147",
+ "modified": "2025-01-02 10:21:57.184784",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Trainer",

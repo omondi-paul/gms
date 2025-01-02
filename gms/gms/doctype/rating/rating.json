@@ -20,7 +20,9 @@
    "fieldname": "instructor",
    "fieldtype": "Link",
    "label": "Instructor",
-   "options": "Gym Trainer"
+   "options": "Gym Trainer",
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
    "allow_in_quick_entry": 1,
@@ -30,7 +32,8 @@
    "in_list_view": 1,
    "in_preview": 1,
    "in_standard_filter": 1,
-   "label": "Rating"
+   "label": "Rating",
+   "reqd": 1
   },
   {
    "allow_in_quick_entry": 1,
@@ -38,7 +41,9 @@
    "fieldname": "member",
    "fieldtype": "Link",
    "label": "Member",
-   "options": "Gym Member"
+   "options": "Gym Member",
+   "reqd": 1,
+   "set_only_once": 1
   },
   {
    "fieldname": "column_break_vtyd",
@@ -57,7 +62,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-02 10:05:23.679699",
+ "modified": "2025-01-02 10:24:58.473843",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Rating",

@@ -22,8 +22,27 @@ frappe.ui.form.on("Rating", {
       }
     });
   }
-
-
+  if (frm.doc.instructor) {
+  frappe.call({
+    method: "gms.services.rest.calculate_total_rating",
+    args: {
+      "instructor": frm.doc.instructor
+    },
+    callback: function(r) {
+      
+    }
+  });
+}
   },
-
+  validate(frm) {
+    frappe.call({
+      method: "gms.services.rest.calculate_total_rating",
+      args: {
+        "instructor": frm.doc.instructor
+      },
+      callback: function(r) {
+        
+      }
+    });
+	},
 });
