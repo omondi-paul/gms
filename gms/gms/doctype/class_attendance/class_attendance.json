@@ -11,7 +11,8 @@
   "presence",
   "column_break_hslk",
   "time_in",
-  "time_out"
+  "time_out",
+  "member_id"
  ],
  "fields": [
   {
@@ -75,12 +76,19 @@
    "in_standard_filter": 1,
    "label": "Time Out",
    "read_only_depends_on": "eval:doc.presence != 'Present'"
+  },
+  {
+   "fieldname": "member_id",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Member ID",
+   "options": "Gym Member"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-01-01 19:11:48.852974",
+ "modified": "2025-01-02 06:49:58.926447",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Class Attendance",

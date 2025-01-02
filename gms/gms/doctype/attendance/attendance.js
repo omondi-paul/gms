@@ -8,7 +8,6 @@ frappe.ui.form.on("Attendance", {
 			callback: function(r) {
 				if (r.message) {
 					frm.set_value("attendees", r.message);
-					console.log("attendees are", r.message);
 				} else {
 					frappe.msgprint(__("Member not found for the current user email."));
 				}

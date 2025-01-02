@@ -1,10 +1,10 @@
 frappe.query_reports["Group Class Attendance"] = {
 	"filters": [
 		{
-			fieldname: "meeting_id",
-			label: __("Meeting ID"),
+			fieldname: "group_class",
+			label: __("Workout Name"),
 			fieldtype: "Link",
-			options: "Attendance",
+			options: "Group Class",
 			width: 150,
 			reqd: 0
 		},

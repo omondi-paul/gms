@@ -13,6 +13,8 @@
   "column_break_liho",
   "class_type",
   "start_date",
+  "phone",
+  "member_name",
   "section_break_qmmv",
   "amended_from"
  ],
@@ -75,12 +77,25 @@
    "fieldtype": "Currency",
    "label": "Price",
    "read_only": 1
+  },
+  {
+   "fetch_from": "gym_member.mobile_number",
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "gym_member.full_name",
+   "fieldname": "member_name",
+   "fieldtype": "Data",
+   "label": "Member Name"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-11-09 11:21:37.344650",
+ "modified": "2025-01-02 06:35:30.314797",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Join Class",

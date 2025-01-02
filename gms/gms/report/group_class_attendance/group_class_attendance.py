@@ -24,11 +24,11 @@ def get_data(filters):
                 filters['member_id'] = [filters['member_id']]
             filters['member_id'].append(doc.name)
 
-    if filters.get("meeting_id"):
-        conditions.append("CA.name = %(meeting_id)s")
+    if filters.get("group_class"):
+        conditions.append("A.group_class = %(group_class)s")
+
 
     if filters.get("member_id"):
-        # Handle list of member_ids
         member_ids = ", ".join([frappe.db.escape(member) for member in filters['member_id']])
         conditions.append(f"CA.member IN ({member_ids})")
 
@@ -51,6 +51,7 @@ def get_data(filters):
             CA.member AS member_id,
             M.full_name AS member_name,
             A.name AS meeting_id,
+            A.group_class AS group_class,
             CA.presence AS attendance_status,
             CA.time_in AS time_in,
             CA.time_out AS time_out,
@@ -60,7 +61,7 @@ def get_data(filters):
         FROM
             `tabClass Attendance` AS CA
         JOIN
-            `tabGym Member` AS M ON CA.member = M.name
+            `tabGym Member` AS M ON CA.member = M.full_name
         JOIN
             `tabAttendance` AS A ON CA.parent = A.name
         {where_clause}
@@ -69,13 +70,14 @@ def get_data(filters):
     """
 
     data = frappe.db.sql(SQL_query, filters, as_dict=True)
+
+    print(f"\n\n\n {data}\n\n\n")
     return data
 
 
 def get_columns():
     return [
-        {"fieldname": "meeting_id", "label": "Group Workout ID", "fieldtype": "Data", "width": 150, "align": "left"},
-        {"fieldname": "member_id", "label": "Member ID", "fieldtype": "data",  "width": 150, "align": "left"},
+        {"fieldname": "group_class", "label": "Workout Class", "fieldtype": "Data", "width": 150, "align": "left"},
         {"fieldname": "member_name", "label": "Member Name", "fieldtype": "Data", "width": 150, "align": "left"},
         {"fieldname": "attendance_status", "label": "Attendance Status", "fieldtype": "Data", "width": 150, "align": "left"},
         {"fieldname": "time_in", "label": "Time In", "fieldtype": "Time", "width": 150, "align": "left"},

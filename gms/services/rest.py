@@ -148,11 +148,11 @@ def fetch_class_attendees(group_class):
     members = frappe.get_all(
         "Join Class",
         filters={"docstatus": 1, "group_class": group_class},
-        fields=["gym_member"],
+        fields=["gym_member","phone","member_name"],
         distinct=True
     )
     
-    unique_members = [{"member": member.gym_member} for member in members]
+    unique_members = [{"member_id":member.gym_member,"member": member.member_name,"mobile_number":member.phone} for member in members]
     return unique_members
 
 @frappe.whitelist(allow_guest=True)
