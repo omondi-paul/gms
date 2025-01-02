@@ -196,17 +196,17 @@
   "name": "Strength & Conditioning"
  },
  {
-  "class_type": "Step Aerobics",
-  "docstatus": 0,
-  "doctype": "Workout Tag",
-  "modified": "2024-11-09 07:28:56.406181",
-  "name": "Step Aerobics"
- },
- {
   "class_type": "Mobility & Recovery",
   "docstatus": 0,
   "doctype": "Workout Tag",
   "modified": "2024-11-09 07:28:56.355105",
   "name": "Mobility & Recovery"
+ },
+ {
+  "class_type": "Step Aerobics",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.406181",
+  "name": "Step Aerobics"
  }
 ]

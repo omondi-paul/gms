@@ -754,7 +754,7 @@
  },
  {
   "charts": [],
-  "content": "[{\"id\":\"UNPfNCWpyr\",\"type\":\"header\",\"data\":{\"text\":\"<span style=\\\"font-size: 18px; letter-spacing: 0.18px;\\\"><b>My Shortcuts</b></span>\",\"col\":12}},{\"id\":\"TPU4BSauYa\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"My-Profile\",\"col\":3}},{\"id\":\"KSeWMro23z\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"My Classes\",\"col\":3}},{\"id\":\"AVL4ziKVXy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Attendance\",\"col\":3}}]",
+  "content": "[{\"id\":\"UNPfNCWpyr\",\"type\":\"header\",\"data\":{\"text\":\"<span style=\\\"font-size: 18px; letter-spacing: 0.18px;\\\"><b>My Shortcuts</b></span>\",\"col\":12}},{\"id\":\"TPU4BSauYa\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"My-Profile\",\"col\":3}},{\"id\":\"KSeWMro23z\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"My Classes\",\"col\":3}},{\"id\":\"AVL4ziKVXy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Attendance\",\"col\":3}},{\"id\":\"BNCloEJReK\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"OtBL2suhq1\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>REPORTS</b></span>\",\"col\":12}},{\"id\":\"mVQmKfppll\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Attendance Report\",\"col\":3}}]",
   "custom_blocks": [],
   "docstatus": 0,
   "doctype": "Workspace",
@@ -765,7 +765,7 @@
   "is_hidden": 0,
   "label": "Trainer Portal",
   "links": [],
-  "modified": "2025-01-01 19:00:06.140344",
+  "modified": "2025-01-02 07:26:08.592048",
   "module": "",
   "name": "Trainer Portal",
   "number_cards": [],
@@ -803,6 +803,22 @@
     "restrict_to_domain": null,
     "stats_filter": "[]",
     "type": "DocType",
+    "url": null
+   },
+   {
+    "color": "Grey",
+    "doc_view": "List",
+    "format": null,
+    "icon": null,
+    "kanban_board": null,
+    "label": "Attendance Report",
+    "link_to": "Group Class Attendance",
+    "parent": "Trainer Portal",
+    "parentfield": "shortcuts",
+    "parenttype": "Workspace",
+    "restrict_to_domain": null,
+    "stats_filter": null,
+    "type": "Report",
     "url": null
    },
    {
