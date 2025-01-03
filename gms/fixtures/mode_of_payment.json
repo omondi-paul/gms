@@ -1,0 +1,78 @@
+[
+ {
+  "accounts": [],
+  "docstatus": 0,
+  "doctype": "Mode of Payment",
+  "enabled": 1,
+  "mode_of_payment": "Cheque",
+  "modified": "2025-01-02 21:44:50.532495",
+  "name": "Cheque",
+  "type": "Bank"
+ },
+ {
+  "accounts": [
+   {
+    "company": "Smart Gym",
+    "default_account": "Cash - SG",
+    "parent": "Cash",
+    "parentfield": "accounts",
+    "parenttype": "Mode of Payment"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Mode of Payment",
+  "enabled": 1,
+  "mode_of_payment": "Cash",
+  "modified": "2025-01-02 21:45:06.433654",
+  "name": "Cash",
+  "type": "Cash"
+ },
+ {
+  "accounts": [],
+  "docstatus": 0,
+  "doctype": "Mode of Payment",
+  "enabled": 1,
+  "mode_of_payment": "Credit Card",
+  "modified": "2025-01-02 21:44:50.565925",
+  "name": "Credit Card",
+  "type": "Bank"
+ },
+ {
+  "accounts": [],
+  "docstatus": 0,
+  "doctype": "Mode of Payment",
+  "enabled": 1,
+  "mode_of_payment": "Wire Transfer",
+  "modified": "2025-01-02 21:44:50.577021",
+  "name": "Wire Transfer",
+  "type": "Bank"
+ },
+ {
+  "accounts": [],
+  "docstatus": 0,
+  "doctype": "Mode of Payment",
+  "enabled": 1,
+  "mode_of_payment": "Bank Draft",
+  "modified": "2025-01-02 21:44:50.587783",
+  "name": "Bank Draft",
+  "type": "Bank"
+ },
+ {
+  "accounts": [
+   {
+    "company": "Smart Gym",
+    "default_account": "Bank Account - SG",
+    "parent": "M-Pesa",
+    "parentfield": "accounts",
+    "parenttype": "Mode of Payment"
+   }
+  ],
+  "docstatus": 0,
+  "doctype": "Mode of Payment",
+  "enabled": 1,
+  "mode_of_payment": "M-Pesa",
+  "modified": "2025-01-03 07:40:50.564756",
+  "name": "M-Pesa",
+  "type": "Cash"
+ }
+]

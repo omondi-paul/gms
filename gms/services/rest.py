@@ -154,7 +154,7 @@ def get_current_month(doc):
 
 @frappe.whitelist(allow_guest=True)
 def get_invoice_pay_link(doc):
-    BASE_URL = frappe.utils.get_url()
+    BASE_URL = frappe.get_single("Gym URL").url
     customer=frappe.get_value("Customer",{"name":doc.customer}, "custom_gym_member")
     phone=frappe.get_value("Gym Member",{"name":customer}, "mobile_number")
     URL =f"{BASE_URL}/payment-requests/new?amount={doc.outstanding_amount}&mobile_number={phone}&sales_invoice={doc.name}"
@@ -475,7 +475,7 @@ def create_customer_and_user_for_member(full_name, member_id, email, mobile_numb
         password = str(create_user_for_member(full_name, email, mobile_number))
 
 
-        login_url = frappe.utils.get_url()
+        login_url = frappe.get_single("Gym URL").url
         message = (
             f"Hello {full_name}, Welcome to {get_gym_settings().gym_name}. "
             f"Your login details are as follows:\n"
@@ -503,7 +503,7 @@ def create_customer_and_user_for_member(full_name, member_id, email, mobile_numb
 
 @frappe.whitelist(allow_guest=True)
 def get_single():
-    return frappe.utils.get_url()
+    return frappe.get_single("Gym URL").url
 
 @frappe.whitelist(allow_guest=True)
 def create_customer(full_name, member_id, email):
@@ -597,7 +597,7 @@ def create_employee_and_user_for_trainer(doc):
         create_employee(doc)
         password = create_user_for_trainer(doc)
         
-        login_url = frappe.utils.get_url()
+        login_url = frappe.get_single("Gym URL").url
         message = (
             f"Hello {doc.full_name}, Welcome to {get_gym_settings().gym_name}. "
             f"Your login details are as follows:\n"

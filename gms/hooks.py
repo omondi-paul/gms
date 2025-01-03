@@ -68,7 +68,9 @@ fixtures = [
   "GMS Payment Account",
   "Gym Settings",
   "Gym URL", 
-  "Item"
+  "Item",
+  "Whatsapp Settings",
+  "Mode of Payment"
 
 
 ]

@@ -15,7 +15,7 @@ class ProcessPayment:
     def safaricom_stk_push_request(self, context):
         try:
             url = "https://api.safaricom.co.ke/mpesa/stkpush/v1/processrequest"
-            BASE_URL= frappe.utils.get_url()
+            BASE_URL= frappe.get_single("Gym URL").url
 
             payload = {
                 "BusinessShortCode": "4237271",
@@ -145,6 +145,7 @@ def stk_push_response():
 
     items = response['CallbackMetadata']['Item']
 
+
     Amount = next((item["Value"] for item in items if item["Name"] == "Amount"), None)
     MpesaReceiptNumber = next((item["Value"] for item in items if item["Name"] == "MpesaReceiptNumber"), None)
     TransactionDate = next((item["Value"] for item in items if item["Name"] == "TransactionDate"), None)
@@ -227,11 +228,6 @@ def process_payment_and_reconcile_member_invoice(MpesaReceiptNumber, Transaction
         update_invoice_status(pending_transaction[0].invoice_number)
         
         invoice_doc = frappe.get_doc("Sales Invoice", pending_transaction[0].invoice_number)
-
-       
-    
-
-     
 
         frappe.db.commit()
 

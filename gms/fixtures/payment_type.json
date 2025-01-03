@@ -9,15 +9,15 @@
  {
   "docstatus": 0,
   "doctype": "Payment Type",
-  "modified": "2024-11-12 16:44:11.831000",
-  "name": "Membership Subscription",
-  "payment_type": "Membership Subscription"
+  "modified": "2024-12-10 10:43:27.339210",
+  "name": "Group Class",
+  "payment_type": "Group Class"
  },
  {
   "docstatus": 0,
   "doctype": "Payment Type",
-  "modified": "2024-12-10 10:43:27.339210",
-  "name": "Group Class",
-  "payment_type": "Group Class"
+  "modified": "2024-11-12 16:44:11.831000",
+  "name": "Membership Subscription",
+  "payment_type": "Membership Subscription"
  }
 ]
