@@ -1,9 +1,9 @@
-# Copyright (c) 2024, Polito and Contributors
+# Copyright (c) 2025, Polito and Contributors
 # See license.txt
 
 # import frappe
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestGymAccessID(FrappeTestCase):
+class TestGymAccessDetail(FrappeTestCase):
 	pass

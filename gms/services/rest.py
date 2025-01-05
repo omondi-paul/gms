@@ -108,10 +108,10 @@ def get_permission_query_conditions_for_trainer(user, doctype):
 @frappe.whitelist(allow_guest=True)
 def enroll_fingerprint_id(fingerprint_id):
     try:
-        exists = frappe.db.exists("Gym Access ID", fingerprint_id)
+        exists = frappe.db.exists("Gym Access Detail", fingerprint_id)
         if not exists:
             frappe.get_doc({
-                "doctype": "Gym Access ID",
+                "doctype": "Gym Access Detail",
                 "fingerprint_id": fingerprint_id,
                 "date": frappe.utils.nowdate()
             }).insert(ignore_permissions=True)
@@ -128,7 +128,7 @@ def enroll_fingerprint_id(fingerprint_id):
 def log_user_access(fingerprint_id):
     try:
         access_id = frappe.get_all(
-            "Gym Access ID",
+            "Gym Access Detail",
             filters={
                 "fingerprint_id": fingerprint_id,
                 "docstatus": 1

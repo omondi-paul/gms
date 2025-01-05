@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2024-12-25 09:15:29.882407",
+ "creation": "2025-01-05 17:28:45.991885",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -10,7 +10,8 @@
   "date",
   "column_break_ymly",
   "fingerprint_id",
-  "user_name"
+  "user_name",
+  "amended_from"
  ],
  "fields": [
   {
@@ -27,10 +28,9 @@
    "unique": 1
   },
   {
-   "fetch_from": "user_id.full_name",
-   "fieldname": "user_name",
-   "fieldtype": "Data",
-   "label": "User Name"
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
   },
   {
    "fieldname": "column_break_ymly",
@@ -42,18 +42,29 @@
    "label": "Fingerprint ID"
   },
   {
-   "fieldname": "date",
-   "fieldtype": "Date",
-   "label": "Date"
+   "fetch_from": "user_id.full_name",
+   "fieldname": "user_name",
+   "fieldtype": "Data",
+   "label": "User Name"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Gym Access Detail",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-05 17:23:30.384751",
+ "modified": "2025-01-05 17:28:45.991885",
  "modified_by": "Administrator",
  "module": "Gms",
- "name": "Gym Access ID",
+ "name": "Gym Access Detail",
  "owner": "Administrator",
  "permissions": [
   {
