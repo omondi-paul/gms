@@ -108,38 +108,47 @@ def get_permission_query_conditions_for_trainer(user, doctype):
 @frappe.whitelist(allow_guest=True)
 def enroll_fingerprint_id(fingerprint_id):
     try:
-        frappe.get_doc({
+        exists = frappe.db.exists("Gym Access ID", fingerprint_id)
+        if not exists:
+            frappe.get_doc({
                 "doctype": "Gym Access ID",
-                "fingerprint_id":fingerprint_id,
+                "fingerprint_id": fingerprint_id,
                 "date": frappe.utils.nowdate()
             }).insert(ignore_permissions=True)
-        return True
+            frappe.db.commit()
+            return "ID Saved"
+        else:
+            return "Unavailable ID"
     except Exception as e:
-        frappe.log_error(frappe.get_traceback(), "Error in check_user_access")
+        frappe.log_error(frappe.get_traceback(), "Error in enroll_fingerprint_id")
         return False
+
 
 @frappe.whitelist(allow_guest=True)
 def log_user_access(fingerprint_id):
     try:
-        user_access = frappe.get_all(
+        access_id = frappe.get_all(
             "Gym Access ID",
-            filters={"fingerprint_id": fingerprint_id,
-                     "docstatus":1},
+            filters={
+                "fingerprint_id": fingerprint_id,
+                "docstatus": 1
+            },
             fields=["user_id"]
         )
 
-        if user_access:
+        if access_id:
             frappe.get_doc({
-                "doctype": "Attendance List",
-                "member": user_access[0].get("user_id"),
+                "doctype": "Gym Access Log",
+                "member": access_id[0].get("user_id"),
                 "date": frappe.utils.nowdate(),
                 "time": frappe.utils.nowtime()
             }).insert(ignore_permissions=True)
-            return True
+            frappe.db.commit()
+            return "Logged"
 
-        return False
+        return "Doesn't exist"
     except Exception as e:
-        frappe.log_error(frappe.get_traceback(), "Error in check_user_access")
+        frappe.log_error(frappe.get_traceback(), "Error in log_user_access")
         return False
 
 
