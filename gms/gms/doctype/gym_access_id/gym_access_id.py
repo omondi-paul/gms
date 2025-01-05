@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class UserAccess(Document):
+class GymAccessID(Document):
 	pass

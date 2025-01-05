@@ -5,5 +5,5 @@
 from frappe.model.document import Document
 
 
-class AttendanceList(Document):
+class GymAccessLog(Document):
 	pass

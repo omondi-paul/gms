@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestUserAccess(FrappeTestCase):
+class TestGymAccessLog(FrappeTestCase):
 	pass
