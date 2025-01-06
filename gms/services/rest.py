@@ -232,6 +232,10 @@ def get_permission_query_conditions(user, doctype):
                     return f"(`tab{doctype}`.gym_member = '{doc.name}')"
                 elif doctype == "Rating":
                     return f"(`tab{doctype}`.member = '{doc.name}')"
+                elif doctype == "Sales Invoice":
+                    return f"(`tab{doctype}`.customer = '{doc.full_name}')"
+                elif doctype == "MPesa Payment Transaction":
+                    return f"(`tab{doctype}`.mobile_number = '{doc.mobile_number}')"
             else:
                 return  
         else:

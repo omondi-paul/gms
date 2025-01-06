@@ -7,7 +7,10 @@ app_license = "mit"
 
 permission_query_conditions = {
             "Gym Locker Booking": "gms.services.rest.get_permission_query_conditions",
+            "Sales Invoice": "gms.services.rest.get_permission_query_conditions",
             "Gym Membership": "gms.services.rest.get_permission_query_conditions",
+            "Customer": "gms.services.rest.get_permission_query_conditions",
+            "MPesa Payment Transaction": "gms.services.rest.get_permission_query_conditions",
             "Gym Member": "gms.services.rest.get_permission_query_conditions",
             "Rating": "gms.services.rest.get_permission_query_conditions",
             "Gym Trainer": "gms.services.rest.get_permission_query_conditions_for_trainer",
