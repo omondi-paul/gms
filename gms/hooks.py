@@ -73,7 +73,8 @@ fixtures = [
   "Gym URL", 
   "Item",
   "Whatsapp Settings",
-  "Mode of Payment"
+  "Mode of Payment",
+  "Client Script"
 
 
 ]
