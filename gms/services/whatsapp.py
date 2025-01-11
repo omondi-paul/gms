@@ -1,6 +1,6 @@
 import frappe
 from frappe import _
-from whatsapp_integration.service.rest import send_whatsapp_media
+from whatsapp_integration.service.rest import send_whatsapp_media, send_whatsapp_message
 
 
 def send_whatsapp_job(mobile_number, invoice_number):
@@ -29,5 +29,27 @@ def send_invoice_whatsapp(mobile_number, invoice_name):
         return {"error": str(e)}
 
 
+@frappe.whitelist(allow_guest=True)
+def send_whatsapp_payment_link(invoice_name):
+    try:
+        doc = frappe.get_doc("Sales Invoice", invoice_name)
+        member = frappe.get_all("Gym Member", {"full_name": doc.customer}, ["mobile_number"])
+        if not member:
+            frappe.throw(f"Gym Member not found for customer: {doc.customer}")
 
+        BASE_URL = frappe.get_single("Gym URL").url
+        phone = member[0].get("mobile_number")
+        if not phone:
+            frappe.throw(f"Mobile number not found for Gym Member: {doc.customer}")
 
+        payment_link = f"{BASE_URL}/payment-requests/new?amount={doc.outstanding_amount}&mobile_number={phone}&sales_invoice={doc.name}"
+
+        message = (f"Hello, {doc.customer}!\n\n"
+                   f"Thank you for staying fit with us! You have an outstanding payment of {doc.outstanding_amount}. "
+                   f"You can complete your payment using the following link: {payment_link}.\n\n"
+                   f"Feel free to reach out if you have any questions. Stay healthy!")
+
+        send_whatsapp_message(phone, message)
+    except Exception as e:
+        frappe.log_error(f"Error while sending WhatsApp payment link: {str(e)}")
+        frappe.throw("Failed to send the payment link. Please try again later.")

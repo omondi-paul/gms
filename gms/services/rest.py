@@ -6,7 +6,7 @@ from datetime import datetime, date
 from gms.services.login import login
 from frappe.utils import add_months, add_days, get_url
 from gms.services.payments import make_payment
-from gms.services.whatsapp import send_invoice_whatsapp
+from gms.services.whatsapp import send_whatsapp_payment_link
     
 
 @frappe.whitelist(allow_guest=True)
@@ -20,7 +20,7 @@ def calculate_total_rating(instructor):
         if sum_ratings:
             average_rating = sum_ratings / tot_ratings
             frappe.db.sql(
-                """
+                """HHHHHHHHHHHHHHHGTR
                 UPDATE `tabGym Trainer`
                 SET total_ratings = %s,
                 average_ratings = %s
@@ -341,9 +341,7 @@ def create_sales_invoice_for_membership(doc,method):
                 frappe.db.commit()
                 
                 gym_member = frappe.get_doc("Gym Member",doc.member)
-
-                send_invoice_whatsapp(gym_member.mobile_number, invoice.name)
-
+                send_whatsapp_payment_link( invoice.name)
         return True
     except Exception as e:
         frappe.log_error(f"Error creating sales invoice: {e}")
