@@ -30,7 +30,6 @@ def send_invoice_whatsapp(invoice_name):
                      f"doctype=Sales%20Invoice&name={invoice_name}&format=Sales%20Invoice"
                      f"&no_letterhead=0&letterhead=Invoice%20LH&settings=%7B%7D&_lang=en")
 
-
         msg = (f"Hello, {member_name}!\n\n"
                f"Here is your sales invoice for your recent transaction. "
                f"Please review it and click the 'Pay' button to complete your {payment_type}.\n\n"
