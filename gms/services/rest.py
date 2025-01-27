@@ -8,22 +8,20 @@ from frappe.utils import add_months, add_days, get_url
 from gms.services.payments import make_payment
 from gms.services.whatsapp import send_whatsapp_payment_link
     
-
 @frappe.whitelist(allow_guest=True)
 def calculate_total_rating(instructor):
     try:
-        ratings = frappe.get_all("Rating", {"instructor": instructor}, {"rating"})
+        ratings = frappe.get_all("Rating", filters={"instructor": instructor}, pluck="rating")
         tot_ratings = len(ratings)
-        sum_ratings = 0
-        for rating in ratings:
-            sum_ratings += rating.rating
-        if sum_ratings:
+        sum_ratings = sum(ratings) if ratings else 0
+
+        if tot_ratings > 0:
             average_rating = sum_ratings / tot_ratings
             frappe.db.sql(
-                """HHHHHHHHHHHHHHHGTR
+                """
                 UPDATE `tabGym Trainer`
                 SET total_ratings = %s,
-                average_ratings = %s
+                    average_ratings = %s
                 WHERE name = %s
                 """,
                 (tot_ratings, average_rating, instructor)

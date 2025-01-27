@@ -97,7 +97,8 @@
   {
    "fieldname": "trainer_id",
    "fieldtype": "Data",
-   "label": "Trainer ID"
+   "label": "Trainer ID",
+   "read_only": 1
   },
   {
    "fieldname": "section_break_avna",
@@ -129,7 +130,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-02 10:21:57.184784",
+ "modified": "2025-01-27 12:43:42.926846",
  "modified_by": "Administrator",
  "module": "Gms",
  "name": "Gym Trainer",
