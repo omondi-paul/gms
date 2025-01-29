@@ -154,13 +154,6 @@
   "name": "Kettlebell Workout"
  },
  {
-  "class_type": "Power Yoga",
-  "docstatus": 0,
-  "doctype": "Workout Tag",
-  "modified": "2024-11-09 07:28:56.522801",
-  "name": "Power Yoga"
- },
- {
   "class_type": "Meditation & Relaxation",
   "docstatus": 0,
   "doctype": "Workout Tag",
@@ -187,6 +180,13 @@
   "doctype": "Workout Tag",
   "modified": "2024-11-09 07:28:56.492977",
   "name": "Cardio Blast"
+ },
+ {
+  "class_type": "Power Yoga",
+  "docstatus": 0,
+  "doctype": "Workout Tag",
+  "modified": "2024-11-09 07:28:56.522801",
+  "name": "Power Yoga"
  },
  {
   "class_type": "Strength & Conditioning",

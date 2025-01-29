@@ -128,13 +128,6 @@
  {
   "docstatus": 0,
   "doctype": "Gym Location",
-  "location": "Outdoor Training Area",
-  "modified": "2024-11-09 08:06:03.877078",
-  "name": "Outdoor Training Area"
- },
- {
-  "docstatus": 0,
-  "doctype": "Gym Location",
   "location": "Equipment Storage Room",
   "modified": "2024-11-09 08:06:03.941265",
   "name": "Equipment Storage Room"
@@ -159,6 +152,13 @@
   "location": "CrossFit Area",
   "modified": "2024-11-08 12:54:59.697478",
   "name": "CrossFit Area"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Gym Location",
+  "location": "Outdoor Training Area",
+  "modified": "2024-11-09 08:06:03.877078",
+  "name": "Outdoor Training Area"
  },
  {
   "docstatus": 0,
